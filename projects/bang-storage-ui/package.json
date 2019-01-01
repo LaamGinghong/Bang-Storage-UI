@@ -1,8 +1,25 @@
 {
   "name": "bang-storage-ui",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "peerDependencies": {
     "@angular/common": "^7.1.0",
     "@angular/core": "^7.1.0"
+  },
+  "keywords": [
+    "Angular",
+    "UI"
+  ],
+  "author": "https://github.com/LaamGinghong",
+  "engines": {
+    "node": ">=11.0.0"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/LaamGinghong/Bang-Storage-UI#README",
+  "bugs": {
+    "url": "https://github.com/LaamGinghong/Bang-Storage-UI/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/LaamGinghong/Bang-Storage-UI.git"
   }
 }
