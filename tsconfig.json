@@ -17,6 +17,14 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "bang-storage-ui": [
+        "dist/bang-storage-ui"
+      ],
+      "bang-storage-ui/*": [
+        "dist/bang-storage-ui/*"
+      ]
+    }
   }
 }
