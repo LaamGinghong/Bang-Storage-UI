@@ -129,18 +129,14 @@ export class InputNumberComponent implements OnInit {
       if (this.max !== undefined) {
         if (number > this.max) {
           this.message.error(`请输入小于${this.max}的数字`);
-          if (this.precision) {
-            number = this.max;
-          }
+          number = this.max;
           this.number = String(number);
         }
       }
       if (this.min !== undefined) {
         if (number < this.min) {
           this.message.error(`请输入大于${this.min}的数字`);
-          if (this.precision) {
-            number = this.min;
-          }
+          number = this.min;
           this.number = String(number);
         }
       }
