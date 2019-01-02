@@ -8,7 +8,6 @@ import {
   Output,
   Renderer2,
   ViewChild,
-  ViewEncapsulation
 } from '@angular/core';
 import {NzMessageService} from 'ng-zorro-antd';
 import {Subject} from 'rxjs';
@@ -32,7 +31,6 @@ import {debounceTime, distinctUntilChanged} from 'rxjs/operators';
   styleUrls: ['./input-number.component.less'],
   preserveWhitespaces: false,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  encapsulation: ViewEncapsulation.None,
 })
 export class InputNumberComponent implements OnInit {
   @Input()
