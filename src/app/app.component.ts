@@ -7,12 +7,4 @@ import {Component} from '@angular/core';
 })
 export class AppComponent {
   number: number;
-
-  change(value) {
-    console.log(value);
-  }
-
-  click() {
-    console.log(123);
-  }
 }

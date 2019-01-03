@@ -23,6 +23,7 @@ import {debounceTime, distinctUntilChanged} from 'rxjs/operators';
         [(ngModel)]="number"
         (ngModelChange)="inputChange($event)"
         [disabled]="storageDisabled"
+        [placeholder]="placeholder"
         #inputNumber
       >
       <span [hidden]="!isFormatter" [innerHTML]="icon" #iconElement></span>
@@ -30,7 +31,7 @@ import {debounceTime, distinctUntilChanged} from 'rxjs/operators';
   `,
   styleUrls: ['./input-number.component.less'],
   preserveWhitespaces: false,
-  changeDetection: ChangeDetectionStrategy.OnPush,
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class InputNumberComponent implements OnInit {
   @Input()
@@ -70,9 +71,19 @@ export class InputNumberComponent implements OnInit {
     }
   }
 
-  @Input('storageWidth') set width(value: string | number) {
+  @Input('storageWidth')
+  set width(value: string | number) {
     const type = typeof value;
     this.renderer.setStyle(this.divElement.nativeElement, 'width', type === 'number' ? `${value}px` : value);
+  }
+
+  @Input('storagePlaceholder')
+  set placeholder(value: string) {
+    this._placeholder = value;
+  }
+
+  get placeholder(): string {
+    return this._placeholder;
   }
 
   @Output()
@@ -91,6 +102,7 @@ export class InputNumberComponent implements OnInit {
   inputPrecisionCheck$ = new Subject<string>();
   outputValue$ = new Subject<string>();
   private _disabled: boolean;
+  private _placeholder: string;
 
   constructor(
     private message: NzMessageService,
