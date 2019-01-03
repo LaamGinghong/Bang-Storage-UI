@@ -1,4 +1,4 @@
-<button storage-button [storageType]="'danger'">按钮</button>
+<button storage-button [storageType]="'danger'" disabled (click)="click()">按钮</button>
 <storage-input-number
   [(storageValue)]="number"
   (storageValueChange)="change($event)"

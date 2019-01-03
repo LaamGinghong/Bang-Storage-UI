@@ -35,6 +35,11 @@ export class ButtonComponent implements OnInit {
     this.renderer.addClass(this.el, `storage-button-${value}`);
   }
 
+  @Input('storageDisabled')
+  set disabled(value: boolean) {
+
+  }
+
   private _loading = false;
 
   constructor(
