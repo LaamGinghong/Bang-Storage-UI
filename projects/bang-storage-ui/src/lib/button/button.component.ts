@@ -28,6 +28,11 @@ export class ButtonComponent implements OnInit {
   @Input()
   set storageType(value: ButtonType) {
     this.renderer.addClass(this.el, `storage-button-${value}`);
+    this._type = value;
+  }
+
+  get storageType(): ButtonType {
+    return this._type;
   }
 
   @Input()
@@ -35,7 +40,17 @@ export class ButtonComponent implements OnInit {
     this.renderer.addClass(this.el, `storage-button-${value}`);
   }
 
+  @Input('storageGhost')
+  set ghost(value: boolean) {
+    if (value) {
+      this.renderer.addClass(this.el, 'storage-button-ghost');
+      this.renderer.removeClass(this.el, `storage-button-${this.storageType}`);
+      this.renderer.addClass(this.el, `storage-button-${this.storageType}-ghost`);
+    }
+  }
+
   private _loading = false;
+  private _type: ButtonType;
 
   constructor(
     private elementRef: ElementRef,
@@ -46,5 +61,6 @@ export class ButtonComponent implements OnInit {
   ngOnInit(): void {
     this.renderer.addClass(this.el, 'storage-button');
   }
+
 
 }
