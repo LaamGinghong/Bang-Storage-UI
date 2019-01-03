@@ -56,6 +56,24 @@
       background-color: #096dd9;
       border-color: #096dd9;
     }
+
+    &-ghost {
+      color: #1890ff !important;
+      border-color: #1890ff !important;
+      box-shadow: 0 2px 0 rgba(0, 0, 0, .045);
+
+      &:hover, &:focus {
+        color: #40a9ff;
+        border-color: #40a9ff;
+        background: none;
+      }
+
+      &:active {
+        color: #40a9ff;
+        border-color: #40a9ff;
+        background: none;
+      }
+    }
   }
 
   &-danger {
@@ -63,15 +81,9 @@
     background-color: #f5f5f5;
     border-color: #d9d9d9;
 
-    &:hover {
+    &:hover, &:focus {
       color: #fff;
       background-color: #ff4d4f;
-      border-color: #ff4d4f;
-    }
-
-    &:focus {
-      color: #ff4d4f;
-      background-color: #fff;
       border-color: #ff4d4f;
     }
 
@@ -79,6 +91,23 @@
       color: #fff;
       background-color: #cf1322;
       border-color: #cf1322;
+    }
+
+    &-ghost {
+      color: #f5222d !important;
+      border-color: #f5222d !important;
+
+      &:hover, &:focus {
+        color: #ff4d4f;
+        border-color: #ff4d4f;
+        background: none;
+      }
+
+      &:active {
+        color: #cf1322;
+        border-color: #cf1322;
+        background: none;
+      }
     }
   }
 
@@ -104,6 +133,29 @@
       background-color: #449d44;
       border-color: #398439;
     }
+
+    &-ghost {
+      color: #5cb85c !important;
+      border-color: #4cae4c !important;
+
+      &:hover {
+        color: #449d44;
+        border-color: #398439;
+        background: none;
+      }
+
+      &:focus {
+        color: #449d44;
+        border-color: #255625;
+        background: none;
+      }
+
+      &:active {
+        color: #449d44;
+        border-color: #398439;
+        background: none;
+      }
+    }
   }
 
   &-warning {
@@ -128,6 +180,29 @@
       background-color: #ec971f;
       border-color: #d58512;
     }
+
+    &-ghost {
+      color: #f0ad4e !important;
+      border-color: #eea236 !important;
+
+      &:hover {
+        color: #ec971f;
+        border-color: #d58512;
+        background: none;
+      }
+
+      &:focus {
+        color: #ec971f;
+        border-color: #985f0d;
+        background: none;
+      }
+
+      &:active {
+        color: #ec971f;
+        border-color: #d58512;
+        background: none;
+      }
+    }
   }
 
   &-info {
@@ -151,6 +226,29 @@
       color: #fff;
       background-color: #31b0d5;
       border-color: #269abc;
+    }
+
+    &-ghost {
+      color: #5bc0de !important;
+      border-color: #46b8da !important;
+
+      &:hover {
+        color: #31b0d5;
+        border-color: #269abc;
+        background: none;
+      }
+
+      &:focus {
+        color: #31b0d5;
+        border-color: #1b6d85;
+        background: none;
+      }
+
+      &:active {
+        color: #31b0d5;
+        border-color: #269abc;
+        background: none;
+      }
     }
   }
 
@@ -179,5 +277,24 @@
     text-shadow: none;
     box-shadow: none;
     cursor: not-allowed;
+  }
+
+  &-ghost {
+    background: none;
+    color: #fff;
+    box-shadow: 0 2px 0 rgba(0, 0, 0, .015);
+    border-color: #fff;
+
+    &:hover, &:focus {
+      color: #40a9ff;
+      border-color: #40a9ff;
+      background: none;
+    }
+
+    &:active {
+      color: #40a9ff;
+      border-color: #40a9ff;
+      background: none;
+    }
   }
 }

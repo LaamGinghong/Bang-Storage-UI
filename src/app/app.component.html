@@ -1,10 +1,8 @@
-<button storage-button [storageType]="'danger'" disabled (click)="click()">按钮</button>
-<storage-input-number
-  [(storageValue)]="number"
-  (storageValueChange)="change($event)"
-  [storagePrecision]="2"
-  [storageFormatter]="{icon:'$',isBefore:true}"
-  [storageWidth]="'50%'"
-  [storageMax]="20"
-  [storageMin]="5"
-></storage-input-number>
+<div>
+  <button storage-button [storageType]="" [storageGhost]="true" [storageLoading]="true">按钮</button>
+  <button storage-button [storageType]="'primary'" [storageGhost]="true" [storageLoading]="true">按钮</button>
+  <button storage-button [storageType]="'danger'" [storageGhost]="true" [storageLoading]="true">按钮</button>
+  <button storage-button [storageType]="'success'" [storageGhost]="true" [storageLoading]="true">按钮</button>
+  <button storage-button [storageType]="'warning'" [storageGhost]="true" [storageLoading]="true">按钮</button>
+  <button storage-button [storageType]="'info'" [storageGhost]="true" [storageLoading]="true">按钮</button>
+</div>

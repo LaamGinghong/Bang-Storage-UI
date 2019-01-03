@@ -1,5 +1,5 @@
 import {ChangeDetectionStrategy, Component, ElementRef, Input, OnInit, Renderer2, ViewEncapsulation} from '@angular/core';
-import {ButtonSize, ButtonType} from '../../../projects/bang-storage-ui/src/lib/button/button';
+import {ButtonSize, ButtonType} from './button';
 
 @Component({
   selector: '[storage-button]',
@@ -28,6 +28,11 @@ export class ButtonComponent implements OnInit {
   @Input()
   set storageType(value: ButtonType) {
     this.renderer.addClass(this.el, `storage-button-${value}`);
+    this._type = value;
+  }
+
+  get storageType(): ButtonType {
+    return this._type;
   }
 
   @Input()
@@ -35,12 +40,17 @@ export class ButtonComponent implements OnInit {
     this.renderer.addClass(this.el, `storage-button-${value}`);
   }
 
-  @Input('storageDisabled')
-  set disabled(value: boolean) {
-
+  @Input('storageGhost')
+  set ghost(value: boolean) {
+    if (value) {
+      this.renderer.addClass(this.el, 'storage-button-ghost');
+      this.renderer.removeClass(this.el, `storage-button-${this.storageType}`);
+      this.renderer.addClass(this.el, `storage-button-${this.storageType}-ghost`);
+    }
   }
 
   private _loading = false;
+  private _type: ButtonType;
 
   constructor(
     private elementRef: ElementRef,
