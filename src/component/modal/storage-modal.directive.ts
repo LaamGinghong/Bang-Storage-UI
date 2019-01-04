@@ -28,14 +28,17 @@ export class StorageModalDirective {
   }
 
   @HostListener('window:mousedown', ['$event'])
-  resizeBegin(e: MouseEvent): void {
+  zoomBegin(e: MouseEvent): void {
+    this.storageModalService.zoomBegin(e);
   }
 
   @HostListener('window:mouseup', ['$event'])
-  resizeEnd(): void {
+  zoomEnd(): void {
+    this.storageModalService.zoomEnd();
   }
 
   @HostListener('window:mousemove', ['$event'])
-  resizeMove(e: MouseEvent): void {
+  zoomMove(e: MouseEvent): void {
+    this.storageModalService.zoomMove(e);
   }
 }

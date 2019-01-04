@@ -1,9 +1,11 @@
 import {Injectable, Renderer2, RendererFactory2} from '@angular/core';
+import {NzModalRef} from 'ng-zorro-antd';
 
 @Injectable()
 
 export class StorageModalService {
   private _content: HTMLElement;
+  private _contentWidth: number;
   private _dragging = false;
   private _mouseLeft: number;
   private _mouseTop: number;
@@ -11,6 +13,10 @@ export class StorageModalService {
   private _modalTop: number;
   private _screen = document.body as HTMLElement;
   private _renderer: Renderer2;
+  private _zooming = false;
+  private _zoomBegin: number;
+  private _zoomEnd: number;
+  private _instance: number;
 
 
   constructor(
@@ -23,6 +29,7 @@ export class StorageModalService {
     const modalTitle = document.getElementsByClassName('ant-modal-title')[0];
     const mask = document.getElementsByClassName('ant-modal-wrap')[0];
     this._content = document.getElementsByClassName('ant-modal')[0] as HTMLElement;
+    this._contentWidth = this._content.offsetWidth;
     this._modalLeft = (this._screen.offsetWidth - this._content.offsetWidth) / 2;
     this._modalTop = 100;
     this._renderer.setStyle(this._content, 'position', 'absolute');
@@ -55,7 +62,8 @@ export class StorageModalService {
     }
   }
 
-  public initZoom(): void {
+  public initZoom(modal: NzModalRef): void {
+    modal.getInstance().nzMaskClosable = false;
     const content = document.getElementsByClassName('ant-modal-content')[0];
     const left = this._renderer.createElement('div');
     this._renderer.addClass(left, 'storage-modal-zoom');
@@ -77,5 +85,39 @@ export class StorageModalService {
     this._renderer.addClass(bottom, 'storage-modal-zoom-horizontal');
     this._renderer.addClass(bottom, 'storage-modal-zoom-bottom');
     this._renderer.appendChild(content, bottom);
+  }
+
+  public zoomBegin(e: MouseEvent): void {
+    const className = e.target['className'] as string;
+    const classList = className.split(' ');
+    if (classList.some((item: string) => item === 'storage-modal-zoom')) {
+      if (classList.some((item: string) => item === 'storage-modal-zoom-left')) {
+        this._zoomBegin = this._zoomEnd = e.clientX;
+      }
+      this._zooming = true;
+    }
+  }
+
+  public zoomEnd(): void {
+    this._zooming = false;
+    this._zoomBegin = this._zoomEnd = this._instance = 0;
+  }
+
+  public zoomMove(e: MouseEvent): void {
+    if (this._zooming) {
+      this._zoomBegin = this._zoomEnd;
+      this._zoomEnd = e.clientX;
+      this._instance = this._zoomBegin - this._zoomEnd;
+      this._modalLeft -= this._instance;
+      this._contentWidth += this._instance;
+      if (this._contentWidth >= 520) {
+        this._renderer.setStyle(this._content, 'width', `${this._contentWidth}px`);
+        this._renderer.setStyle(this._content, 'left', `${this._modalLeft}px`);
+        console.log(this._contentWidth);
+      } else {
+        this._modalLeft += this._instance;
+        this._contentWidth -= this._instance;
+      }
+    }
   }
 }
