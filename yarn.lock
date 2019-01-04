@@ -119,7 +119,7 @@
   dependencies:
     tslib "^1.9.0"
 
-"@angular/cdk@^7.0.0":
+"@angular/cdk@^7.0.0", "@angular/cdk@^7.2.0":
   version "7.2.0"
   resolved "https://registry.yarnpkg.com/@angular/cdk/-/cdk-7.2.0.tgz#03bfbbcd5882fbdab71e6d5b5f36b612589724b4"
   integrity sha512-ANGNIvyEdkMW6APl+6XDQC5VBS+mS/M+3UB/ROnj+7Om3xe2DSbEjqDXB/SpeJYUp6Qg/wQoWmyvd4y8HfjMwA==
@@ -1041,10 +1041,10 @@ balanced-match@^1.0.0:
   resolved "https://registry.yarnpkg.com/balanced-match/-/balanced-match-1.0.0.tgz#89b4d199ab2bee49de164ea02b89ce462d71b767"
   integrity sha1-ibTRmasr7kneFk6gK4nORi1xt2c=
 
-bang-storage-ui@^0.0.17:
-  version "0.0.17"
-  resolved "https://registry.yarnpkg.com/bang-storage-ui/-/bang-storage-ui-0.0.17.tgz#844296c35c6ca34606e15f7a6d39e85503b7de34"
-  integrity sha512-+11i2AuWzYR8qc28NCIjOmK43M12kwCqrt4hz68RU+dbTEAK+WXZYoM7SnKfH9kSQQAtTqpjBKTQHySERlOZCw==
+bang-storage-ui@^0.0.19:
+  version "0.0.19"
+  resolved "https://registry.yarnpkg.com/bang-storage-ui/-/bang-storage-ui-0.0.19.tgz#039250efaa7c8d43f21e0404ca1b546086804890"
+  integrity sha512-OwOe36lCEDc45Sbx7L1zfzoRCd0OnGCpXcEf8FNotXTFAHo34FVpCZf320QRCy1gEPlpbLAPo2Qvy/fkL2d+PQ==
   dependencies:
     tslib "^1.9.0"
 
