@@ -26,4 +26,16 @@ export class StorageModalDirective {
   move(e: MouseEvent): void {
     this.storageModalService.move(e);
   }
+
+  @HostListener('window:mousedown', ['$event'])
+  resizeBegin(e: MouseEvent): void {
+  }
+
+  @HostListener('window:mouseup', ['$event'])
+  resizeEnd(): void {
+  }
+
+  @HostListener('window:mousemove', ['$event'])
+  resizeMove(e: MouseEvent): void {
+  }
 }
