@@ -19,7 +19,7 @@ export class StorageModalDirective {
 
   @HostListener('window:mouseup')
   drop(): void {
-    this.storageModalService.dragging = false;
+    this.storageModalService.drop();
   }
 
   @HostListener('window:mousemove', ['$event'])
