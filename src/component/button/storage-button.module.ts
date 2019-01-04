@@ -1,15 +1,15 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {ButtonComponent} from './button.component';
+import {StorageButtonComponent} from './storage-button.component';
 import {NgZorroAntdModule} from 'ng-zorro-antd';
 
 @NgModule({
-  declarations: [ButtonComponent],
+  declarations: [StorageButtonComponent],
   imports: [
     CommonModule,
     NgZorroAntdModule
   ],
-  exports: [ButtonComponent]
+  exports: [StorageButtonComponent]
 })
-export class ButtonModule {
+export class StorageButtonModule {
 }

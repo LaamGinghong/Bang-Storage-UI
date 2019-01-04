@@ -1,11 +1,11 @@
 import {NgModule} from '@angular/core';
-import {ButtonModule} from './button/button.module';
-import {InputNumberModule} from './input-number/input-number.module';
+import {StorageButtonModule} from './button/storage-button.module';
+import {StorageInputNumberModule} from './input-number/storage-input-number.module';
 
 @NgModule({
   exports: [
-    ButtonModule,
-    InputNumberModule
+    StorageButtonModule,
+    StorageInputNumberModule,
   ]
 })
 

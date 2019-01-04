@@ -1,5 +1,5 @@
 import {ChangeDetectionStrategy, Component, ElementRef, Input, OnInit, Renderer2, ViewEncapsulation} from '@angular/core';
-import {ButtonSize, ButtonType} from './button';
+import {ButtonSize, ButtonType} from './storage-button';
 
 @Component({
   selector: '[storage-button]',
@@ -7,12 +7,12 @@ import {ButtonSize, ButtonType} from './button';
     <i nz-icon type="loading" *ngIf="storageLoading"></i>
     <span [style.marginLeft]="storageLoading?'10px':'0'"><ng-content></ng-content></span>
   `,
-  styleUrls: ['./button.component.less'],
+  styleUrls: ['./storage-button.component.less'],
   preserveWhitespaces: false,
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
 })
-export class ButtonComponent implements OnInit {
+export class StorageButtonComponent implements OnInit {
   readonly el: HTMLElement = this.elementRef.nativeElement;
 
   @Input()
