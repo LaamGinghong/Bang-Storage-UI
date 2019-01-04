@@ -8,7 +8,7 @@ export class StorageModalService {
   private _mouseLeft: number;
   private _mouseTop: number;
   private _modalLeft: number;
-  private _modalTop = 100;
+  private _modalTop: number;
   private _screen = document.body as HTMLElement;
   private _renderer: Renderer2;
 
@@ -23,6 +23,7 @@ export class StorageModalService {
     const modalTitle = document.getElementsByClassName('ant-modal-title')[0];
     this._content = document.getElementsByClassName('ant-modal')[0] as HTMLElement;
     this._modalLeft = (this._screen.offsetWidth - this._content.offsetWidth) / 2;
+    this._modalTop = 100;
     this._renderer.setStyle(this._content, 'position', 'absolute');
     this._renderer.setStyle(this._content, 'left', `${this._modalLeft}px`);
     this._renderer.setStyle(this._content, 'top', `${this._modalTop}px`);
