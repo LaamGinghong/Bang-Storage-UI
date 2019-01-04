@@ -29,11 +29,11 @@ import {debounceTime, distinctUntilChanged} from 'rxjs/operators';
       <span [hidden]="!isFormatter" [innerHTML]="icon" #iconElement></span>
     </div>
   `,
-  styleUrls: ['./input-number.component.less'],
+  styleUrls: ['./storage-input-number.component.less'],
   preserveWhitespaces: false,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class InputNumberComponent implements OnInit {
+export class StorageInputNumberComponent implements OnInit {
   @Input()
   set storageValue(value: number) {
     if (!isNaN(value)) {

@@ -1,2 +1,2 @@
-export * from './input-number.component';
-export * from './input-number.module';
+export * from './storage-input-number.component';
+export * from './storage-input-number.module';

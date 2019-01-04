@@ -1,14 +1,14 @@
 import {ModuleWithProviders, NgModule} from '@angular/core';
-import {ButtonModule} from './button';
-import {InputNumberModule} from './input-number';
+import {StorageButtonModule} from './button';
+import {StorageInputNumberModule} from './input-number';
 
 export * from './button';
 export * from './input-number';
 
 @NgModule({
   exports: [
-    ButtonModule,
-    InputNumberModule
+    StorageButtonModule,
+    StorageInputNumberModule
   ]
 })
 export class BangStorageUiModule {

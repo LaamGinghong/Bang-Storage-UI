@@ -1,6 +1,6 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {InputNumberComponent} from './input-number.component';
+import {StorageInputNumberComponent} from './storage-input-number.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {NgZorroAntdModule, NZ_MESSAGE_CONFIG, NzMessageConfig} from 'ng-zorro-antd';
 
@@ -10,17 +10,17 @@ const messageConfig: NzMessageConfig = {
 };
 
 @NgModule({
-  declarations: [InputNumberComponent],
+  declarations: [StorageInputNumberComponent],
   imports: [
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
     NgZorroAntdModule
   ],
-  exports: [InputNumberComponent],
+  exports: [StorageInputNumberComponent],
   providers: [{
     provide: NZ_MESSAGE_CONFIG, useValue: messageConfig
   }]
 })
-export class InputNumberModule {
+export class StorageInputNumberModule {
 }

@@ -1,2 +1,2 @@
-export * from './button.module';
-export * from './button.component';
+export * from './storage-button.module';
+export * from './storage-button.component';
