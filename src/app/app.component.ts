@@ -22,7 +22,6 @@ export class AppComponent {
     });
     modal.afterOpen.subscribe(() => {
       this.storageModalService.initModal();
-      this.storageModalService.initZoom(modal);
     });
   }
 }
