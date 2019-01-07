@@ -13,6 +13,11 @@ export class StorageModalService {
   private _modalTop: number;
   private _screen = document.body as HTMLElement;
   private _renderer: Renderer2;
+  private _resizing = false;
+  private _resizeLeft = false;
+  private _resizeRight = false;
+  private _mouseBegin: number;
+  private _mouseEnd: number;
 
   constructor(
     _rendererFactory: RendererFactory2
@@ -32,9 +37,21 @@ export class StorageModalService {
     this._renderer.setStyle(this._content, 'left', `${this._modalLeft}px`);
     this._renderer.setStyle(this._content, 'top', `${this._modalTop}px`);
     this._renderer.setStyle(modalTitle, 'cursor', 'move');
-    this._renderer.setStyle(mask, 'width', '100%');
-    this._renderer.setStyle(mask, 'height', '100%');
+    this._renderer.setStyle(mask, 'width', '100vw');
+    this._renderer.setStyle(mask, 'height', '100vh');
     this._renderer.setStyle(mask, 'overflow', 'hidden');
+  }
+
+  public initZoom(): void {
+    this._mouseBegin = this._mouseEnd = null;
+    const left = this._renderer.createElement('div');
+    const right = this._renderer.createElement('div');
+    this._renderer.appendChild(this._content, left);
+    this._renderer.addClass(left, 'storage-modal-zoom');
+    this._renderer.addClass(left, 'storage-modal-zoom-left');
+    this._renderer.appendChild(this._content, right);
+    this._renderer.addClass(right, 'storage-modal-zoom');
+    this._renderer.addClass(right, 'storage-modal-zoom-right');
   }
 
   public drag(e: MouseEvent): void {
@@ -43,10 +60,21 @@ export class StorageModalService {
       this._mouseLeft = e.clientX - this._modalLeft;
       this._mouseTop = e.clientY - this._modalTop;
     }
+    const zoom = e.target['className'] as string;
+    if (typeof zoom === 'string') {
+      if (zoom.split(' ').some((item: string) => item === 'storage-modal-zoom')) {
+        this._resizing = true;
+        this._mouseBegin = this._mouseEnd = e.clientX;
+        this._resizeLeft = zoom.split(' ').some((item: string) => item === 'storage-modal-zoom-left');
+        this._resizeRight = zoom.split(' ').some((item: string) => item === 'storage-modal-zoom-right');
+      }
+    }
+
   }
 
   public drop(): void {
     this._dragging = false;
+    this._resizing = this._resizeLeft = this._resizeRight = false;
   }
 
   public move(e: MouseEvent): void {
@@ -65,6 +93,27 @@ export class StorageModalService {
       }
       this._renderer.setStyle(this._content, 'left', `${this._modalLeft}px`);
       this._renderer.setStyle(this._content, 'top', `${this._modalTop}px`);
+    }
+    if (this._resizing) {
+      this._mouseBegin = this._mouseEnd;
+      this._mouseEnd = e.clientX;
+      const instance = this._mouseBegin - this._mouseEnd;
+      if (this._resizeLeft) {
+        this._contentWidth += instance;
+        this._modalLeft -= instance;
+        if (this._contentWidth < 520) {
+          this._contentWidth -= instance;
+          this._modalLeft += instance;
+        }
+        this._renderer.setStyle(this._content, 'left', `${this._modalLeft}px`);
+      }
+      if (this._resizeRight) {
+        this._contentWidth -= instance;
+        if (this._contentWidth < 520) {
+          this._contentWidth += instance;
+        }
+      }
+      this._renderer.setStyle(this._content, 'width', `${this._contentWidth}px`);
     }
   }
 }
