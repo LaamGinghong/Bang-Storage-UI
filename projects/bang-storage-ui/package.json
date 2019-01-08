@@ -12,10 +12,6 @@
     "Angular",
     "UI"
   ],
-  "files": [
-    "./bang-storage-ui.less",
-    "./src/lib/modal/storage-modal.less"
-  ],
   "author": "https://github.com/LaamGinghong",
   "engines": {
     "node": ">=11.0.0"
@@ -28,5 +24,8 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/LaamGinghong/Bang-Storage-UI.git"
-  }
+  },
+  "style": [
+    "./bang-storage-ui.less"
+  ]
 }
