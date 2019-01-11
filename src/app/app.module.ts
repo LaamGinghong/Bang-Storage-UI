@@ -8,7 +8,8 @@ import {HttpClientModule} from '@angular/common/http';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {registerLocaleData} from '@angular/common';
 import zh from '@angular/common/locales/zh';
-import {BangStorageUiModule} from 'bang-storage-ui';
+import {BangStorageUiModule} from '../component/bang-storage-ui.module';
+// import {BangStorageUiModule} from 'bang-storage-ui';
 
 registerLocaleData(zh);
 
