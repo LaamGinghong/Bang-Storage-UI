@@ -15,6 +15,9 @@ const routes: Routes = [{
   }, {
     path: 'using',
     loadChildren: './using/using.module#UsingModule'
+  }, {
+    path: 'recommend',
+    loadChildren: './recommend/recommend.module#RecommendModule'
   }]
 }];
 
