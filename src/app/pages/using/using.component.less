@@ -1,17 +1,23 @@
+blockquote {
+  font-size: 90%;
+  border-left: 4px solid red;
+  padding-left: .8em;
+  margin: 1em 0;
 
-.add-icon {
-  font-size: 30px;
-  color: #aaa;
-  margin: 0 20px;
-  display: inline-block;
+  p {
+    color: #697b8c;
+    font-weight: 500;
+  }
 }
-
 
 article {
   margin: 40px 0;
 
-  &.special, &.link {
+  & > div {
+    margin: 20px 0;
+  }
 
+  &.powerpoint {
     ul {
       padding: 0;
       list-style: circle;
@@ -24,8 +30,9 @@ article {
     }
   }
 
-  &.install {
+  &.example {
     pre {
+      margin: 0;
       code {
         display: block;
       }

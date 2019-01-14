@@ -11,7 +11,7 @@
           <li
             nz-menu-item
             *ngIf="!item.children.length"
-            [nzSelected]="!index"
+            [nzSelected]="item.selected"
             (click)="changePage(item.route)"
           >{{item.name}}</li>
           <li nz-submenu *ngIf="item.children.length" [nzOpen]="true">
