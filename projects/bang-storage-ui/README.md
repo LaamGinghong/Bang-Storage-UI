@@ -13,8 +13,7 @@
 $ ng set --global packageManager=yarn
 $ ng new PROJECT_NAME
 $ cd PROJECT_NAME
-$ ng ad ng-zorro-antd
-$ yarn add bang-storage-ui
+$ ng ad ng-zorro-antd | yarn add bang-storage-ui
 ```
 
 ##使用

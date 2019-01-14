@@ -4,7 +4,8 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve -o",
-    "build": "ng build bang-storage-ui",
+    "build": "ng build",
+    "build projects": "ng build bang-storage-ui",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
@@ -20,7 +21,7 @@
     "@angular/platform-browser": "~7.1.0",
     "@angular/platform-browser-dynamic": "~7.1.0",
     "@angular/router": "~7.1.0",
-    "bang-storage-ui": "^0.0.31",
+    "bang-storage-ui": "^0.0.32",
     "core-js": "^2.5.4",
     "echarts": "^4.2.0-rc.2",
     "ng-zorro-antd": "^7.0.0-rc.3",
