@@ -12,6 +12,9 @@ const routes: Routes = [{
   }, {
     path: 'home',
     loadChildren: './home/home.module#HomeModule'
+  }, {
+    path: 'using',
+    loadChildren: './using/using.module#UsingModule'
   }]
 }];
 

@@ -8,11 +8,20 @@
     <nz-sider [nzWidth]="320">
       <ul nz-menu [nzMode]="'inline'">
         <ng-template ngFor [ngForOf]="menu" let-item let-index="index">
-          <li nz-menu-item *ngIf="!item.children.length" [nzSelected]="!index">{{item.name}}</li>
+          <li
+            nz-menu-item
+            *ngIf="!item.children.length"
+            [nzSelected]="!index"
+            (click)="changePage(item.route)"
+          >{{item.name}}</li>
           <li nz-submenu *ngIf="item.children.length" [nzOpen]="true">
             <span title style="font-weight: bold">{{item.name}}</span>
             <ul>
-              <li *ngFor="let i of item.children" nz-menu-item>{{i.name}}</li>
+              <li
+                nz-menu-item
+                *ngFor="let i of item.children"
+                (click)="changePage(i.route,item.route)"
+              >{{i.name}}</li>
             </ul>
           </li>
         </ng-template>
