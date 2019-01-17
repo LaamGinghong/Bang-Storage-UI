@@ -1,4 +1,4 @@
-import {ChangeDetectionStrategy, Component, ElementRef, Input, OnInit, Renderer2, ViewEncapsulation} from '@angular/core';
+import {ChangeDetectionStrategy, Component, ElementRef, Input, OnInit, Renderer2} from '@angular/core';
 import {ButtonSize, ButtonType} from './storage-button';
 
 @Component({
@@ -9,8 +9,7 @@ import {ButtonSize, ButtonType} from './storage-button';
   `,
   styleUrls: ['./storage-button.component.less'],
   preserveWhitespaces: false,
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  encapsulation: ViewEncapsulation.None,
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class StorageButtonComponent implements OnInit {
   readonly el: HTMLElement = this.elementRef.nativeElement;

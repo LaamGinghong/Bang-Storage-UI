@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, Output, ViewEncapsulation} from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 
 @Component({
   selector: 'storage-zoom',
@@ -29,7 +29,6 @@ import {Component, EventEmitter, Input, Output, ViewEncapsulation} from '@angula
       width: 100%;
     }
   `],
-  encapsulation: ViewEncapsulation.None,
   preserveWhitespaces: false
 })
 export class StorageZoomComponent {
