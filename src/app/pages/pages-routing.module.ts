@@ -18,6 +18,9 @@ const routes: Routes = [{
   }, {
     path: 'recommend',
     loadChildren: './recommend/recommend.module#RecommendModule'
+  }, {
+    path: 'components',
+    loadChildren: './components/components.module#ComponentsModule'
   }]
 }];
 

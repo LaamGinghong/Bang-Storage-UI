@@ -14,11 +14,6 @@ export const PagesMenu = [{
   children: [],
   selected: false
 }, {
-  name: '更新日志',
-  route: 'log',
-  children: [],
-  selected: false
-}, {
   name: 'Components',
   route: 'components',
   children: [{
