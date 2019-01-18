@@ -5,7 +5,10 @@ import {NgZorroAntdModule} from 'ng-zorro-antd';
 
 @NgModule({
   declarations: [StorageButtonComponent],
-  imports: [CommonModule, NgZorroAntdModule],
+  imports: [
+    CommonModule,
+    NgZorroAntdModule
+  ],
   exports: [StorageButtonComponent]
 })
 export class StorageButtonModule {
