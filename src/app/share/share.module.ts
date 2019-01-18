@@ -1,9 +1,9 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {BangStorageUiModule} from 'bang-storage-ui';
 import {NgZorroAntdModule, NZ_I18N, zh_CN} from 'ng-zorro-antd';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
+import {BangStorageUiModule} from 'bang-storage-ui';
 
 @NgModule({
   declarations: [],
@@ -20,7 +20,8 @@ import {HttpClientModule} from '@angular/common/http';
     BangStorageUiModule,
     NgZorroAntdModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ]
 })
 export class ShareModule {

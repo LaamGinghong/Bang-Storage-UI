@@ -1,3 +1,60 @@
-<p>
-  button works!
-</p>
+<div class="button">
+  <h1>Button 按钮</h1>
+  <p>用于开始一个即时的操作。</p>
+  <article>
+    <h2>何时使用</h2>
+    <p>标记了一个（或封装一组）操作命令，响应用户点击行为，触发相应的业务逻辑。</p>
+  </article>
+  <article>
+    <h2>代码演示</h2>
+    <div nz-row nzGutter="16">
+      <div nz-col nzSpan="12">
+        <div class="code-box">
+          <div class="code-box-demo">
+            <button storage-button storageType="default">Default</button>
+            <button storage-button storageType="primary">Primary</button>
+            <button storage-button storageType="danger">Danger</button>
+            <button storage-button storageType="warning">Warning</button>
+            <button storage-button storageType="success">Success</button>
+            <button storage-button storageType="info">Info</button>
+          </div>
+          <div class="code-box-description">
+            <p>按钮有四种类型：默认按钮、主按钮、危险按钮、警告按钮、成功按钮、信息按钮。</p>
+            <span class="code-box-description-title">按钮类型</span>
+            <span
+              nz-tooltip
+              [nzTitle]="'Hide Code'"
+              class="code-box-description-icon"
+              *ngIf="showCode.first"
+              (click)="showCode.first=!showCode.first"
+            >
+              <img alt="expand code"
+                   src="https://gw.alipayobjects.com/zos/rmsportal/wSAkBuJFbdxsosKKpqyq.svg">
+            </span>
+            <span
+              nz-tooltip
+              [nzTitle]="'Show Code'"
+              class="code-box-description-icon"
+              *ngIf="!showCode.first"
+              (click)="showCode.first=!showCode.first"
+            >
+              <img alt="expand code"
+                   src="https://gw.alipayobjects.com/zos/rmsportal/OpROPHYqWmrMDBFMZtKF.svg">
+            </span>
+          </div>
+          <div class="code-box-code">
+            <pre>
+              <code class="language-js">
+                var a = 0;
+              </code>
+            </pre>
+          </div>
+        </div>
+      </div>
+      <div nz-col nzSpan="12">
+        <div class="code-box">
+        </div>
+      </div>
+    </div>
+  </article>
+</div>
