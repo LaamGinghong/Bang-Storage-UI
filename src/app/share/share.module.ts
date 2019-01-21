@@ -5,6 +5,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 // import {BangStorageUiModule} from '../../component/bang-storage-ui.module';
 import {BangStorageUiModule} from 'bang-storage-ui';
+import {HighlightModule} from 'ngx-highlightjs';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import {BangStorageUiModule} from 'bang-storage-ui';
     NgZorroAntdModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    HighlightModule
   ],
   providers: [{provide: NZ_I18N, useValue: zh_CN}],
   exports: [
@@ -23,7 +25,8 @@ import {BangStorageUiModule} from 'bang-storage-ui';
     NgZorroAntdModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    HighlightModule
   ]
 })
 export class ShareModule {

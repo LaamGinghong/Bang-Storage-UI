@@ -28,12 +28,12 @@ export function hljsLanguages() {
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    ShareModule,
-    AppRoutingModule,
-    PagesModule,
     HighlightModule.forRoot({
       languages: hljsLanguages
-    })
+    }),
+    ShareModule,
+    AppRoutingModule,
+    PagesModule
   ],
   bootstrap: [AppComponent]
 })
