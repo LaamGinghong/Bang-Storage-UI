@@ -36,7 +36,6 @@
             ],
             "scripts": [
               "./node_modules/echarts/dist/echarts.js",
-              "./node_modules/prismjs/prism.js"
             ]
           },
           "configurations": {

@@ -27,6 +27,11 @@ export class StorageButtonComponent implements OnInit {
 
   @Input()
   set storageType(value: ButtonType) {
+    this.renderer.removeClass(this.el, 'storage-button-primary');
+    this.renderer.removeClass(this.el, 'storage-button-warning');
+    this.renderer.removeClass(this.el, 'storage-button-danger');
+    this.renderer.removeClass(this.el, 'storage-button-success');
+    this.renderer.removeClass(this.el, 'storage-button-info');
     this.renderer.addClass(this.el, `storage-button-${value}`);
     this._type = value;
   }
@@ -37,6 +42,8 @@ export class StorageButtonComponent implements OnInit {
 
   @Input()
   set storageSize(value: ButtonSize) {
+    this.renderer.removeClass(this.el, 'storage-button-large');
+    this.renderer.removeClass(this.el, 'storage-button-small');
     this.renderer.addClass(this.el, `storage-button-${value}`);
   }
 
