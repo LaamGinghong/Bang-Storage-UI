@@ -3,13 +3,15 @@ import {CommonModule} from '@angular/common';
 import {ButtonComponent} from './button.component';
 import {ButtonRoutingModule} from './button-routing.module';
 import {ShareModule} from '../../../share/share.module';
+import {HighlightModule} from 'ngx-highlightjs';
 
 @NgModule({
   declarations: [ButtonComponent],
   imports: [
     CommonModule,
     ButtonRoutingModule,
-    ShareModule
+    ShareModule,
+    HighlightModule
   ]
 })
 export class ButtonModule {

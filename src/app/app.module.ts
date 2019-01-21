@@ -8,8 +8,18 @@ import zh from '@angular/common/locales/zh';
 import {ShareModule} from './share/share.module';
 import {AppRoutingModule} from './app-routing.module';
 import {PagesModule} from './pages/pages.module';
+import {HighlightModule} from 'ngx-highlightjs';
+import less from 'highlight.js/lib/languages/less';
+import typescript from 'highlight.js/lib/languages/typescript';
 
 registerLocaleData(zh);
+
+export function hljsLanguages() {
+  return [
+    {name: 'typescript', func: typescript},
+    {name: 'less', func: less},
+  ];
+}
 
 @NgModule({
   declarations: [
@@ -20,7 +30,10 @@ registerLocaleData(zh);
     BrowserAnimationsModule,
     ShareModule,
     AppRoutingModule,
-    PagesModule
+    PagesModule,
+    HighlightModule.forRoot({
+      languages: hljsLanguages
+    })
   ],
   bootstrap: [AppComponent]
 })

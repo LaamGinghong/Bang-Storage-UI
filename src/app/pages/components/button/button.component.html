@@ -25,8 +25,8 @@
               nz-tooltip
               [nzTitle]="'Hide Code'"
               class="code-box-description-icon"
-              *ngIf="showCode.first"
-              (click)="showCode.first=!showCode.first"
+              *ngIf="codeBox.first.show"
+              (click)="codeBox.first.show=!codeBox.first.show"
             >
               <img alt="expand code"
                    src="https://gw.alipayobjects.com/zos/rmsportal/wSAkBuJFbdxsosKKpqyq.svg">
@@ -35,24 +35,214 @@
               nz-tooltip
               [nzTitle]="'Show Code'"
               class="code-box-description-icon"
-              *ngIf="!showCode.first"
-              (click)="showCode.first=!showCode.first"
+              *ngIf="!codeBox.first.show"
+              (click)="codeBox.first.show=!codeBox.first.show"
             >
               <img alt="expand code"
                    src="https://gw.alipayobjects.com/zos/rmsportal/OpROPHYqWmrMDBFMZtKF.svg">
             </span>
           </div>
-          <div class="code-box-code">
-            <pre>
-              <code class="language-js">
-                var a = 0;
-              </code>
-            </pre>
+          <div class="code-box-code" [hidden]="!codeBox.first.show">
+            <pre><code [highlight]="codeBox.first.source"></code></pre>
+          </div>
+        </div>
+        <div class="code-box">
+          <div class="code-box-demo">
+            <button storage-button storageType="primary">Primary</button>
+            <button storage-button storageType="primary" disabled>Primary(disabled)</button>
+            <br><br>
+            <button storage-button>Default</button>
+            <button storage-button disabled>Default(disabled)</button>
+            <br><br>
+            <button storage-button storageType="danger">Danger</button>
+            <button storage-button storageType="danger" disabled>Danger(disabled)</button>
+            <br><br>
+            <button storage-button storageType="warning">Warning</button>
+            <button storage-button storageType="warning" disabled>Warning(disabled)</button>
+            <br><br>
+            <button storage-button storageType="success">Success</button>
+            <button storage-button storageType="success" disabled>Success(disabled)</button>
+            <br><br>
+            <button storage-button storageType="info">Info</button>
+            <button storage-button storageType="info" disabled>Info(disabled)</button>
+          </div>
+          <div class="code-box-description">
+            <p>
+              添加<code class="code">disabled</code>属性即可让按钮处于不可用状态，同时按钮样式也会改变。
+            </p>
+            <span class="code-box-description-title">不可用状态</span>
+            <span
+              nz-tooltip
+              [nzTitle]="'Hide Code'"
+              class="code-box-description-icon"
+              *ngIf="codeBox.third.show"
+              (click)="codeBox.third.show=!codeBox.third.show"
+            >
+              <img alt="expand code"
+                   src="https://gw.alipayobjects.com/zos/rmsportal/wSAkBuJFbdxsosKKpqyq.svg">
+            </span>
+            <span
+              nz-tooltip
+              [nzTitle]="'Show Code'"
+              class="code-box-description-icon"
+              *ngIf="!codeBox.third.show"
+              (click)="codeBox.third.show=!codeBox.third.show"
+            >
+              <img alt="expand code"
+                   src="https://gw.alipayobjects.com/zos/rmsportal/OpROPHYqWmrMDBFMZtKF.svg">
+            </span>
+          </div>
+          <div class="code-box-code" [hidden]="!codeBox.third.show">
+            <pre><code [highlight]="codeBox.third.source"></code></pre>
+          </div>
+        </div>
+        <div class="code-box">
+          <div class="code-box-demo">
+            <div  style="background: rgb(190, 200, 200);padding: 30px">
+              <button storage-button storageType="primary" [storageLoading]="true" [storageGhost]="true">Loading!</button>
+              <button storage-button storageType="primary" [storageLoading]="loading" [storageGhost]="true" (click)="load()">Click Me!</button>
+              <br><br>
+              <button storage-button [storageLoading]="true" [storageGhost]="true">Loading!</button>
+              <button storage-button [storageLoading]="loading" [storageGhost]="true" (click)="load()">Click Me!</button>
+              <br><br>
+              <button storage-button storageType="danger" [storageLoading]="true" [storageGhost]="true">Loading!</button>
+              <button storage-button storageType="danger" [storageLoading]="loading" [storageGhost]="true" (click)="load()">Click Me!</button>
+              <br><br>
+              <button storage-button storageType="warning" [storageLoading]="true" [storageGhost]="true">Loading!</button>
+              <button storage-button storageType="warning" [storageLoading]="loading" [storageGhost]="true" (click)="load()">Click Me!</button>
+              <br><br>
+              <button storage-button storageType="success" [storageLoading]="true" [storageGhost]="true">Loading!</button>
+              <button storage-button storageType="success" [storageLoading]="loading" [storageGhost]="true" (click)="load()">Click Me!</button>
+              <br><br>
+              <button storage-button storageType="info" [storageLoading]="true" [storageGhost]="true">Loading!</button>
+              <button storage-button storageType="info" [storageLoading]="loading" [storageGhost]="true" (click)="load()">Click Me!</button>
+            </div>
+          </div>
+          <div class="code-box-description">
+            <p>添加<code class="code">storageGhost</code>属性后，幽灵按钮将其他按钮的内容反色，背景变为透明，常用在有色背景上。</p>
+            <span class="code-box-description-title">幽灵按钮</span>
+            <span
+              nz-tooltip
+              [nzTitle]="'Hide Code'"
+              class="code-box-description-icon"
+              *ngIf="codeBox.fifth.show"
+              (click)="codeBox.fifth.show=!codeBox.fifth.show"
+            >
+              <img alt="expand code"
+                   src="https://gw.alipayobjects.com/zos/rmsportal/wSAkBuJFbdxsosKKpqyq.svg">
+            </span>
+            <span
+              nz-tooltip
+              [nzTitle]="'Show Code'"
+              class="code-box-description-icon"
+              *ngIf="!codeBox.fifth.show"
+              (click)="codeBox.fifth.show=!codeBox.fifth.show"
+            >
+              <img alt="expand code"
+                   src="https://gw.alipayobjects.com/zos/rmsportal/OpROPHYqWmrMDBFMZtKF.svg">
+            </span>
+          </div>
+          <div class="code-box-code" [hidden]="!codeBox.fifth.show">
+            <pre><code [highlight]="codeBox.fifth.source"></code></pre>
           </div>
         </div>
       </div>
       <div nz-col nzSpan="12">
         <div class="code-box">
+          <div class="code-box-demo">
+            <nz-radio-group [(ngModel)]="size">
+              <label nz-radio-button nzValue="large">Large</label>
+              <label nz-radio-button nzValue="default">Default</label>
+              <label nz-radio-button nzValue="small">Small</label>
+            </nz-radio-group>
+            <br>
+            <br>
+            <button storage-button storageType="default" [storageSize]="size">Default</button>
+            <button storage-button storageType="primary" [storageSize]="size">Primary</button>
+            <button storage-button storageType="danger" [storageSize]="size">Danger</button>
+            <button storage-button storageType="warning" [storageSize]="size">Warning</button>
+            <button storage-button storageType="success" [storageSize]="size">Success</button>
+            <button storage-button storageType="info" [storageSize]="size">Info</button>
+          </div>
+          <div class="code-box-description">
+            <p>按钮有大、中、小三种尺寸。</p>
+            <p>
+              通过设置<code class="code">storageSize</code>为<code class="code">large</code><code class="code">small</code>分别把
+              按钮设为大、小尺寸。若不设置<code class="code">storageSize</code>,则尺寸为中。
+            </p>
+            <span class="code-box-description-title">按钮尺寸</span>
+            <span
+              nz-tooltip
+              [nzTitle]="'Hide Code'"
+              class="code-box-description-icon"
+              *ngIf="codeBox.second.show"
+              (click)="codeBox.second.show=!codeBox.second.show"
+            >
+              <img alt="expand code"
+                   src="https://gw.alipayobjects.com/zos/rmsportal/wSAkBuJFbdxsosKKpqyq.svg">
+            </span>
+            <span
+              nz-tooltip
+              [nzTitle]="'Show Code'"
+              class="code-box-description-icon"
+              *ngIf="!codeBox.second.show"
+              (click)="codeBox.second.show=!codeBox.second.show"
+            >
+              <img alt="expand code"
+                   src="https://gw.alipayobjects.com/zos/rmsportal/OpROPHYqWmrMDBFMZtKF.svg">
+            </span>
+          </div>
+          <div class="code-box-code" [hidden]="!codeBox.second.show">
+            <pre><code [highlight]="codeBox.second.source"></code></pre>
+          </div>
+        </div>
+        <div class="code-box">
+          <div class="code-box-demo">
+            <button storage-button storageType="primary" [storageLoading]="true">Loading!</button>
+            <button storage-button storageType="primary" [storageLoading]="loading" (click)="load()">Click Me!</button>
+            <br><br>
+            <button storage-button [storageLoading]="true">Loading!</button>
+            <button storage-button [storageLoading]="loading" (click)="load()">Click Me!</button>
+            <br><br>
+            <button storage-button storageType="danger" [storageLoading]="true">Loading!</button>
+            <button storage-button storageType="danger" [storageLoading]="loading" (click)="load()">Click Me!</button>
+            <br><br>
+            <button storage-button storageType="warning" [storageLoading]="true">Loading!</button>
+            <button storage-button storageType="warning" [storageLoading]="loading" (click)="load()">Click Me!</button>
+            <br><br>
+            <button storage-button storageType="success" [storageLoading]="true">Loading!</button>
+            <button storage-button storageType="success" [storageLoading]="loading" (click)="load()">Click Me!</button>
+            <br><br>
+            <button storage-button storageType="info" [storageLoading]="true">Loading!</button>
+            <button storage-button storageType="info" [storageLoading]="loading" (click)="load()">Click Me!</button>
+          </div>
+          <div class="code-box-description">
+            <p>添加<code class="code">storageLoading</code>属性即可让按钮处于加载状态。</p>
+            <span class="code-box-description-title">加载中状态</span>
+            <span
+              nz-tooltip
+              [nzTitle]="'Hide Code'"
+              class="code-box-description-icon"
+              *ngIf="codeBox.forth.show"
+              (click)="codeBox.forth.show=!codeBox.forth.show"
+            >
+              <img alt="expand code"
+                   src="https://gw.alipayobjects.com/zos/rmsportal/wSAkBuJFbdxsosKKpqyq.svg">
+            </span>
+            <span
+              nz-tooltip
+              [nzTitle]="'Show Code'"
+              class="code-box-description-icon"
+              *ngIf="!codeBox.forth.show"
+              (click)="codeBox.forth.show=!codeBox.forth.show"
+            >
+              <img alt="expand code"
+                   src="https://gw.alipayobjects.com/zos/rmsportal/OpROPHYqWmrMDBFMZtKF.svg">
+            </span>
+          </div>
+          <div class="code-box-code" [hidden]="!codeBox.forth.show">
+            <pre><code [highlight]="codeBox.forth.source"></code></pre>
+          </div>
         </div>
       </div>
     </div>
