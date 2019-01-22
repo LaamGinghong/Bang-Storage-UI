@@ -7,6 +7,84 @@
   </article>
   <article>
     <h2>代码演示</h2>
-
+    <div nz-row nzGutter="16">
+      <div nz-col nzSpan="12">
+        <div class="code-box">
+          <div class="code-box-demo">
+            <storage-input-number
+              [(storageValue)]="codeBox.first.value"
+              [storageMax]="100"
+              [storageMin]="0"
+            ></storage-input-number>
+          </div>
+          <div class="code-box-description">
+            <p>数字输入框</p>
+            <span class="code-box-description-title">基本</span>
+            <span
+              nz-tooltip
+              [nzTitle]="'Hide Code'"
+              class="code-box-description-icon"
+              *ngIf="codeBox.first.show"
+              (click)="codeBox.first.show=!codeBox.first.show"
+            >
+              <img alt="expand code"
+                   src="https://gw.alipayobjects.com/zos/rmsportal/wSAkBuJFbdxsosKKpqyq.svg">
+            </span>
+            <span
+              nz-tooltip
+              [nzTitle]="'Show Code'"
+              class="code-box-description-icon"
+              *ngIf="!codeBox.first.show"
+              (click)="codeBox.first.show=!codeBox.first.show"
+            >
+              <img alt="expand code"
+                   src="https://gw.alipayobjects.com/zos/rmsportal/OpROPHYqWmrMDBFMZtKF.svg">
+            </span>
+          </div>
+          <div class="code-box-code" [hidden]="!codeBox.first.show">
+            <pre><code [highlight]="codeBox.first.source"></code></pre>
+          </div>
+        </div>
+      </div>
+      <div nz-col nzSpan="12">
+        <div class="code-box">
+          <div class="code-box-demo">
+            <storage-input-number
+              [(storageValue)]="codeBox.second.value"
+              [storageDisabled]="codeBox.second.disabled"
+            ></storage-input-number>
+            <br><br>
+            <button storage-button storageType="primary" (click)="toggleDisabled()">Toggle Disabled</button>
+          </div>
+          <div class="code-box-description">
+            <p>点击按钮切换可用状态。</p>
+            <span class="code-box-description-title">不可用</span>
+            <span
+              nz-tooltip
+              [nzTitle]="'Hide Code'"
+              class="code-box-description-icon"
+              *ngIf="codeBox.second.show"
+              (click)="codeBox.second.show=!codeBox.second.show"
+            >
+              <img alt="expand code"
+                   src="https://gw.alipayobjects.com/zos/rmsportal/wSAkBuJFbdxsosKKpqyq.svg">
+            </span>
+            <span
+              nz-tooltip
+              [nzTitle]="'Show Code'"
+              class="code-box-description-icon"
+              *ngIf="!codeBox.second.show"
+              (click)="codeBox.second.show=!codeBox.second.show"
+            >
+              <img alt="expand code"
+                   src="https://gw.alipayobjects.com/zos/rmsportal/OpROPHYqWmrMDBFMZtKF.svg">
+            </span>
+          </div>
+          <div class="code-box-code" [hidden]="!codeBox.second.show">
+            <pre><code [highlight]="codeBox.second.source"></code></pre>
+          </div>
+        </div>
+      </div>
+    </div>
   </article>
 </div>
