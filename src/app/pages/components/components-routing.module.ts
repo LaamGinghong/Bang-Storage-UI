@@ -15,6 +15,15 @@ const routes: Routes = [{
   }, {
     path: 'inputNumber',
     loadChildren: './input-number/input-number.module#InputNumberModule'
+  }, {
+    path: 'modal',
+    loadChildren: './modal/modal.module#ModalModule'
+  }, {
+    path: 'zoom',
+    loadChildren: './zoom/zoom.module#ZoomModule'
+  }, {
+    path: 'charts',
+    loadChildren: './charts/charts.module#ChartsModule'
   }]
 }];
 
