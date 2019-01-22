@@ -13,12 +13,10 @@
           <div class="code-box-demo">
             <storage-input-number
               [(storageValue)]="codeBox.first.value"
-              [storageMax]="100"
-              [storageMin]="0"
             ></storage-input-number>
           </div>
           <div class="code-box-description">
-            <p>数字输入框</p>
+            <p>数字输入框。</p>
             <span class="code-box-description-title">基本</span>
             <span
               nz-tooltip
@@ -43,6 +41,86 @@
           </div>
           <div class="code-box-code" [hidden]="!codeBox.first.show">
             <pre><code [highlight]="codeBox.first.source"></code></pre>
+          </div>
+        </div>
+        <div class="code-box">
+          <div class="code-box-demo">
+            <storage-input-number
+              [(storageValue)]="codeBox.third.value"
+              [storageWidth]="codeBox.third.width"
+            ></storage-input-number>
+            <nz-slider
+              [nzDefaultValue]="codeBox.third.width"
+              [(ngModel)]="codeBox.third.width"
+              [nzMax]="1000"
+              [nzTipFormatter]="changeTooltip"
+            ></nz-slider>
+            <storage-input-number
+              [(storageValue)]="codeBox.third.value"
+              [storageWidth]="'100%'"
+            ></storage-input-number>
+          </div>
+          <div class="code-box-description">
+            <p>可调节宽度。</p>
+            <span class="code-box-description-title">宽度</span>
+            <span
+              nz-tooltip
+              [nzTitle]="'Hide Code'"
+              class="code-box-description-icon"
+              *ngIf="codeBox.third.show"
+              (click)="codeBox.third.show=!codeBox.third.show"
+            >
+              <img alt="expand code"
+                   src="https://gw.alipayobjects.com/zos/rmsportal/wSAkBuJFbdxsosKKpqyq.svg">
+            </span>
+            <span
+              nz-tooltip
+              [nzTitle]="'Show Code'"
+              class="code-box-description-icon"
+              *ngIf="!codeBox.third.show"
+              (click)="codeBox.third.show=!codeBox.third.show"
+            >
+              <img alt="expand code"
+                   src="https://gw.alipayobjects.com/zos/rmsportal/OpROPHYqWmrMDBFMZtKF.svg">
+            </span>
+          </div>
+          <div class="code-box-code" [hidden]="!codeBox.third.show">
+            <pre><code [highlight]="codeBox.third.source"></code></pre>
+          </div>
+        </div>
+        <div class="code-box">
+          <div class="code-box-demo">
+            <storage-input-number
+              [(storageValue)]="codeBox.fifth.value"
+              [storagePrecision]="2"
+            ></storage-input-number>
+          </div>
+          <div class="code-box-description">
+            <p>通过设置<code class="code">storagePrecision</code>来设置精度。传入数字表示小数点后保留几位，超出部分四舍五入保存。</p>
+            <span class="code-box-description-title">精度</span>
+            <span
+              nz-tooltip
+              [nzTitle]="'Hide Code'"
+              class="code-box-description-icon"
+              *ngIf="codeBox.fifth.show"
+              (click)="codeBox.fifth.show=!codeBox.fifth.show"
+            >
+              <img alt="expand code"
+                   src="https://gw.alipayobjects.com/zos/rmsportal/wSAkBuJFbdxsosKKpqyq.svg">
+            </span>
+            <span
+              nz-tooltip
+              [nzTitle]="'Show Code'"
+              class="code-box-description-icon"
+              *ngIf="!codeBox.fifth.show"
+              (click)="codeBox.fifth.show=!codeBox.fifth.show"
+            >
+              <img alt="expand code"
+                   src="https://gw.alipayobjects.com/zos/rmsportal/OpROPHYqWmrMDBFMZtKF.svg">
+            </span>
+          </div>
+          <div class="code-box-code" [hidden]="!codeBox.fifth.show">
+            <pre><code [highlight]="codeBox.fifth.source"></code></pre>
           </div>
         </div>
       </div>
@@ -84,7 +162,113 @@
             <pre><code [highlight]="codeBox.second.source"></code></pre>
           </div>
         </div>
+        <div class="code-box">
+          <div class="code-box-demo">
+            <storage-input-number
+              [(storageValue)]="codeBox.forth.value"
+              [storageMax]="100"
+              [storageMin]="0"
+            ></storage-input-number>
+            <br><br>
+            <nz-tag>Max:100</nz-tag>
+            <nz-tag>Min:0</nz-tag>
+          </div>
+          <div class="code-box-description">
+            <p>添加<code class="code">storageMax</code>和<code class="code">storageMin</code>即可对输入范围进行约束。</p>
+            <span class="code-box-description-title">范围约束</span>
+            <span
+              nz-tooltip
+              [nzTitle]="'Hide Code'"
+              class="code-box-description-icon"
+              *ngIf="codeBox.forth.show"
+              (click)="codeBox.forth.show=!codeBox.forth.show"
+            >
+              <img alt="expand code"
+                   src="https://gw.alipayobjects.com/zos/rmsportal/wSAkBuJFbdxsosKKpqyq.svg">
+            </span>
+            <span
+              nz-tooltip
+              [nzTitle]="'Show Code'"
+              class="code-box-description-icon"
+              *ngIf="!codeBox.forth.show"
+              (click)="codeBox.forth.show=!codeBox.forth.show"
+            >
+              <img alt="expand code"
+                   src="https://gw.alipayobjects.com/zos/rmsportal/OpROPHYqWmrMDBFMZtKF.svg">
+            </span>
+          </div>
+          <div class="code-box-code" [hidden]="!codeBox.forth.show">
+            <pre><code [highlight]="codeBox.forth.source"></code></pre>
+          </div>
+        </div>
+        <div class="code-box">
+          <div class="code-box-demo">
+            <storage-input-number
+              [(storageValue)]="codeBox.sixth.value"
+              [storageFormatter]="{icon:'$',isBefore:true}"
+            ></storage-input-number>
+            <br><br>
+            <storage-input-number
+              [(storageValue)]="codeBox.sixth.value"
+              [storageFormatter]="{icon:'%',isBefore:false}"
+            ></storage-input-number>
+          </div>
+          <div class="code-box-description">
+            <p>通过<code class="code">storageFormatter</code>格式化数字，以展示具有具体含义的数据。</p>
+            <span class="code-box-description-title">格式化展示</span>
+            <span
+              nz-tooltip
+              [nzTitle]="'Hide Code'"
+              class="code-box-description-icon"
+              *ngIf="codeBox.sixth.show"
+              (click)="codeBox.sixth.show=!codeBox.sixth.show"
+            >
+              <img alt="expand code"
+                   src="https://gw.alipayobjects.com/zos/rmsportal/wSAkBuJFbdxsosKKpqyq.svg">
+            </span>
+            <span
+              nz-tooltip
+              [nzTitle]="'Show Code'"
+              class="code-box-description-icon"
+              *ngIf="!codeBox.sixth.show"
+              (click)="codeBox.sixth.show=!codeBox.sixth.show"
+            >
+              <img alt="expand code"
+                   src="https://gw.alipayobjects.com/zos/rmsportal/OpROPHYqWmrMDBFMZtKF.svg">
+            </span>
+          </div>
+          <div class="code-box-code" [hidden]="!codeBox.sixth.show">
+            <pre><code [highlight]="codeBox.sixth.source"></code></pre>
+          </div>
+        </div>
       </div>
     </div>
+  </article>
+  <article>
+    <h2>API</h2>
+    <p><span class="api-title">storage-input-number</span><span class="api-default component">Component</span></p>
+    <nz-table
+      #nzTable
+      [nzData]="tableData"
+      [nzFrontPagination]="false"
+      [nzShowPagination]="false"
+    >
+      <thead>
+      <tr>
+        <th>成员</th>
+        <th>说明</th>
+        <th>类型</th>
+        <th>默认值</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let item of nzTable.data">
+        <td><code class="code">{{item.member}}</code></td>
+        <td [innerHTML]="item.description"></td>
+        <td><span class="table-type">{{item.type}}</span></td>
+        <td>{{item.default}}</td>
+      </tr>
+      </tbody>
+    </nz-table>
   </article>
 </div>
