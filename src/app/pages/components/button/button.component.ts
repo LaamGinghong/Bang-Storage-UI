@@ -155,6 +155,12 @@ export class ButtonComponent implements OnInit {
   };
   size = 'default';
   loading = false;
+  tableData = [
+    {name: '[storageGhost]', description: '幽灵属性，使按钮背景透明', type: 'boolean', default: 'false'},
+    {name: '[storageType]', description: '设置按钮类型，可选值为<code class="code">primary</code><code class="code">default</code><code class="code">danger</code><code class="code">warning</code><code class="code">success</code><code class="code">info</code>或者不填', type: 'string', default: '-'},
+    {name: '[storageSize]', description: '设置按钮大小，可选值为<code class="code">large</code><code class="code">small</code>或者不填', type: 'string', default: '-'},
+    {name: '[storageLoading]', description: '设置按钮载入状态', type: 'boolean', default: 'false'}
+  ];
 
   constructor() {
   }

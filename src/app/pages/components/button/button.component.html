@@ -98,24 +98,39 @@
         </div>
         <div class="code-box">
           <div class="code-box-demo">
-            <div  style="background: rgb(190, 200, 200);padding: 30px">
-              <button storage-button storageType="primary" [storageLoading]="true" [storageGhost]="true">Loading!</button>
-              <button storage-button storageType="primary" [storageLoading]="loading" [storageGhost]="true" (click)="load()">Click Me!</button>
+            <div style="background: rgb(190, 200, 200);padding: 30px">
+              <button storage-button storageType="primary" [storageLoading]="true" [storageGhost]="true">Loading!
+              </button>
+              <button storage-button storageType="primary" [storageLoading]="loading" [storageGhost]="true"
+                      (click)="load()">Click Me!
+              </button>
               <br><br>
               <button storage-button [storageLoading]="true" [storageGhost]="true">Loading!</button>
-              <button storage-button [storageLoading]="loading" [storageGhost]="true" (click)="load()">Click Me!</button>
+              <button storage-button [storageLoading]="loading" [storageGhost]="true" (click)="load()">Click Me!
+              </button>
               <br><br>
-              <button storage-button storageType="danger" [storageLoading]="true" [storageGhost]="true">Loading!</button>
-              <button storage-button storageType="danger" [storageLoading]="loading" [storageGhost]="true" (click)="load()">Click Me!</button>
+              <button storage-button storageType="danger" [storageLoading]="true" [storageGhost]="true">Loading!
+              </button>
+              <button storage-button storageType="danger" [storageLoading]="loading" [storageGhost]="true"
+                      (click)="load()">Click Me!
+              </button>
               <br><br>
-              <button storage-button storageType="warning" [storageLoading]="true" [storageGhost]="true">Loading!</button>
-              <button storage-button storageType="warning" [storageLoading]="loading" [storageGhost]="true" (click)="load()">Click Me!</button>
+              <button storage-button storageType="warning" [storageLoading]="true" [storageGhost]="true">Loading!
+              </button>
+              <button storage-button storageType="warning" [storageLoading]="loading" [storageGhost]="true"
+                      (click)="load()">Click Me!
+              </button>
               <br><br>
-              <button storage-button storageType="success" [storageLoading]="true" [storageGhost]="true">Loading!</button>
-              <button storage-button storageType="success" [storageLoading]="loading" [storageGhost]="true" (click)="load()">Click Me!</button>
+              <button storage-button storageType="success" [storageLoading]="true" [storageGhost]="true">Loading!
+              </button>
+              <button storage-button storageType="success" [storageLoading]="loading" [storageGhost]="true"
+                      (click)="load()">Click Me!
+              </button>
               <br><br>
               <button storage-button storageType="info" [storageLoading]="true" [storageGhost]="true">Loading!</button>
-              <button storage-button storageType="info" [storageLoading]="loading" [storageGhost]="true" (click)="load()">Click Me!</button>
+              <button storage-button storageType="info" [storageLoading]="loading" [storageGhost]="true"
+                      (click)="load()">Click Me!
+              </button>
             </div>
           </div>
           <div class="code-box-description">
@@ -246,5 +261,40 @@
         </div>
       </div>
     </div>
+  </article>
+  <article class="API">
+    <h2>API</h2>
+    <p><span class="api-title">[storage-button]</span><span class="api-default directive">Directive</span></p>
+    <p>通过设置Button的属性来产生不同的按钮样式，推荐顺序为：
+      <code class="code">storageType</code>->
+      <code class="code">storageGhost</code>->
+      <code class="code">storageSize</code>->
+      <code class="code">storageLoading</code>->
+      <code class="code">disabled</code>
+    </p>
+    <p>按钮的属性说明如下:</p>
+    <nz-table
+      #nzTable
+      [nzData]="tableData"
+      [nzFrontPagination]="false"
+      [nzShowPagination]="false"
+    >
+      <thead>
+      <tr>
+        <th>属性</th>
+        <th>说明</th>
+        <th>类型</th>
+        <th>默认值</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let item of nzTable.data">
+        <td><code class="code">{{item.name}}</code></td>
+        <td [innerHTML]="item.description"></td>
+        <td><span class="table-type">{{item.type}}</span></td>
+        <td>{{item.default}}</td>
+      </tr>
+      </tbody>
+    </nz-table>
   </article>
 </div>
