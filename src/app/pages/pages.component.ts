@@ -22,6 +22,11 @@ export class PagesComponent implements OnInit {
       this.menu.forEach((item: { selected: boolean, route: string, name: string, children: Array<object> }) => {
         item.selected = item.route === urls[urls.length - 1];
       });
+    } else {
+      const array = this.menu[3].children as Array<{ route: string, selected: boolean }>;
+      array.forEach(item => {
+        item.selected = item.route === urls[2];
+      });
     }
   }
 

@@ -20,6 +20,7 @@
               <li
                 nz-menu-item
                 *ngFor="let i of item.children"
+                [nzSelected]="i.selected"
                 (click)="changePage(i.route,item.route)"
               >{{i.name}}</li>
             </ul>
