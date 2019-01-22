@@ -12,6 +12,9 @@ const routes: Routes = [{
   }, {
     path: 'button',
     loadChildren: './button/button.module#ButtonModule'
+  }, {
+    path: 'inputNumber',
+    loadChildren: './input-number/input-number.module#InputNumberModule'
   }]
 }];
 

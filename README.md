@@ -1,27 +1,28 @@
-# BangStorageUI
+# BangStorageUI <img src='https://img.shields.io/badge/BangStorageUI-0.0.35-red.svg'>
+A set of Angular component library based on [ng-zorro-antd](https://ng.ant.design/docs/introduce/en) secondary packaging.<br>
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.1.4.
+## Runtime environment
+* Angular `^7.0.0`;
+* The newest version of Google Chrome or Fire Fox; 新版谷歌或火狐浏览器；
+* Installed ng-zorro-antd. 安装ng-zorro-antd。
 
-## Development server
+## Install
+**We recommend using yarn for installation,**
+Please ensure your computer is already installed with `yarn`。If you don't know how to install `yarn`, look at [here](https://github.com/LaamGinghong/Tips-to-use-yarn).
+```bash
+$ ng set --global packageManager=yarn
+$ ng new PROJECT_NAME
+$ cd PROJECT_NAME
+$ ng ad ng-zorro-antd | yarn add bang-storage-ui
+```
+## Using
+import `BangStorageUiModule` in ShareModule, and import the shareModule in the required component.
+```bash
+import {BangStorageUiModule} from 'bang-storage-ui';
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+@NgModule({
+  imports:[BangStorageUiModule]
+})
+export class ShareModule{
+}
+```
