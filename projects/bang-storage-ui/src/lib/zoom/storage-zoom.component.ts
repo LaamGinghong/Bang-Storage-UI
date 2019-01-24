@@ -3,14 +3,14 @@ import {Component, EventEmitter, Input, Output, ViewEncapsulation} from '@angula
 @Component({
   selector: 'storage-zoom',
   template: `
-    <nz-layout>
-      <nz-content>
+    <div class="background">
+      <div class="content">
         <img [src]="path" alt="放大图片" (click)="zoomOut.emit()">
-      </nz-content>
-    </nz-layout>
+      </div>
+    </div>
   `,
   styles: [`
-    nz-layout {
+    .background {
       width: 100%;
       height: 100%;
       position: fixed;
@@ -19,13 +19,13 @@ import {Component, EventEmitter, Input, Output, ViewEncapsulation} from '@angula
       left: 0;
     }
 
-    nz-content {
+    .content {
       max-width: 60%;
       margin: 100px auto 0;
       cursor: zoom-out;
     }
 
-    nz-content > img {
+    .content > img {
       width: 100%;
     }
   `],

@@ -4,7 +4,6 @@ import {
   ComponentFactoryResolver,
   ComponentRef,
   Directive, ElementRef,
-  HostBinding,
   HostListener,
   Input, Renderer2,
   ViewContainerRef
