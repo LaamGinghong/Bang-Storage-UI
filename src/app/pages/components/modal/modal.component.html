@@ -1,3 +1,95 @@
-<p>
-  modal works!
-</p>
+<div class="modal" storage-move-modal>
+  <h1>Move Modal 可拖动模态框</h1>
+  <p>拖动模态对话框</p>
+  <article>
+    <h2>何时使用</h2>
+    <p>需要用户处理事务，又不希望跳转页面以致打断工作流程时，可以使用<code class="code">Modal</code>在当前页面正中打开一个浮层，承载相应的操作。</p>
+    <p>由于NG-ZORRO只是基于Angular版本的Ant-design，并没有添加模态框拖动的功能，但是实际业务中需要拖动模态框。</p>
+    <p>在此基础上，通过添加指令操作<code class="code">DOM</code>元素来实现模态框的拖动功能。</p>
+  </article>
+  <article>
+    <h2>如何使用</h2>
+    <p>推荐使用加载Component的方式弹出Modal框，这样弹出层的Component逻辑可以与外层Component完全隔离，并且做到可以随时复用，</p>
+    <p>在弹出层Component中可以通过依赖注入<code class="code">NzModalRef</code>方式直接获取模态框的组件实例，用于控制在弹出层组件中控制模态框行为。</p>
+    <p>因此你只需在当前页面中任意位置添加<code class="code">storage-move-modal</code>指令，在Modal框生成之后调用初始化函数即可实现拖动功能。</p>
+  </article>
+  <article>
+    <h2>代码演示</h2>
+    <div nz-row nzGutter="16">
+      <div nz-col nzSpan="12">
+        <div class="code-box">
+          <div class="code-box-demo">
+            <button storage-button storageType="primary" (click)="open1()">Show Modal</button>
+          </div>
+          <div class="code-box-description">
+            <p>拖动模态框。</p>
+            <span class="code-box-description-title">拖动模态框</span>
+            <span
+              nz-tooltip
+              [nzTitle]="'Hide Code'"
+              class="code-box-description-icon"
+              *ngIf="codeBox.first.show"
+              (click)="codeBox.first.show=!codeBox.first.show"
+            >
+              <img alt="expand code"
+                   src="https://gw.alipayobjects.com/zos/rmsportal/wSAkBuJFbdxsosKKpqyq.svg">
+            </span>
+            <span
+              nz-tooltip
+              [nzTitle]="'Show Code'"
+              class="code-box-description-icon"
+              *ngIf="!codeBox.first.show"
+              (click)="codeBox.first.show=!codeBox.first.show"
+            >
+              <img alt="expand code"
+                   src="https://gw.alipayobjects.com/zos/rmsportal/OpROPHYqWmrMDBFMZtKF.svg">
+            </span>
+          </div>
+          <div class="code-box-code" [hidden]="!codeBox.first.show">
+            <pre><code [highlight]="codeBox.first.source"></code></pre>
+          </div>
+        </div>
+      </div>
+      <div nz-col nzSpan="12">
+        <div class="code-box">
+          <div class="code-box-demo">
+            <button storage-button storageType="primary" (click)="open2()">Show Modal</button>
+          </div>
+          <div class="code-box-description">
+            <p>拖动模态框。</p>
+            <span class="code-box-description-title">拖动模态框</span>
+            <span
+              nz-tooltip
+              [nzTitle]="'Hide Code'"
+              class="code-box-description-icon"
+              *ngIf="codeBox.second.show"
+              (click)="codeBox.second.show=!codeBox.second.show"
+            >
+              <img alt="expand code"
+                   src="https://gw.alipayobjects.com/zos/rmsportal/wSAkBuJFbdxsosKKpqyq.svg">
+            </span>
+            <span
+              nz-tooltip
+              [nzTitle]="'Show Code'"
+              class="code-box-description-icon"
+              *ngIf="!codeBox.second.show"
+              (click)="codeBox.second.show=!codeBox.second.show"
+            >
+              <img alt="expand code"
+                   src="https://gw.alipayobjects.com/zos/rmsportal/OpROPHYqWmrMDBFMZtKF.svg">
+            </span>
+          </div>
+          <div class="code-box-code" [hidden]="!codeBox.second.show">
+            <pre><code [highlight]="codeBox.second.source"></code></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+  </article>
+  <article>
+    <h2>API</h2>
+    <p><span class="api-title">StorageModalService</span><span class="api-default service">Service</span></p>
+    <p>由于采用服务动态创建模态框，因此模态框组件并没有挂载在当前组件中，而是与根组件平级，所以无法直接在组件中获取模态框DOM节点。</p>
+    <p>因此，我们通过在组件中注入指令全局监听事件，</p>
+  </article>
+</div>
