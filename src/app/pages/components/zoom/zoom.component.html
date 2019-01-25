@@ -1,3 +1,78 @@
-<p>
-  zoom works!
-</p>
+<div class="zoom">
+  <h1>Zoom 图片缩放</h1>
+  <p>支持图片放大缩小功能。</p>
+  <article>
+    <h2>何时使用</h2>
+    <p>当在表格或其他业务场景中使用缩略图时，业务人员通常无法看清图片情况。使用该指令，可以动态创建一个图片组件，用于图片的放大和缩小功能。</p>
+  </article>
+  <article>
+    <h2>代码演示</h2>
+    <div nz-row nzGutter="16">
+      <div nz-col nzSpan="12">
+        <div class="code-box">
+          <div class="code-box-demo">
+            <img
+              storage-zoom
+              storagePath="../../../../assets/img/kaisa.png"
+              src="../../../../assets/img/kaisa.png"
+              alt="卡莎" width="240">
+          </div>
+          <div class="code-box-description">
+            <p>点击图片进行缩放。</p>
+            <span class="code-box-description-title">图片缩放</span>
+            <span
+              nz-tooltip
+              [nzTitle]="'Hide Code'"
+              class="code-box-description-icon"
+              *ngIf="codeBox.first.show"
+              (click)="codeBox.first.show=!codeBox.first.show"
+            >
+              <img alt="expand code"
+                   src="https://gw.alipayobjects.com/zos/rmsportal/wSAkBuJFbdxsosKKpqyq.svg">
+            </span>
+            <span
+              nz-tooltip
+              [nzTitle]="'Show Code'"
+              class="code-box-description-icon"
+              *ngIf="!codeBox.first.show"
+              (click)="codeBox.first.show=!codeBox.first.show"
+            >
+              <img alt="expand code"
+                   src="https://gw.alipayobjects.com/zos/rmsportal/OpROPHYqWmrMDBFMZtKF.svg">
+            </span>
+          </div>
+          <div class="code-box-code" [hidden]="!codeBox.first.show">
+            <pre><code [highlight]="codeBox.first.source"></code></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+  </article>
+  <article>
+    <h2>API</h2>
+    <p><span class="api-title">[storage-zoom]</span><span class="api-default directive">Directive</span></p>
+    <nz-table
+      #nzTable
+      [nzData]="tableData"
+      [nzFrontPagination]="false"
+      [nzShowPagination]="false"
+    >
+      <thead>
+      <tr>
+        <th>属性</th>
+        <th>说明</th>
+        <th>类型</th>
+        <th>默认值</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let item of nzTable.data">
+        <td><code class="code">{{item.name}}</code></td>
+        <td [innerHTML]="item.description"></td>
+        <td><span class="table-type">{{item.type}}</span></td>
+        <td>{{item.default}}</td>
+      </tr>
+      </tbody>
+    </nz-table>
+  </article>
+</div>
