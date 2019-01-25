@@ -1,3 +1,8 @@
-<p>
-  back-top works!
-</p>
+<div class="back-top" #backTop>
+  <div class="inner">
+    <storage-back-top [storageContainer]="backTop"></storage-back-top>
+    <ng-template #element>
+      <span><i nz-icon type="up-circle" theme="fill"></i></span>
+    </ng-template>
+  </div>
+</div>
