@@ -1,127 +1,130 @@
-<h1>快速上手</h1>
-<p>Bang Storage UI 致力于为棒谷前端开发工程师提供愉悦的开发体验。</p>
-<blockquote>
-  <p>
-    官方指南假设你已了解关于 HTML、CSS 和 JavaScript 的中级知识，并且已经完全掌握了 Angular 及配套设施的正确开发方式。
-    如果你刚开始学习前端或者 Angular ，将框架作为你的第一步可能不是最好的主意 —— 掌握好基础知识再来吧！
-  </p>
-</blockquote>
-<blockquote>
-  <p>
-    <a href="https://github.com/NG-ZORRO/today-ng-steps" target="_blank">我们为你准备了一套教程</a>，能够帮助你快速上手Bang Storage UI。
-  </p>
-</blockquote>
-<article class="powerpoint">
-  <h2>在线演示</h2>
-  <p>
-    最简单的使用方式参照StackBlitz演示，也推荐Fork本例来进行<code class="code">Bug Report</code>，注意不要在实际项目中这样使用。
-  </p>
-  <ul>
-    <li><a href="https://stackblitz.com/edit/bang-storage-ui" target="_blank">Bang Storage UI StackBlitz</a></li>
-  </ul>
-</article>
-<article class="example">
-  <h2>第一个在线实例</h2>
-  <p>
-    实际项目开发中，你会需要对 TypeScript 代码的构建、调试、代理、打包部署等一系列工程化的需求。
-    我们强烈建议使用官方的<code class="code">@angular/cli</code>工具链辅助进行开发。与此同时，我们强烈建议你使用<code class="code">Yarn</code>作为你的包管理器，
-    因此我们的例子都将使用<code class="code">Yarn</code>。下面我们用一个简单的例子来说明。
-  </p>
-  <div>
-    <h3>1.安装脚手架工具</h3>
-    <blockquote style="border-color: #ebedf0">
-      <p>
-        使用<code class="code">@angular/cli</code>前，务必确认<a href="https://nodejs.org/en/" target="_blank">Node.js</a>已经升级到v11.0或以上，强烈建议升级至最新版本的<code class="code">@angular/cli</code>。
-        如果你想了解更多CLI工具链的功能和命令，建议访问<a href="https://github.com/angular/angular-cli" target="_blank">Angular CLI</a>了解更多。
-      </p>
-    </blockquote>
-    <pre>
+<div class="using">
+  <h1>快速上手</h1>
+  <p>Bang Storage UI 致力于为棒谷前端开发工程师提供愉悦的开发体验。</p>
+  <blockquote>
+    <p>
+      官方指南假设你已了解关于 HTML、CSS 和 JavaScript 的中级知识，并且已经完全掌握了 Angular 及配套设施的正确开发方式。
+      如果你刚开始学习前端或者 Angular ，将框架作为你的第一步可能不是最好的主意 —— 掌握好基础知识再来吧！
+    </p>
+  </blockquote>
+  <blockquote>
+    <p>
+      <a href="https://github.com/NG-ZORRO/today-ng-steps" target="_blank">我们为你准备了一套教程</a>，能够帮助你快速上手Bang Storage UI。
+    </p>
+  </blockquote>
+  <article class="powerpoint">
+    <h2>在线演示</h2>
+    <p>
+      最简单的使用方式参照StackBlitz演示，也推荐Fork本例来进行<code class="code">Bug Report</code>，注意不要在实际项目中这样使用。
+    </p>
+    <ul>
+      <li><a href="https://stackblitz.com/edit/bang-storage-ui" target="_blank">Bang Storage UI StackBlitz</a></li>
+    </ul>
+  </article>
+  <article class="example">
+    <h2>第一个在线实例</h2>
+    <p>
+      实际项目开发中，你会需要对 TypeScript 代码的构建、调试、代理、打包部署等一系列工程化的需求。
+      我们强烈建议使用官方的<code class="code">@angular/cli</code>工具链辅助进行开发。与此同时，我们强烈建议你使用<code class="code">Yarn</code>作为你的包管理器，
+      因此我们的例子都将使用<code class="code">Yarn</code>。下面我们用一个简单的例子来说明。
+    </p>
+    <div>
+      <h3>1.安装脚手架工具</h3>
+      <blockquote style="border-color: #ebedf0">
+        <p>
+          使用<code class="code">@angular/cli</code>前，务必确认<a href="https://nodejs.org/en/" target="_blank">Node.js</a>已经升级到v11.0或以上，强烈建议升级至最新版本的<code class="code">@angular/cli</code>。
+          如果你想了解更多CLI工具链的功能和命令，建议访问<a href="https://github.com/angular/angular-cli" target="_blank">Angular CLI</a>了解更多。
+        </p>
+      </blockquote>
+      <pre>
     <code class="code">
     $ <span class="function">yarn </span>global add <span class="function">@angular/cli</span>
     </code>
   </pre>
-  </div>
-  <div>
-    <h3>2.创建一个项目</h3>
-    <blockquote style="border-color: #ebedf0">
-      <p>在创建项目之前，请确保<code class="code">@angular/cli</code>已被成功安装。</p>
-    </blockquote>
-    <p>执行以下命令，<code class="code">@angular/cli</code>会在当前目录下创建一个名为PROJECT_NAME的文件夹，并自动安装好依赖。</p>
-    <pre>
+    </div>
+    <div>
+      <h3>2.创建一个项目</h3>
+      <blockquote style="border-color: #ebedf0">
+        <p>在创建项目之前，请确保<code class="code">@angular/cli</code>已被成功安装。</p>
+      </blockquote>
+      <p>执行以下命令，<code class="code">@angular/cli</code>会在当前目录下创建一个名为PROJECT_NAME的文件夹，并自动安装好依赖。</p>
+      <pre>
       <code class="code">
       $ <span class="function">ng</span> new PROJECT_NAME
       </code>
     </pre>
-  </div>
-  <div>
-    <h3>3.初始化配置</h3>
-    <p>进入项目文件夹，执行以下命令引入<code class="code">Bang Storage UI</code>。</p>
-    <pre>
+    </div>
+    <div>
+      <h3>3.初始化配置</h3>
+      <p>进入项目文件夹，执行以下命令引入<code class="code">Bang Storage UI</code>。</p>
+      <pre>
     <code class="code">
     $ <span class="function">yarn</span> add <span class="function">bang-storage-ui</span>
     </code>
     </pre>
-  </div>
-  <div>
-    <h3>4.引入<code class="code">NG-ZORRO</code>和<code class="code">echarts</code></h3>
-    <p>由于<code class="code">Bang Storage UI</code>是基于<code class="code">NG-ZORRO</code>的二次封装，因此你需要执行以下命令。</p>
-    <pre>
+    </div>
+    <div>
+      <h3>4.引入<code class="code">NG-ZORRO</code>和<code class="code">echarts</code></h3>
+      <p>由于<code class="code">Bang Storage UI</code>是基于<code class="code">NG-ZORRO</code>的二次封装，因此你需要执行以下命令。</p>
+      <pre>
     <code class="code">
     在根模块中
     import {{'{NgZorroAntdModule, NZ_I18N, zh_CN}'}} from 'ng-zorro-antd';
     import {{'{BangStorageUIModule}'}} from 'bang-storage-ui';
 
     @NgModule({{'{'}}
-     imports:[BangStorageUIModule,NgZorroAntdModule],
+      imports:[BangStorageUIModule,NgZorroAntdModule],
      providers: [{{'{provide: NZ_I18N, useValue: zh_CN}'}}]
-    {{'}'}})
+      {{'}'}})
 
     export class AppModule{{'{'}}
-    {{'}'}}
+      {{'}'}}
 
-    在angular.json中
-     {{'{'}}
-       "projects":{{'{'}}
-        "PROJECT_NAME":{{'{'}}
-         "architect":{{'{'}}
-          "build":{{'{'}}
-           "options":{{'{'}}
-            "assets":[
+      在angular.json中
+      {{'{'}}
+      "projects":{{'{'}}
+      "PROJECT_NAME":{{'{'}}
+      "architect":{{'{'}}
+      "build":{{'{'}}
+      "options":{{'{'}}
+      "assets":[
              "src/favicon.ico",
              "src/assets",
-               {{'{'}}
-                 "glob": "**/*",
+      {{'{'}}
+      "glob": "**/*",
                  "input": "./node_modules/@ant-design/icons-angular/src/inline-svg/",
                  "output": "/assets/"
-               {{'}'}}
-             ],
+      {{'}'}}
+      ],
              "scripts": [
                "./node_modules/echarts/dist/echarts.js"
              ]
-            {{'}'}}
-          {{'}'}}
-        {{'}'}}
       {{'}'}}
-    {{'}'}}
+      {{'}'}}
+      {{'}'}}
+      {{'}'}}
+      {{'}'}}
     </code>
     </pre>
-  </div>
-  <div>
-    <h3>5.开发调试</h3>
-    <p>一键启动调试，运行成功后进入页面。</p>
-    <pre>
+    </div>
+    <div>
+      <h3>5.开发调试</h3>
+      <p>一键启动调试，运行成功后进入页面。</p>
+      <pre>
     <code class="code">
     $ <span class="function">yarn</span> start -o
     </code>
     </pre>
-  </div>
-  <div>
-    <h3>6.构建和部署</h3>
-    <pre>
+    </div>
+    <div>
+      <h3>6.构建和部署</h3>
+      <pre>
     <code class="code">
     $ <span class="function">ng</span> build --prod
     </code>
     </pre>
-    <p>入口文件会构建到<code class="code">dist</code>目录中，你可以自由部署到不同环境中进行引用。</p>
-  </div>
-</article>
+      <p>入口文件会构建到<code class="code">dist</code>目录中，你可以自由部署到不同环境中进行引用。</p>
+    </div>
+  </article>
+
+</div>

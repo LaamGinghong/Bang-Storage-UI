@@ -1,40 +1,43 @@
-<h1>社区推荐</h1>
-<p><code class="code">Bang Storage UI</code>是<code class="code">NG-ZORRO</code>的二次封装，我们推荐使用以下社区已有的优秀实现和网站，希望能为你的开发过程提供帮助。</p>
-<article class="tool">
-  <h2>工具及解决方案</h2>
-  <nz-table
-    #nzTable
-    [nzBordered]="true"
-    [nzData]="tableData"
-    [nzFrontPagination]="false"
-    [nzShowPagination]="false"
-    [nzShowQuickJumper]="false"
-    [nzShowSizeChanger]="false"
-  >
-    <thead>
-    <tr>
-      <th>类型</th>
-      <th>名称</th>
-      <th>描述</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr *ngFor="let item of nzTable.data">
-      <td>{{item.type}}</td>
-      <td><a [href]="item.link">{{item.name}}</a></td>
-      <td>{{item.description}}</td>
-    </tr>
-    </tbody>
-  </nz-table>
-</article>
-<article class="website">
-  <h2>博客及网站</h2>
-  <ul>
-    <li><a href="https://angular.cn/" target="_blank">Angular中文官网</a></li>
-    <li><a href="https://segmentfault.com/a/1190000008754631#articleHeader0" target="_blank">Angular 4.x 修仙之路</a></li>
-    <li><a href="https://ithelp.ithome.com.tw/users/20103367/ironman/1199" target="_blank">30天精通RxJS系列（需翻墙）</a></li>
-    <li><a href="https://github.com/RxJS-CN" target="_blank">RxJS中文社区</a></li>
-    <li><a href="https://material.angular.cn/" target="_blank">Material Design of Angular</a></li>
-    <li><a href="https://segmentfault.com/a/1190000016298495" target="_blank">使用Angular-CLI构建自己的NPM包</a></li>
-  </ul>
-</article>
+<div class="recommend">
+  <h1>社区推荐</h1>
+  <p><code class="code">Bang Storage UI</code>是<code class="code">NG-ZORRO</code>的二次封装，我们推荐使用以下社区已有的优秀实现和网站，希望能为你的开发过程提供帮助。</p>
+  <article class="tool">
+    <h2>工具及解决方案</h2>
+    <nz-table
+      #nzTable
+      [nzBordered]="true"
+      [nzData]="tableData"
+      [nzFrontPagination]="false"
+      [nzShowPagination]="false"
+      [nzShowQuickJumper]="false"
+      [nzShowSizeChanger]="false"
+    >
+      <thead>
+      <tr>
+        <th>类型</th>
+        <th>名称</th>
+        <th>描述</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let item of nzTable.data">
+        <td>{{item.type}}</td>
+        <td><a [href]="item.link">{{item.name}}</a></td>
+        <td>{{item.description}}</td>
+      </tr>
+      </tbody>
+    </nz-table>
+  </article>
+  <article class="website">
+    <h2>博客及网站</h2>
+    <ul>
+      <li><a href="https://angular.cn/" target="_blank">Angular中文官网</a></li>
+      <li><a href="https://segmentfault.com/a/1190000008754631#articleHeader0" target="_blank">Angular 4.x 修仙之路</a></li>
+      <li><a href="https://ithelp.ithome.com.tw/users/20103367/ironman/1199" target="_blank">30天精通RxJS系列（需翻墙）</a></li>
+      <li><a href="https://github.com/RxJS-CN" target="_blank">RxJS中文社区</a></li>
+      <li><a href="https://material.angular.cn/" target="_blank">Material Design of Angular</a></li>
+      <li><a href="https://segmentfault.com/a/1190000016298495" target="_blank">使用Angular-CLI构建自己的NPM包</a></li>
+    </ul>
+  </article>
+
+</div>
