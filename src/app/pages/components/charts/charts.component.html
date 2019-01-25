@@ -1,3 +1,146 @@
-<p>
-  charts works!
-</p>
+<div class="charts">
+  <h1>Charts 图表</h1>
+  <p>用于数据可视化，帮助业务人员更好查阅、操作数据。</p>
+  <article>
+    <h2>何时使用</h2>
+    <p>用于数据可视化操作。</p>
+  </article>
+  <article>
+    <h2>代码演示</h2>
+    <div nz-row nzGutter="16">
+      <div nz-col nzSpan="12">
+        <div class="code-box">
+          <div class="code-box-demo">
+            <div storage-charts [storageOption]="codeBox.first.value" style="width: 700px;height: 300px"></div>
+          </div>
+          <div class="code-box-description">
+            <p>基本图表显示，需确定制定容器<code class="code">width</code>和<code class="code">height</code>。</p>
+            <span class="code-box-description-title">基本图表</span>
+            <span
+              nz-tooltip
+              [nzTitle]="'Hide Code'"
+              class="code-box-description-icon"
+              *ngIf="codeBox.first.show"
+              (click)="codeBox.first.show=!codeBox.first.show"
+            >
+              <img alt="expand code"
+                   src="https://gw.alipayobjects.com/zos/rmsportal/wSAkBuJFbdxsosKKpqyq.svg">
+            </span>
+            <span
+              nz-tooltip
+              [nzTitle]="'Show Code'"
+              class="code-box-description-icon"
+              *ngIf="!codeBox.first.show"
+              (click)="codeBox.first.show=!codeBox.first.show"
+            >
+              <img alt="expand code"
+                   src="https://gw.alipayobjects.com/zos/rmsportal/OpROPHYqWmrMDBFMZtKF.svg">
+            </span>
+          </div>
+          <div class="code-box-code" [hidden]="!codeBox.first.show">
+            <pre><code [highlight]="codeBox.first.source"></code></pre>
+          </div>
+        </div>
+        <div class="code-box">
+          <div class="code-box-demo">
+            <div style="width: 700px;height: 300px" storage-charts [storageOption]="codeBox.first.value"
+                 [storageLoading]="codeBox.third.value"></div>
+            <button storage-button storageType="primary" (click)="toggleLoading()">Loading</button>
+          </div>
+          <div class="code-box-description">
+            <p>异步加载可通过<code class="code">storageLoading</code>控制显示加载中符号。</p>
+            <span class="code-box-description-title">加载中</span>
+            <span
+              nz-tooltip
+              [nzTitle]="'Hide Code'"
+              class="code-box-description-icon"
+              *ngIf="codeBox.third.show"
+              (click)="codeBox.third.show=!codeBox.third.show"
+            >
+              <img alt="expand code"
+                   src="https://gw.alipayobjects.com/zos/rmsportal/wSAkBuJFbdxsosKKpqyq.svg">
+            </span>
+            <span
+              nz-tooltip
+              [nzTitle]="'Show Code'"
+              class="code-box-description-icon"
+              *ngIf="!codeBox.third.show"
+              (click)="codeBox.third.show=!codeBox.third.show"
+            >
+              <img alt="expand code"
+                   src="https://gw.alipayobjects.com/zos/rmsportal/OpROPHYqWmrMDBFMZtKF.svg">
+            </span>
+          </div>
+          <div class="code-box-code" [hidden]="!codeBox.third.show">
+            <pre><code [highlight]="codeBox.third.source"></code></pre>
+          </div>
+        </div>
+      </div>
+      <div nz-col nzSpan="12">
+        <div class="code-box">
+          <div class="code-box-demo">
+            <div storage-charts [storageOption]="codeBox.first.value" [storageMerge]="merge"
+                 style="width: 700px;height: 300px"></div>
+            <button storage-button storageType="primary" (click)="changeOption()">Change Option</button>
+          </div>
+          <div class="code-box-description">
+            <p>动态更新图表数据，只需将所需要的项传进<code class="code">merge</code>中。</p>
+            <span class="code-box-description-title">动态更新</span>
+            <span
+              nz-tooltip
+              [nzTitle]="'Hide Code'"
+              class="code-box-description-icon"
+              *ngIf="codeBox.second.show"
+              (click)="codeBox.second.show=!codeBox.second.show"
+            >
+              <img alt="expand code"
+                   src="https://gw.alipayobjects.com/zos/rmsportal/wSAkBuJFbdxsosKKpqyq.svg">
+            </span>
+            <span
+              nz-tooltip
+              [nzTitle]="'Show Code'"
+              class="code-box-description-icon"
+              *ngIf="!codeBox.second.show"
+              (click)="codeBox.second.show=!codeBox.second.show"
+            >
+              <img alt="expand code"
+                   src="https://gw.alipayobjects.com/zos/rmsportal/OpROPHYqWmrMDBFMZtKF.svg">
+            </span>
+          </div>
+          <div class="code-box-code" [hidden]="!codeBox.second.show">
+            <pre><code [highlight]="codeBox.second.source"></code></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+  </article>
+  <article>
+    <h2>API</h2>
+    <p><span class="api-title">[storage-charts]</span><span class="api-default directive">Directive</span></p>
+    <p>本指令只做图表的基本显示，具体配置项请看Interface<code class="code">StorageChartsOption</code>或者前往<a
+      href="https://echarts.baidu.com/option.html#title" target="_blank">官网</a>查看</p>
+    <nz-table
+      #nzTable
+      [nzData]="tableData"
+      [nzFrontPagination]="false"
+      [nzShowPagination]="false"
+    >
+      <thead>
+      <tr>
+        <th>属性</th>
+        <th>说明</th>
+        <th>类型</th>
+        <th>默认值</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let item of nzTable.data">
+        <td><code class="code">{{item.name}}</code></td>
+        <td [innerHTML]="item.description"></td>
+        <td><span class="table-type">{{item.type}}</span></td>
+        <td>{{item.default}}</td>
+      </tr>
+      </tbody>
+    </nz-table>
+  </article>
+</div>
