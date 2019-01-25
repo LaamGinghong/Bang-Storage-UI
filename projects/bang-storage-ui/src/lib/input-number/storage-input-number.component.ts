@@ -102,7 +102,7 @@ export class StorageInputNumberComponent implements OnInit {
   inputPrecisionCheck$ = new Subject<string>();
   outputValue$ = new Subject<string>();
   private _disabled: boolean;
-  private _placeholder: string;
+  private _placeholder = '请输入';
 
   constructor(
     private message: NzMessageService,
