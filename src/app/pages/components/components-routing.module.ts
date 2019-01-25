@@ -24,6 +24,9 @@ const routes: Routes = [{
   }, {
     path: 'charts',
     loadChildren: './charts/charts.module#ChartsModule'
+  }, {
+    path: 'backTop',
+    loadChildren: './back-top/back-top.module#BackTopModule'
   }]
 }];
 

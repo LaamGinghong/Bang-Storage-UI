@@ -4,6 +4,7 @@ import {StorageInputNumberModule} from './input-number/storage-input-number.modu
 import {StorageModalModule} from './modal/storage-modal.module';
 import {StorageZoomModule} from './zoom/storage-zoom.module';
 import {StorageChartsModule} from './charts/storage-charts.module';
+import {StorageBackTopModule} from './back-top/storage-back-top.module';
 
 @NgModule({
   exports: [
@@ -11,7 +12,8 @@ import {StorageChartsModule} from './charts/storage-charts.module';
     StorageInputNumberModule,
     StorageModalModule,
     StorageZoomModule,
-    StorageChartsModule
+    StorageChartsModule,
+    StorageBackTopModule
   ]
 })
 
