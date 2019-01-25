@@ -36,5 +36,9 @@ export const PagesMenu = [{
     name: 'charts 图表',
     route: 'charts',
     selected: false
+  }, {
+    name: 'BackTop 返回顶部',
+    route: 'backTop',
+    selected: false
   }]
 }];
