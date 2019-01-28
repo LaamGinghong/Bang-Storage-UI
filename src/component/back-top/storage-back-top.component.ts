@@ -1,11 +1,12 @@
 import {Component, EventEmitter, Inject, Input, OnInit, Output, Renderer2, TemplateRef} from '@angular/core';
 import {StorageBackTopService} from './storage-back-top.service';
 import {DOCUMENT} from '@angular/common';
+import {StorageBackTopPosition} from './storage-back-top.position';
 
 @Component({
   selector: 'storage-back-top',
   template: `
-    <div class="storage-back-top" (click)="backTop()" [hidden]="hidden">
+    <div class="storage-back-top" (click)="backTop()" [hidden]="hidden" [ngStyle]="position">
       <ng-template #defaultIcon>
         <div class="defaultIcon">
           <i nz-icon type="to-top" theme="outline"></i>
@@ -47,6 +48,9 @@ export class StorageBackTopComponent implements OnInit {
   @Input('storageTarget') target = 0;
 
   @Input('storageVisibilityHeight') height = 400;
+
+  @Input('storagePosition') position: StorageBackTopPosition;
+
   private _container: HTMLElement = null;
   hidden = true;
 
