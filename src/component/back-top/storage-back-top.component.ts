@@ -20,6 +20,7 @@ import {DOCUMENT} from '@angular/common';
       right: 100px;
       bottom: 150px;
       z-index: 9999999999;
+      cursor: pointer;
     }
 
     .defaultIcon {
