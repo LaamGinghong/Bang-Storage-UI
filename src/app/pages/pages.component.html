@@ -4,7 +4,7 @@
       <img src="../../assets/img/logo.png" alt="bang_storage_ui">
     </div>
   </nz-header>
-  <nz-layout class="container">
+  <nz-layout class="container" [style.height]="isBackTop?'auto':'calc(100vh - 64px)'">
     <nz-sider [nzWidth]="320">
       <ul nz-menu [nzMode]="'inline'">
         <ng-template ngFor [ngForOf]="menu" let-item let-index="index">

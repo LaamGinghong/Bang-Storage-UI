@@ -9,6 +9,7 @@ import {Router} from '@angular/router';
 })
 export class PagesComponent implements OnInit {
   menu = PagesMenu;
+  isBackTop = false;
 
   constructor(
     private router: Router
@@ -23,6 +24,7 @@ export class PagesComponent implements OnInit {
         item.selected = item.route === urls[urls.length - 1];
       });
     } else {
+      this.isBackTop = urls[2] === 'backTop';
       const array = this.menu[3].children as Array<{ route: string, selected: boolean }>;
       array.forEach(item => {
         item.selected = item.route === urls[2];
@@ -31,6 +33,10 @@ export class PagesComponent implements OnInit {
   }
 
   changePage(route: string, parentRoute?: string): void {
-    this.router.navigateByUrl(`pages/${parentRoute ? `${parentRoute}/${route}` : `${route}`}`);
+    this.router.navigateByUrl(`pages/${parentRoute ? `${parentRoute}/${route}` : `${route}`}`).then((value: boolean) => {
+      if (value) {
+        this.isBackTop = route === 'backTop';
+      }
+    });
   }
 }
