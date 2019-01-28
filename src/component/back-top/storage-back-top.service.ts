@@ -15,8 +15,8 @@ export class StorageBackTopService {
         if (this._doc.body.scrollTop === target && this._doc.documentElement.scrollTop === target) {
           clearInterval(scroll);
         }
-        this._doc.body.scrollTop -= 100;
-        this._doc.documentElement.scrollTop -= 100;
+        this._doc.body.scrollTop -= 10;
+        this._doc.documentElement.scrollTop -= 10;
       }, 1);
     } else {
       const scroll = setInterval(() => {
