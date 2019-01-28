@@ -22,14 +22,14 @@ import {DOCUMENT} from '@angular/common';
     }
 
     .defaultIcon {
-      width: 60px;
-      height: 60px;
+      width: 40px;
+      height: 40px;
       background: rgba(0, 0, 0, 0.45);
       border-radius: 50%;
       color: #fff;
       text-align: center;
-      font-size: 32px;
-      line-height: 60px;
+      font-size: 21px;
+      line-height: 40px;
     }
   `]
 })
@@ -62,11 +62,13 @@ export class StorageBackTopComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    if (this._container) {
-      this._renderer2.listen(this._container, 'scroll', (e: Event) => {
+    this._renderer2.listen(this._getContainer(), 'scroll', (e: Event) => {
+      if (this._getContainer() === window) {
+        this.hidden = e.target['scrollingElement']['scrollTop'] < this.height;
+      } else {
         this.hidden = e.target['scrollTop'] < this.height;
-      });
-    }
+      }
+    });
   }
 
   backTop(): void {
