@@ -19,6 +19,7 @@ import {DOCUMENT} from '@angular/common';
       position: fixed;
       right: 100px;
       bottom: 150px;
+      z-index: 9999999999;
     }
 
     .defaultIcon {
