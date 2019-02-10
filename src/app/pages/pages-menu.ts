@@ -40,5 +40,13 @@ export const PagesMenu = [{
     name: 'BackTop 返回顶部',
     route: 'backTop',
     selected: false
+  }, {
+    name: 'Upload 上传',
+    route: 'upload',
+    selected: false
+  }, {
+    name: 'Anchor 锚点',
+    route: 'anchor',
+    selected: false
   }]
 }];

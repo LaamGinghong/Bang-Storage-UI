@@ -27,6 +27,12 @@ const routes: Routes = [{
   }, {
     path: 'backTop',
     loadChildren: './back-top/back-top.module#BackTopModule'
+  }, {
+    path: 'upload',
+    loadChildren: './upload/upload.module#UploadModule'
+  }, {
+    path: 'anchor',
+    loadChildren: './anchor/anchor.module#AnchorModule'
   }]
 }];
 
