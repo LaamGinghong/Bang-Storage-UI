@@ -1,8 +1,8 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {StorageUploadComponent} from './storage-upload.component';
-import {StorageButtonModule} from '../button/storage-button.module';
 import {NgZorroAntdModule, NZ_MESSAGE_CONFIG, NzMessageConfig} from 'ng-zorro-antd';
+import {StorageButtonModule} from '../button';
 
 const messageConfig: NzMessageConfig = {
   nzMaxStack: 1,

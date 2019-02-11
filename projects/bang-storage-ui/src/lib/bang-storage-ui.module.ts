@@ -5,6 +5,7 @@ import {StorageModalModule} from './modal';
 import {StorageZoomModule} from './zoom';
 import {StorageChartsModule} from './charts';
 import {StorageBackTopModule} from './back-top';
+import {StorageUploadModule} from './upload';
 
 export * from './button';
 export * from './input-number';
@@ -12,6 +13,7 @@ export * from './modal';
 export * from './zoom';
 export * from './charts';
 export * from './back-top';
+export * from './upload';
 
 @NgModule({
   exports: [
@@ -20,7 +22,8 @@ export * from './back-top';
     StorageModalModule,
     StorageZoomModule,
     StorageChartsModule,
-    StorageBackTopModule
+    StorageBackTopModule,
+    StorageUploadModule
   ]
 })
 export class BangStorageUiModule {

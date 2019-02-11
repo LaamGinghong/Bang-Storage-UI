@@ -1,3 +1,12 @@
-<p>
-  upload works!
-</p>
+<storage-upload
+  [storageTemplate]=""
+  [storageLimited]="1"
+  [storageSize]="5000"
+  [storageType]="'image/jpeg'"
+  [storageMultiple]="true"
+  (storageFileListChange)="uploadChange($event)">
+  <ng-template #uploadTemplate>
+    <button storage-button storageType="primary">上传</button>
+  </ng-template>
+</storage-upload>
+<img [src]="url" alt="">

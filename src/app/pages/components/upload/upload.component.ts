@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {StorageUploadFile} from '../../../../component/upload/storage-upload-file';
 
 @Component({
   selector: 'app-upload',
@@ -6,10 +7,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./upload.component.less']
 })
 export class UploadComponent implements OnInit {
+  url = '';
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit() {
   }
 
+  uploadChange(e: StorageUploadFile[]): void {
+    console.log(e);
+  }
 }
