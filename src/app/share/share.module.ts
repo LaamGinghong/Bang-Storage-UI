@@ -3,8 +3,8 @@ import {CommonModule} from '@angular/common';
 import {NgZorroAntdModule, NZ_I18N, zh_CN} from 'ng-zorro-antd';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
-import {BangStorageUiModule} from '../../component/bang-storage-ui.module';
-// import {BangStorageUiModule} from 'bang-storage-ui';
+// import {BangStorageUiModule} from '../../component/bang-storage-ui.module';
+import {BangStorageUiModule} from 'bang-storage-ui';
 import {HighlightModule} from 'ngx-highlightjs';
 //
 

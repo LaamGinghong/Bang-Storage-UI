@@ -1,12 +1,245 @@
-<storage-upload
-  [storageTemplate]=""
-  [storageLimited]="1"
-  [storageSize]="5000"
-  [storageType]="'image/jpeg'"
-  [storageMultiple]="true"
-  (storageFileListChange)="uploadChange($event)">
-  <ng-template #uploadTemplate>
-    <button storage-button storageType="primary">上传</button>
-  </ng-template>
-</storage-upload>
-<img [src]="url" alt="">
+<div class="upload">
+  <h1>Upload 上传</h1>
+  <p>文件选择上传及文件批量上传控件。</p>
+  <article>
+    <h2>何时使用</h2>
+    <p>上传是将信息（网页、文字、图片、视频等）通过网页或者上传工具发布到远程服务器上的过程。</p>
+  </article>
+  <article>
+    <h2>注意事项</h2>
+    <p style="line-height: 2em"><code class="code">BangStorageUI</code>认为，文件上传的上传行为应该归属于当前操作的组件本身而非<code class="code">StorageUpload</code>组件，因此，<code class="code">StorageUpload</code>组件并没有整合上传行为的逻辑，而是希望开发者在使用过程中自行在组件中添加行为，避免在HTML中过多地书写JS代码，从而增加代码的耦合度。</p>
+  </article>
+  <article>
+    <h2>代码演示</h2>
+    <div nz-row nzGutter="16">
+      <div nz-col nzSpan="12">
+        <div class="code-box">
+          <div class="code-box-demo">
+            <storage-upload (storageLastFileChange)="singleUpload($event)"></storage-upload>
+          </div>
+          <div class="code-box-description">
+            <p>经典款式，用户点击按钮弹出文件选择框！</p>
+            <span class="code-box-description-title">点击上传</span>
+            <span
+              nz-tooltip
+              [nzTitle]="'Hide Code'"
+              class="code-box-description-icon"
+              *ngIf="codeBox.first.show"
+              (click)="codeBox.first.show=!codeBox.first.show"
+            >
+              <img alt="expand code"
+                   src="https://gw.alipayobjects.com/zos/rmsportal/wSAkBuJFbdxsosKKpqyq.svg">
+            </span>
+            <span
+              nz-tooltip
+              [nzTitle]="'Show Code'"
+              class="code-box-description-icon"
+              *ngIf="!codeBox.first.show"
+              (click)="codeBox.first.show=!codeBox.first.show"
+            >
+              <img alt="expand code"
+                   src="https://gw.alipayobjects.com/zos/rmsportal/OpROPHYqWmrMDBFMZtKF.svg">
+            </span>
+          </div>
+          <div class="code-box-code" [hidden]="!codeBox.first.show">
+            <pre><code [highlight]="codeBox.first.source"></code></pre>
+          </div>
+        </div>
+        <div class="code-box">
+          <div class="code-box-demo">
+            <storage-upload [(storageFileList)]="codeBox.third.value"></storage-upload>
+            <ul style="margin-top: 20px;list-style: circle">
+              <li style="margin: 10px 0;" *ngFor="let item of codeBox.third.value;let index=index">
+                <span>{{item.name}}</span>
+                <span style="float: right;cursor: pointer" (click)="codeBox.third.value.splice(index,1)">
+                  <i nz-icon type="close" theme="outline"></i>
+                </span>
+              </li>
+            </ul>
+            <button storage-button storageType="primary" (click)="multipleUpload(codeBox.third.value)">上传</button>
+          </div>
+          <div class="code-box-description">
+            <p>使用<code class="code">storageFileList</code>双向绑定已选择的文件列表。</p>
+            <span class="code-box-description-title">获取选择上传列表</span>
+            <span
+              nz-tooltip
+              [nzTitle]="'Hide Code'"
+              class="code-box-description-icon"
+              *ngIf="codeBox.third.show"
+              (click)="codeBox.third.show=!codeBox.third.show"
+            >
+              <img alt="expand code"
+                   src="https://gw.alipayobjects.com/zos/rmsportal/wSAkBuJFbdxsosKKpqyq.svg">
+            </span>
+            <span
+              nz-tooltip
+              [nzTitle]="'Show Code'"
+              class="code-box-description-icon"
+              *ngIf="!codeBox.third.show"
+              (click)="codeBox.third.show=!codeBox.third.show"
+            >
+              <img alt="expand code"
+                   src="https://gw.alipayobjects.com/zos/rmsportal/OpROPHYqWmrMDBFMZtKF.svg">
+            </span>
+          </div>
+          <div class="code-box-code" [hidden]="!codeBox.third.show">
+            <pre><code [highlight]="codeBox.third.source"></code></pre>
+          </div>
+        </div>
+        <div class="code-box">
+          <div class="code-box-demo">
+            <nz-select [(ngModel)]="codeBox.fifth.type" style="width: 120px" nzAllowClear>
+              <nz-option nzLabel="image/jpeg" nzValue="image/jpeg"></nz-option>
+              <nz-option nzLabel="image/png" nzValue="image/png"></nz-option>
+            </nz-select>
+            <br><br>
+            <storage-input-number [(storageValue)]="codeBox.fifth.size"></storage-input-number>
+            <br><br>
+            <storage-upload [storageType]="codeBox.fifth.type" [storageSize]="codeBox.fifth.size"></storage-upload>
+          </div>
+          <div class="code-box-description">
+            <p>设置<code class="code">storageType</code>，可以约束选择上传文件的类型，不传默认所有类型。</p>
+            <p>设置<code class="code">storageSize</code>，可以约束选择上传文件的大小，单位为<code class="code">KB</code>。</p>
+            <span class="code-box-description-title">类型与大小</span>
+            <span
+              nz-tooltip
+              [nzTitle]="'Hide Code'"
+              class="code-box-description-icon"
+              *ngIf="codeBox.fifth.show"
+              (click)="codeBox.fifth.show=!codeBox.fifth.show"
+            >
+              <img alt="expand code"
+                   src="https://gw.alipayobjects.com/zos/rmsportal/wSAkBuJFbdxsosKKpqyq.svg">
+            </span>
+            <span
+              nz-tooltip
+              [nzTitle]="'Show Code'"
+              class="code-box-description-icon"
+              *ngIf="!codeBox.fifth.show"
+              (click)="codeBox.fifth.show=!codeBox.fifth.show"
+            >
+              <img alt="expand code"
+                   src="https://gw.alipayobjects.com/zos/rmsportal/OpROPHYqWmrMDBFMZtKF.svg">
+            </span>
+          </div>
+          <div class="code-box-code" [hidden]="!codeBox.fifth.show">
+            <pre><code [highlight]="codeBox.fifth.source"></code></pre>
+          </div>
+        </div>
+      </div>
+      <div nz-col nzSpan="12">
+        <div class="code-box">
+          <div class="code-box-demo">
+            <storage-upload [storageTemplate]="customUploadTemplate" (storageLastFileChange)="singleUpload($event)">
+              <ng-template #customUploadTemplate>
+                <div id="customUploadTemplate">+</div>
+              </ng-template>
+            </storage-upload>
+          </div>
+          <div class="code-box-description">
+            <p>自定义上传组件样式，传入<code class="code">storageTemplate</code>。</p>
+            <span class="code-box-description-title">自定义样式</span>
+            <span
+              nz-tooltip
+              [nzTitle]="'Hide Code'"
+              class="code-box-description-icon"
+              *ngIf="codeBox.second.show"
+              (click)="codeBox.second.show=!codeBox.second.show"
+            >
+              <img alt="expand code"
+                   src="https://gw.alipayobjects.com/zos/rmsportal/wSAkBuJFbdxsosKKpqyq.svg">
+            </span>
+            <span
+              nz-tooltip
+              [nzTitle]="'Show Code'"
+              class="code-box-description-icon"
+              *ngIf="!codeBox.second.show"
+              (click)="codeBox.second.show=!codeBox.second.show"
+            >
+              <img alt="expand code"
+                   src="https://gw.alipayobjects.com/zos/rmsportal/OpROPHYqWmrMDBFMZtKF.svg">
+            </span>
+          </div>
+          <div class="code-box-code" [hidden]="!codeBox.second.show">
+            <pre><code [highlight]="codeBox.second.source"></code></pre>
+          </div>
+        </div>
+        <div class="code-box">
+          <div class="code-box-demo">
+            <storage-input-number [(storageValue)]="codeBox.forth.number"></storage-input-number>
+            <br><br>
+            <storage-upload
+              [(storageFileList)]="codeBox.forth.value"
+              [storageLimited]="codeBox.forth.number"
+              storageMultiple
+            ></storage-upload>
+            <ul style="margin-top: 20px;list-style: circle">
+              <li style="margin: 10px 0;" *ngFor="let item of codeBox.forth.value;let index=index">
+                <span>{{item.name}}</span>
+                <span style="float: right;cursor: pointer" (click)="codeBox.forth.value.splice(index,1)">
+                  <i nz-icon type="close" theme="outline"></i>
+                </span>
+              </li>
+            </ul>
+            <button storage-button storageType="primary" (click)="multipleUpload(codeBox.forth.value)">上传</button>
+          </div>
+          <div class="code-box-description">
+            <p>设置<code class="code">storageMultiple</code>，按住<code class="code">CTRL</code>键可以多选上传。</p>
+            <p>设置<code class="code">storageLimited</code>，可以限制上传文件的数量。</p>
+            <span class="code-box-description-title">多选及限制数量</span>
+            <span
+              nz-tooltip
+              [nzTitle]="'Hide Code'"
+              class="code-box-description-icon"
+              *ngIf="codeBox.forth.show"
+              (click)="codeBox.forth.show=!codeBox.forth.show"
+            >
+              <img alt="expand code"
+                   src="https://gw.alipayobjects.com/zos/rmsportal/wSAkBuJFbdxsosKKpqyq.svg">
+            </span>
+            <span
+              nz-tooltip
+              [nzTitle]="'Show Code'"
+              class="code-box-description-icon"
+              *ngIf="!codeBox.forth.show"
+              (click)="codeBox.forth.show=!codeBox.forth.show"
+            >
+              <img alt="expand code"
+                   src="https://gw.alipayobjects.com/zos/rmsportal/OpROPHYqWmrMDBFMZtKF.svg">
+            </span>
+          </div>
+          <div class="code-box-code" [hidden]="!codeBox.forth.show">
+            <pre><code [highlight]="codeBox.forth.source"></code></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+  </article>
+  <article>
+    <h2>API</h2>
+    <p><span class="api-title">storage-upload</span><span class="api-default component">Component</span></p>
+    <nz-table
+      #nzTable
+      [nzData]="tableData"
+      [nzFrontPagination]="false"
+      [nzShowPagination]="false"
+    >
+      <thead>
+      <tr>
+        <th>属性</th>
+        <th>说明</th>
+        <th>类型</th>
+        <th>默认值</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let item of nzTable.data">
+        <td><code class="code">{{item.name}}</code></td>
+        <td [innerHTML]="item.description"></td>
+        <td><span class="table-type">{{item.type}}</span></td>
+        <td>{{item.default}}</td>
+      </tr>
+      </tbody>
+    </nz-table>
+  </article>
+</div>
