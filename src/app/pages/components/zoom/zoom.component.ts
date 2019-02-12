@@ -29,7 +29,7 @@ export class ZoomComponent implements OnInit {
     }
   };
   tableData = [{
-    name: 'storagePath',
+    name: '[storagePath]',
     description: '图片地址',
     type: 'string',
     default: '-'

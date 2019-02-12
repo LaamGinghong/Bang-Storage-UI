@@ -170,7 +170,8 @@ export class InputNumberComponent implements OnInit {
     {member: '[storageFormatter]', description: '指定输入框展示值的格式', type: '{ icon: string, isBefore: boolean }', default: '-'},
     {member: '[storagePrecision]', description: '数值精度', type: 'number', default: '-'},
     {member: '[storagePlaceholder]', description: '输入框默认文字', type: 'string', default: '请输入'},
-    {member: '[storageDisabled]', description: '禁用', type: 'boolean', default: 'false'}
+    {member: '[storageDisabled]', description: '禁用', type: 'boolean', default: 'false'},
+    {member: '(storageValueChange)', description: '当前输入值发生改变', type: 'EventEmitter', default: '-'}
   ];
 
   constructor() {

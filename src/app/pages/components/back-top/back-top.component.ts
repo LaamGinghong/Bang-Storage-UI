@@ -157,7 +157,8 @@ export class BackTopComponent implements OnInit {
     {name: '[storageContainer]', description: '设置需要监听其滚动事件的元素，值为一个返回对应 DOM 元素的函数', type: 'string|Element', default: 'window'},
     {name: '[storageTarget]', description: '设置滚动距离顶部距离', type: 'number', default: 0},
     {name: '[storageVisibilityHeight]', description: '滚动高度达到此参数值才出现按钮', type: 'number', default: 400},
-    {name: '[storagePosition', description: '按钮出现位置', type: '{ left?: string, right?: string, top?: string, bottom?: string }', default: '-'}
+    {name: '[storagePosition]', description: '按钮出现位置', type: '{ left?: string, right?: string, top?: string, bottom?: string }', default: '-'},
+    {name: '(storageClick)', description: '点击返回顶部按钮改变的状态', type: 'EventEmitter', default: '-'}
   ];
 
   constructor() {
