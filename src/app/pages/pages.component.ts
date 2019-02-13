@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {PagesMenu} from './pages-menu';
 import {Router} from '@angular/router';
+import {Title} from '@angular/platform-browser';
 
 @Component({
   selector: 'app-pages',
@@ -12,12 +13,13 @@ export class PagesComponent implements OnInit {
   isBackTop = false;
 
   constructor(
-    private router: Router
+    private _router: Router,
+    private _title: Title
   ) {
   }
 
   ngOnInit(): void {
-    const urls = this.router.url.split('/');
+    const urls = this._router.url.split('/');
     urls.shift();
     if (urls.length === 2) {
       this.menu.forEach((item: { selected: boolean, route: string, name: string, children: Array<object> }) => {
@@ -32,10 +34,11 @@ export class PagesComponent implements OnInit {
     }
   }
 
-  changePage(route: string, parentRoute?: string): void {
-    this.router.navigateByUrl(`pages/${parentRoute ? `${parentRoute}/${route}` : `${route}`}`).then((value: boolean) => {
+  changePage(name: string, route: string, parentRoute?: string): void {
+    this._router.navigateByUrl(`pages/${parentRoute ? `${parentRoute}/${route}` : `${route}`}`).then((value: boolean) => {
       if (value) {
         this.isBackTop = route === 'backTop';
+        this._title.setTitle(name);
       }
     });
   }
