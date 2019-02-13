@@ -1,8 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {StorageUploadFile} from 'bang-storage-ui';
+// import {StorageUploadFile} from 'bang-storage-ui';
 import {UploadService} from './upload.service';
-
-// import {StorageUploadFile} from '../../../../component/upload/storage-upload-file';
+import {StorageUploadFile} from '../../../../component/upload/storage-upload-file';
 
 @Component({
   selector: 'app-upload',
@@ -263,7 +262,7 @@ export class UploadComponent implements OnInit {
                       <nz-option nzLabel="image/png" nzValue="image/png"></nz-option>
                     </nz-select>
                     <br><br>
-                    <storage-input-number [(storageValue)]="size"></storage-input-number>
+                    <storage-input-number [(storageValue)]="size"></storage-input-number>KB
                     <br><br>
                     <storage-upload [storageType]="type" [storageSize]="size"></storage-upload>
                   \`
