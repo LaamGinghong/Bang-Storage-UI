@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {StorageChartsOption} from '../../../../component/charts/storage-charts.option';
-// import {StorageChartsOption} from 'bang-storage-ui';
+// import {StorageChartsOption} from '../../../../component/charts/storage-charts.option';
+import {StorageChartsOption} from 'bang-storage-ui';
 
 @Component({
   selector: 'app-charts',
