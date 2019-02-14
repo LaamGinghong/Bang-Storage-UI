@@ -7,10 +7,10 @@ import {Subscription} from 'rxjs';
 @Component({
   selector: 'storage-anchor',
   template: `
-    <div class="hover anchor" [hidden]="show" (mouseenter)="_showAnchor()">
+    <div class="hover anchor" [hidden]="show" (mouseenter)="showAnchor()">
       悬浮显示
     </div>
-    <div class="anchor" (mouseleave)="_hideAnchor()" #showAnchor>
+    <div class="anchor" (mouseleave)="hideAnchor()" #showAnchorBox>
       <div class="anchor-line">
         <div class="anchor-ball" #ball></div>
       </div>
@@ -64,7 +64,7 @@ import {Subscription} from 'rxjs';
 
 export class StorageAnchorComponent implements OnInit, AfterViewInit, OnDestroy {
   show = false;
-  @ViewChild('showAnchor')
+  @ViewChild('showAnchorBox')
   private _showAnchorBox: ElementRef;
   @ViewChild('ball')
   private _ball: ElementRef;
@@ -75,7 +75,7 @@ export class StorageAnchorComponent implements OnInit, AfterViewInit, OnDestroy 
   constructor(
     private _renderer: Renderer2,
     @Inject(DOCUMENT)
-    private _document: Document,
+    private _document: any,
     private _storageAnchorService: StorageAnchorService
   ) {
   }
@@ -112,14 +112,14 @@ export class StorageAnchorComponent implements OnInit, AfterViewInit, OnDestroy 
     this._renderer.setStyle(this._ball.nativeElement, 'top', `${element.offsetTop + element.offsetHeight / 2 - 4}px`);
   }
 
-  private _showAnchor(): void {
+  public showAnchor(): void {
     this.show = true;
     this._renderer.setStyle(this._showAnchorBox.nativeElement, 'right', '10px');
     this._renderer.addClass(this._showAnchorBox.nativeElement, 'show');
     this._initBall();
   }
 
-  private _hideAnchor(): void {
+  public hideAnchor(): void {
     this.show = false;
     this._renderer.setStyle(this._showAnchorBox.nativeElement, 'right', `-${this._showAnchorBox.nativeElement.offsetWidth}px`);
   }
