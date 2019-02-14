@@ -2,15 +2,15 @@
   <h1>Upload 上传</h1>
   <p>文件选择上传及文件批量上传控件。</p>
   <article>
-    <h2>何时使用</h2>
+    <h2 id="use">何时使用</h2>
     <p>上传是将信息（网页、文字、图片、视频等）通过网页或者上传工具发布到远程服务器上的过程。</p>
   </article>
   <article>
-    <h2>注意事项</h2>
+    <h2 id="warning">注意事项</h2>
     <p style="line-height: 2em"><code class="code">BangStorageUI</code>认为，文件上传的上传行为应该归属于当前操作的组件本身而非<code class="code">StorageUpload</code>组件，因此，<code class="code">StorageUpload</code>组件并没有整合上传行为的逻辑，而是希望开发者在使用过程中自行在组件中添加行为，避免在HTML中过多地书写JS代码，从而增加代码的耦合度。</p>
   </article>
   <article>
-    <h2>代码演示</h2>
+    <h2 id="example">代码演示</h2>
     <div nz-row nzGutter="16">
       <div nz-col nzSpan="12">
         <div class="code-box">
@@ -216,7 +216,7 @@
     </div>
   </article>
   <article>
-    <h2>API</h2>
+    <h2 id="api">API</h2>
     <p><span class="api-title">storage-upload</span><span class="api-default component">Component</span></p>
     <nz-table
       #nzTable
@@ -243,4 +243,8 @@
     </nz-table>
   </article>
 </div>
-
+<storage-anchor>
+  <storage-link storageHref="#use" storageTitle="何时使用"></storage-link>
+  <storage-link storageHref="#example" storageTitle="代码演示"></storage-link>
+  <storage-link storageHref="#api" storageTitle="API"></storage-link>
+</storage-anchor>

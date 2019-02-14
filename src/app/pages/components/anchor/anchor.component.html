@@ -1,0 +1,79 @@
+<div class="anchor">
+  <h1>Anchor 锚点</h1>
+  <p>用于跳转到页面指定位置。</p>
+  <article id="use">
+    <h2>何时使用</h2>
+    <p>需要展现当前页面上可供跳转的锚点链接，以及快速在锚点之间跳转。</p>
+  </article>
+  <article id="example">
+    <h2>代码演示</h2>
+    <div nz-row nzGutter="16">
+      <div nz-col nzSpan="12">
+        <div class="code-box">
+          <div class="code-box-demo">
+            <storage-anchor>
+              <storage-link storageHref="#use" storageTitle="何时使用"></storage-link>
+              <storage-link storageHref="#example" storageTitle="代码演示"></storage-link>
+              <storage-link storageHref="#api" storageTitle="API"></storage-link>
+            </storage-anchor>
+            右侧悬浮
+          </div>
+          <div class="code-box-description">
+            <p>最简单用法。</p>
+            <span class="code-box-description-title">基本用法</span>
+            <span
+              nz-tooltip
+              [nzTitle]="'Hide Code'"
+              class="code-box-description-icon"
+              *ngIf="codeBox.first.show"
+              (click)="codeBox.first.show=!codeBox.first.show"
+            >
+              <img alt="expand code"
+                   src="https://gw.alipayobjects.com/zos/rmsportal/wSAkBuJFbdxsosKKpqyq.svg">
+            </span>
+            <span
+              nz-tooltip
+              [nzTitle]="'Show Code'"
+              class="code-box-description-icon"
+              *ngIf="!codeBox.first.show"
+              (click)="codeBox.first.show=!codeBox.first.show"
+            >
+              <img alt="expand code"
+                   src="https://gw.alipayobjects.com/zos/rmsportal/OpROPHYqWmrMDBFMZtKF.svg">
+            </span>
+          </div>
+          <div class="code-box-code" [hidden]="!codeBox.first.show">
+            <pre><code [highlight]="codeBox.first.source"></code></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+  </article>
+  <article id="api">
+    <h2>API</h2>
+    <p><span class="api-title">storage-link</span><span class="api-default component">Component</span></p>
+    <nz-table
+      #nzTable
+      [nzData]="tableData"
+      [nzFrontPagination]="false"
+      [nzShowPagination]="false"
+    >
+      <thead>
+      <tr>
+        <th>属性</th>
+        <th>说明</th>
+        <th>类型</th>
+        <th>默认值</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let item of nzTable.data">
+        <td><code class="code">{{item.name}}</code></td>
+        <td [innerHTML]="item.description"></td>
+        <td><span class="table-type">{{item.type}}</span></td>
+        <td>{{item.default}}</td>
+      </tr>
+      </tbody>
+    </nz-table>
+  </article>
+</div>
