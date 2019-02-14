@@ -1,13 +1,16 @@
-import {AfterViewInit, Component, ContentChildren, ElementRef, OnInit, QueryList, Renderer2, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, ContentChildren, ElementRef, Inject, OnDestroy, OnInit, QueryList, Renderer2, ViewChild} from '@angular/core';
 import {StorageLinkComponent} from './storage-link.component';
+import {DOCUMENT} from '@angular/common';
+import {StorageAnchorService} from './storage-anchor.service';
+import {Subscription} from 'rxjs';
 
 @Component({
   selector: 'storage-anchor',
   template: `
-    <!--<div class="hover anchor" [hidden]="show" (mouseenter)="_showAnchor()">
+    <div class="hover anchor" [hidden]="show" (mouseenter)="_showAnchor()">
       悬浮显示
-    </div>-->
-    <div class="show anchor" (mouseleave)="_hideAnchor()" #showAnchor>
+    </div>
+    <div class="anchor" (mouseleave)="_hideAnchor()" #showAnchor>
       <div class="anchor-line">
         <div class="anchor-ball" #ball></div>
       </div>
@@ -59,7 +62,7 @@ import {StorageLinkComponent} from './storage-link.component';
   `]
 })
 
-export class StorageAnchorComponent implements OnInit, AfterViewInit {
+export class StorageAnchorComponent implements OnInit, AfterViewInit, OnDestroy {
   show = false;
   @ViewChild('showAnchor')
   private _showAnchorBox: ElementRef;
@@ -67,38 +70,61 @@ export class StorageAnchorComponent implements OnInit, AfterViewInit {
   private _ball: ElementRef;
   @ContentChildren(StorageLinkComponent)
   private _storageLinkComponent: QueryList<StorageLinkComponent>;
+  private _clickHref$: Subscription = null;
 
   constructor(
-    private _renderer: Renderer2
+    private _renderer: Renderer2,
+    @Inject(DOCUMENT)
+    private _document: Document,
+    private _storageAnchorService: StorageAnchorService
   ) {
   }
 
   ngOnInit(): void {
+    this._clickHref$ = this._storageAnchorService.clickHref$.subscribe(() => {
+      setTimeout(() => {
+        this._initBall();
+      });
+    });
   }
 
   ngAfterViewInit(): void {
-    // this._renderer.setStyle(this._showAnchorBox.nativeElement, 'right', `-${this._showAnchorBox.nativeElement.offsetWidth}px`);
-    setTimeout(() => {
-      this._storageLinkComponent.toArray().forEach((item, index: number) => {
-        const element = item.elementRef.nativeElement;
-        this._renderer.setStyle(this._ball.nativeElement, 'top', `${element.offsetTop + element.offsetHeight / 2 - 4}px`);
+    this._renderer.setStyle(this._showAnchorBox.nativeElement, 'right', `-${this._showAnchorBox.nativeElement.offsetWidth}px`);
+    this._initBall();
+  }
+
+  private _initBall(): void {
+    const scrollTop = this._document.scrollingElement.scrollTop;
+    const elementScrollTop = [];
+    this._storageLinkComponent.toArray().forEach((item, index: number) => {
+      elementScrollTop.push({
+        index,
+        top: Math.abs(this._document.querySelector(`#${item.href.split('#')[1]}`).getBoundingClientRect().top - scrollTop)
       });
     });
+    elementScrollTop.sort((a: { index: number, top: number }, b: { index: number, top: number }): number => {
+      return a.top - b.top;
+    });
+    this._storageLinkComponent.toArray().forEach((item, index: number) => {
+      this._renderer.setStyle(item.elementRef.nativeElement.firstElementChild, 'color', index === elementScrollTop[0].index ? '#1890ff' : 'rgba(0, 0, 0, .65)');
+    });
+    const element = this._storageLinkComponent.toArray()[elementScrollTop[0].index].elementRef.nativeElement.firstElementChild;
+    this._renderer.setStyle(this._ball.nativeElement, 'top', `${element.offsetTop + element.offsetHeight / 2 - 4}px`);
   }
 
   private _showAnchor(): void {
     this.show = true;
     this._renderer.setStyle(this._showAnchorBox.nativeElement, 'right', '10px');
     this._renderer.addClass(this._showAnchorBox.nativeElement, 'show');
+    this._initBall();
   }
 
   private _hideAnchor(): void {
-    /*const timer = setTimeout(() => {
-      this.show = false;
-      this._renderer.setStyle(this._showAnchorBox.nativeElement, 'right', `-${this._showAnchorBox.nativeElement.offsetWidth}px`);
-      if (!this.show) {
-        clearTimeout(timer);
-      }
-    }, 1000);*/
+    this.show = false;
+    this._renderer.setStyle(this._showAnchorBox.nativeElement, 'right', `-${this._showAnchorBox.nativeElement.offsetWidth}px`);
+  }
+
+  ngOnDestroy(): void {
+    this._clickHref$.unsubscribe();
   }
 }
