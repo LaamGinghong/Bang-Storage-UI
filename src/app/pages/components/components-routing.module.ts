@@ -33,6 +33,9 @@ const routes: Routes = [{
   }, {
     path: 'anchor',
     loadChildren: './anchor/anchor.module#AnchorModule'
+  }, {
+    path: 'carousel',
+    loadChildren: './carousel/carousel.module#CarouselModule'
   }]
 }];
 

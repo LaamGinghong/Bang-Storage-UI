@@ -48,5 +48,9 @@ export const PagesMenu = [{
     name: 'Anchor 锚点',
     route: 'anchor',
     selected: false
+  }, {
+    name: 'Carousel 走马灯',
+    route: 'carousel',
+    selected: false
   }]
 }];
