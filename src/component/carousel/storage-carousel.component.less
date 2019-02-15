@@ -7,6 +7,7 @@
 
   &-container {
     height: 100%;
+    transition: transform .8s ease-in-out;
   }
 
   &-dot {
@@ -25,9 +26,44 @@
         width: 10px;
         height: 10px;
         border-radius: 4px;
-        background: rgba(255, 255, 255, .6);
+        background: rgba(255, 255, 255, .3);
         cursor: pointer;
         margin: 0 5px;
+      }
+    }
+
+    &-selected {
+      background: #fff !important;
+    }
+  }
+
+  &-direction {
+    position: absolute;
+    top: 35%;
+    left: 0;
+    right: 0;
+    font-size: 36px;
+    margin: 0 10px;
+    color: rgba(255, 255, 255, .3);
+
+    &-left, &-right {
+      cursor: pointer;
+      transition: color .5s;
+
+      &:hover {
+        color: #fff;
+      }
+    }
+
+    &-right {
+      float: right;
+    }
+
+    &-forbid {
+      cursor: not-allowed;
+
+      &:hover {
+        color: rgba(255, 255, 255, .3);
       }
     }
   }
