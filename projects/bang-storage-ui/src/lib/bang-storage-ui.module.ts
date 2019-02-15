@@ -7,6 +7,7 @@ import {StorageChartsModule} from './charts';
 import {StorageBackTopModule} from './back-top';
 import {StorageUploadModule} from './upload';
 import {StorageAnchorModule} from './anchor';
+import {StorageCarouselModule} from './carousel';
 
 export * from './button';
 export * from './input-number';
@@ -16,6 +17,7 @@ export * from './charts';
 export * from './back-top';
 export * from './upload';
 export * from './anchor';
+export * from './carousel';
 
 @NgModule({
   exports: [
@@ -26,7 +28,8 @@ export * from './anchor';
     StorageChartsModule,
     StorageBackTopModule,
     StorageUploadModule,
-    StorageAnchorModule
+    StorageAnchorModule,
+    StorageCarouselModule
   ]
 })
 export class BangStorageUiModule {
