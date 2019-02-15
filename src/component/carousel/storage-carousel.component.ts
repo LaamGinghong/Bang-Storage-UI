@@ -155,6 +155,7 @@ export class StorageCarouselComponent implements AfterContentInit, AfterViewInit
   }
 
   clearTimer(): void {
+    console.log(this.timer);
     clearInterval(this.timer);
   }
 
