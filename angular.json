@@ -36,6 +36,8 @@
             ],
             "scripts": [
               "./node_modules/echarts/dist/echarts.js",
+              "./node_modules/hammerjs/hammer.min.js",
+              "./node_modules/touch-emulator/index.js"
             ]
           },
           "configurations": {

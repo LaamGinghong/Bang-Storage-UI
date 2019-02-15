@@ -1,6 +1,6 @@
-import {AfterContentInit, AfterViewInit, Component, ContentChildren, ElementRef, Input, QueryList, Renderer2, ViewChild} from '@angular/core';
+import {AfterContentInit, AfterViewInit, Component, ContentChildren, ElementRef, EventEmitter, Input, Output, QueryList, Renderer2, ViewChild} from '@angular/core';
 import {StorageCarouselContentComponent} from './storage-carousel-content.component';
-import {StorageCarouselSize} from './storage-carousel.interface';
+import {StorageCarouselClick, StorageCarouselGesture, StorageCarouselSize} from './storage-carousel.interface';
 import Timer = NodeJS.Timer;
 import {InputBoolean} from 'ng-zorro-antd';
 
@@ -8,7 +8,13 @@ import {InputBoolean} from 'ng-zorro-antd';
   selector: 'storage-carousel',
   template: `
     <div class="storage-carousel" [ngStyle]="size" (mouseenter)="clearTimer()" (mouseleave)="setTimer()">
-      <div class="storage-carousel-container" #containerElement [style.transform]="'translateX('+moveX+'px)'">
+      <div
+        class="storage-carousel-container"
+        #containerElement
+        [style.transform]="'translateX('+moveX+'px)'"
+        (swipeleft)="swipe($event.type)"
+        (swiperight)="swipe($event.type)"
+      >
         <ng-content></ng-content>
       </div>
       <div class="storage-carousel-dot" *ngIf="showDots">
@@ -51,6 +57,7 @@ export class StorageCarouselComponent implements AfterContentInit, AfterViewInit
   @Input('storageAutoPlaySpeed') speed = 3000;
   @Input('storageDots') showDots = true;
   @Input('storageDirection') showDirection = true;
+  @Output('storageClickDirection') clickDirection = new EventEmitter<StorageCarouselClick>();
   moveX = 0;
   isForbid = false;
   containerList: Array<{ selected: boolean }> = [];
@@ -92,6 +99,7 @@ export class StorageCarouselComponent implements AfterContentInit, AfterViewInit
       item.selected = index === i;
     });
     this.checkForbid();
+    this.clickDirection.emit({index});
   }
 
   checkForbid(): void {
@@ -104,14 +112,17 @@ export class StorageCarouselComponent implements AfterContentInit, AfterViewInit
       return;
     }
     this.moveX += parseInt(this.size.width, 10);
-    for (let index = 0; index < this.containerList.length; index++) {
-      if (this.containerList[index].selected) {
-        this.containerList[index - 1].selected = true;
-        this.containerList[index].selected = false;
+    let index: number;
+    for (let i = 0; i < this.containerList.length; i++) {
+      if (this.containerList[i].selected) {
+        this.containerList[i - 1].selected = true;
+        this.containerList[i].selected = false;
+        index = i - 1;
         break;
       }
     }
     this.checkForbid();
+    this.clickDirection.emit({index, value: 'previous'});
   }
 
   nextIndex(): void {
@@ -120,14 +131,17 @@ export class StorageCarouselComponent implements AfterContentInit, AfterViewInit
       return;
     }
     this.moveX -= parseInt(this.size.width, 10);
-    for (let index = 0; index < this.containerList.length; index++) {
-      if (this.containerList[index].selected) {
-        this.containerList[index + 1].selected = true;
-        this.containerList[index].selected = false;
+    let index: number;
+    for (let i = 0; i < this.containerList.length; i++) {
+      if (this.containerList[i].selected) {
+        this.containerList[i + 1].selected = true;
+        this.containerList[i].selected = false;
+        index = i + 1;
         break;
       }
     }
     this.checkForbid();
+    this.clickDirection.emit({index, value: 'next'});
   }
 
   clearTimer(): void {
@@ -154,5 +168,9 @@ export class StorageCarouselComponent implements AfterContentInit, AfterViewInit
         }
       }, this.speed);
     }
+  }
+
+  swipe(e: StorageCarouselGesture) {
+    e === 'swipeleft' ? this.nextIndex() : this.previousIndex();
   }
 }

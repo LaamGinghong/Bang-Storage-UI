@@ -6,7 +6,6 @@ import {HttpClientModule} from '@angular/common/http';
 import {BangStorageUiModule} from '../../component/bang-storage-ui.module';
 // import {BangStorageUiModule} from 'bang-storage-ui';
 import {HighlightModule} from 'ngx-highlightjs';
-//
 
 @NgModule({
   declarations: [],
