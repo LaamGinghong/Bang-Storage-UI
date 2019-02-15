@@ -49,10 +49,20 @@ export class StorageCarouselComponent implements AfterContentInit, AfterViewInit
   public storageCarouselContent: QueryList<StorageCarouselContentComponent>;
   @ViewChild('containerElement')
   private _containerElement: ElementRef;
-  @Input('storageSize') size: StorageCarouselSize = {
-    width: '720px',
-    height: '180px'
-  };
+
+  @Input('storageSize')
+  set size(value: StorageCarouselSize) {
+    if (value) {
+      parseInt(value.width, 10) < 220 ? value.width = '220px' : value;
+      parseInt(value.height, 10) < 120 ? value.height = '120px' : value;
+      this._size = value;
+    }
+  }
+
+  get size(): StorageCarouselSize {
+    return this._size;
+  }
+
   @Input('storageAutoPlay') @InputBoolean() autoPlay = false;
   @Input('storageAutoPlaySpeed') speed = 3000;
   @Input('storageDots') showDots = true;
@@ -62,6 +72,7 @@ export class StorageCarouselComponent implements AfterContentInit, AfterViewInit
   isForbid = false;
   containerList: Array<{ selected: boolean }> = [];
   timer: Timer;
+  private _size: StorageCarouselSize = {width: '720px', height: '180px'};
 
   constructor(
     private _renderer: Renderer2

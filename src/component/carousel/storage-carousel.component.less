@@ -1,7 +1,7 @@
 .storage-carousel {
   background: #0d1a26;
-  min-width: 720px;
-  min-height: 160px;
+  min-width: 220px;
+  min-height: 120px;
   position: relative;
   overflow: hidden;
 
@@ -45,6 +45,9 @@
     font-size: 36px;
     margin: 0 10px;
     color: rgba(255, 255, 255, .3);
+    @media (max-width: 600px) {
+      display: none;
+    }
 
     &-left, &-right {
       cursor: pointer;
