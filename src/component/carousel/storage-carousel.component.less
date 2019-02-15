@@ -1,0 +1,34 @@
+.storage-carousel {
+  background: #0d1a26;
+  min-width: 720px;
+  min-height: 160px;
+  position: relative;
+  overflow: hidden;
+
+  &-container {
+    height: 100%;
+  }
+
+  &-dot {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    ul {
+      padding: 0;
+      margin: 0;
+      text-align: center;
+
+      li {
+        display: inline-block;
+        width: 10px;
+        height: 10px;
+        border-radius: 4px;
+        background: rgba(255, 255, 255, .6);
+        cursor: pointer;
+        margin: 0 5px;
+      }
+    }
+  }
+}
