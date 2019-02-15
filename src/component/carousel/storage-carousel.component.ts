@@ -1,7 +1,6 @@
 import {AfterContentInit, AfterViewInit, Component, ContentChildren, ElementRef, EventEmitter, Input, Output, QueryList, Renderer2, ViewChild} from '@angular/core';
 import {StorageCarouselContentComponent} from './storage-carousel-content.component';
 import {StorageCarouselClick, StorageCarouselGesture, StorageCarouselSize} from './storage-carousel.interface';
-import Timer = NodeJS.Timer;
 import {InputBoolean} from 'ng-zorro-antd';
 
 @Component({
@@ -65,13 +64,13 @@ export class StorageCarouselComponent implements AfterContentInit, AfterViewInit
 
   @Input('storageAutoPlay') @InputBoolean() autoPlay = false;
   @Input('storageAutoPlaySpeed') speed = 3000;
-  @Input('storageDots') showDots = true;
-  @Input('storageDirection') showDirection = true;
+  @Input('storageDots') @InputBoolean() showDots = true;
+  @Input('storageDirection') @InputBoolean() showDirection = true;
   @Output('storageClickDirection') clickDirection = new EventEmitter<StorageCarouselClick>();
   moveX = 0;
   isForbid = false;
   containerList: Array<{ selected: boolean }> = [];
-  timer: Timer;
+  timer: any;
   private _size: StorageCarouselSize = {width: '720px', height: '180px'};
 
   constructor(
