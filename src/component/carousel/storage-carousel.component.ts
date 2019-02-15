@@ -1,15 +1,17 @@
-import {AfterContentInit, Component, ContentChildren, ElementRef, Input, QueryList, Renderer2, ViewChild} from '@angular/core';
+import {AfterContentInit, AfterViewInit, Component, ContentChildren, ElementRef, Input, QueryList, Renderer2, ViewChild} from '@angular/core';
 import {StorageCarouselContentComponent} from './storage-carousel-content.component';
 import {StorageCarouselSize} from './storage-carousel.interface';
+import Timer = NodeJS.Timer;
+import {InputBoolean} from 'ng-zorro-antd';
 
 @Component({
   selector: 'storage-carousel',
   template: `
-    <div class="storage-carousel" [ngStyle]="size">
+    <div class="storage-carousel" [ngStyle]="size" (mouseenter)="clearTimer()" (mouseleave)="setTimer()">
       <div class="storage-carousel-container" #containerElement [style.transform]="'translateX('+moveX+'px)'">
         <ng-content></ng-content>
       </div>
-      <div class="storage-carousel-dot">
+      <div class="storage-carousel-dot" *ngIf="showDots">
         <ul>
           <li
             *ngFor="let item of containerList;let i=index"
@@ -18,7 +20,7 @@ import {StorageCarouselSize} from './storage-carousel.interface';
           ></li>
         </ul>
       </div>
-      <div class="storage-carousel-direction">
+      <div class="storage-carousel-direction" *ngIf="showDirection">
         <span
           class="storage-carousel-direction-left"
           [class.storage-carousel-direction-forbid]="moveX===0"
@@ -36,7 +38,7 @@ import {StorageCarouselSize} from './storage-carousel.interface';
   `,
   styleUrls: ['./storage-carousel.component.less']
 })
-export class StorageCarouselComponent implements AfterContentInit {
+export class StorageCarouselComponent implements AfterContentInit, AfterViewInit {
   @ContentChildren(StorageCarouselContentComponent)
   public storageCarouselContent: QueryList<StorageCarouselContentComponent>;
   @ViewChild('containerElement')
@@ -45,16 +47,21 @@ export class StorageCarouselComponent implements AfterContentInit {
     width: '720px',
     height: '180px'
   };
+  @Input('storageAutoPlay') @InputBoolean() autoPlay = false;
+  @Input('storageAutoPlaySpeed') speed = 3000;
+  @Input('storageDots') showDots = true;
+  @Input('storageDirection') showDirection = true;
   moveX = 0;
   isForbid = false;
   containerList: Array<{ selected: boolean }> = [];
+  timer: Timer;
 
   constructor(
     private _renderer: Renderer2
   ) {
   }
 
-  ngAfterContentInit(): void {
+  initContainer(): void {
     let containerWidth = 0;
     const {width, height} = this.size;
     this.storageCarouselContent.toArray().forEach(item => {
@@ -68,6 +75,15 @@ export class StorageCarouselComponent implements AfterContentInit {
       };
     });
     this._renderer.setStyle(this._containerElement.nativeElement, 'width', `${containerWidth}px`);
+  }
+
+  ngAfterContentInit(): void {
+    this.initContainer();
+  }
+
+  ngAfterViewInit(): void {
+    this.setTimer();
+    this.initContainer();
   }
 
   changeIndex(index: number): void {
@@ -112,5 +128,31 @@ export class StorageCarouselComponent implements AfterContentInit {
       }
     }
     this.checkForbid();
+  }
+
+  clearTimer(): void {
+    clearInterval(this.timer);
+  }
+
+  setTimer(): void {
+    if (this.autoPlay) {
+      this.timer = setInterval(() => {
+        if (Math.abs(this.moveX) === parseInt(this.size.width, 10) * (this.containerList.length - 1)) {
+          this.moveX = 0;
+          this.containerList.forEach((item, index: number) => {
+            item.selected = !index;
+          });
+          return;
+        }
+        this.moveX -= parseInt(this.size.width, 10);
+        for (let index = 0; index < this.containerList.length; index++) {
+          if (this.containerList[index].selected) {
+            this.containerList[index + 1].selected = true;
+            this.containerList[index].selected = false;
+            break;
+          }
+        }
+      }, this.speed);
+    }
   }
 }
