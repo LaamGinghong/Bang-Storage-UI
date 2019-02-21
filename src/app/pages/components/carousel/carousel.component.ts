@@ -7,15 +7,12 @@ import TouchEmulator from 'touch-emulator/index.js';
   styleUrls: ['./carousel.component.less']
 })
 export class CarouselComponent implements OnInit {
+  array = [1, 2, 3, 4];
 
   constructor() {
   }
 
   ngOnInit() {
     TouchEmulator();
-  }
-
-  click(e) {
-    console.log(e);
   }
 }

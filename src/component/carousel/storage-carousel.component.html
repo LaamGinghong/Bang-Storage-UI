@@ -1,0 +1,27 @@
+<div class="storage-carousel" [ngStyle]="size">
+  <div
+    class="storage-carousel-container"
+    [style.transform]="'translateX('+move+'px)'"
+    #container>
+    <ng-content></ng-content>
+  </div>
+  <div class="storage-carousel-dots" *ngIf="dots">
+    <ul>
+      <li
+        *ngFor="let item of dotsArray;let i=index"
+        [class.storage-carousel-dots-selected]="item.selected"
+        (click)="_changeIndex(i)"
+      ></li>
+    </ul>
+  </div>
+  <div class="storage-carousel-direction" *ngIf="direction" [style.lineHeight]="size.height">
+    <span
+      [class.storage-carousel-direction-forbid]="dotsArray[0].selected"
+      (click)="_clickDirection()"
+    ><i nz-icon type="left-circle" theme="outline"></i></span>
+    <span
+      [class.storage-carousel-direction-forbid]="dotsArray[dotsArray.length-1].selected"
+      (click)="_clickDirection(true)"
+    ><i nz-icon type="right-circle" theme="outline"></i></span>
+  </div>
+</div>

@@ -1,72 +1,79 @@
 .storage-carousel {
-  background: #0d1a26;
-  min-width: 220px;
-  min-height: 120px;
-  position: relative;
+  background: #fff;
+  border: 1px solid #0d1a26;
+  display: inline-block;
   overflow: hidden;
+  position: relative;
 
   &-container {
     height: 100%;
     transition: transform .8s ease-in-out;
   }
 
-  &-dot {
+  &-dots {
     position: absolute;
     left: 0;
     right: 0;
     bottom: 0;
+    z-index: 999999;
 
     ul {
+      list-style: none;
       padding: 0;
       margin: 0;
       text-align: center;
 
+
       li {
-        display: inline-block;
-        width: 10px;
-        height: 10px;
+        width: 20px;
+        height: 8px;
+        margin: 0 2px;
         border-radius: 4px;
-        background: rgba(255, 255, 255, .3);
+        background: #333;
+        opacity: 0.4;
+        display: inline-block;
         cursor: pointer;
-        margin: 0 5px;
+        transition: opacity .8s;
+
+        &:hover {
+          opacity: 1 !important;
+        }
       }
     }
 
     &-selected {
-      background: #fff !important;
+      opacity: 0.8 !important;
     }
   }
 
   &-direction {
     position: absolute;
-    top: 35%;
     left: 0;
     right: 0;
-    font-size: 36px;
-    margin: 0 10px;
-    color: rgba(255, 255, 255, .3);
-    @media (max-width: 600px) {
-      display: none;
-    }
+    top: 0;
+    bottom: 0;
 
-    &-left, &-right {
+    span {
+      font-size: 40px;
+      color: #333;
+      opacity: 0.4;
       cursor: pointer;
-      transition: color .5s;
+      transition: opacity .8s;
+
+      &:last-child {
+        float: right;
+      }
 
       &:hover {
-        color: #fff;
+        opacity: 1;
       }
     }
 
-    &-right {
-      float: right;
-    }
-
     &-forbid {
-      cursor: not-allowed;
+      cursor: not-allowed !important;
 
       &:hover {
-        color: rgba(255, 255, 255, .3);
+        opacity: 0.4 !important;
       }
     }
   }

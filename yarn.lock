@@ -1089,13 +1089,6 @@ balanced-match@^1.0.0:
   resolved "https://registry.yarnpkg.com/balanced-match/-/balanced-match-1.0.0.tgz#89b4d199ab2bee49de164ea02b89ce462d71b767"
   integrity sha1-ibTRmasr7kneFk6gK4nORi1xt2c=
 
-bang-storage-ui@^7.9.0:
-  version "7.9.0"
-  resolved "https://registry.yarnpkg.com/bang-storage-ui/-/bang-storage-ui-7.9.0.tgz#1bd26736852ccbc371adf2cb869e0ed3007301e4"
-  integrity sha512-1Ze3YvCgNTQTGf0NSPM5RJ3ZuEvO4zWQs7HHhOdv9XG1C2FBsJiocnwv6J8WMCjFCGZq/Lh5fCFvHGNl6a58ng==
-  dependencies:
-    tslib "^1.9.0"
-
 base64-arraybuffer@0.1.5:
   version "0.1.5"
   resolved "https://registry.yarnpkg.com/base64-arraybuffer/-/base64-arraybuffer-0.1.5.tgz#73926771923b5a19747ad666aa5cd4bf9c6e9ce8"
