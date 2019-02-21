@@ -2,8 +2,12 @@ import {ChangeDetectionStrategy, Component, HostBinding, ViewEncapsulation} from
 
 @Component({
   selector: '[storage-carousel-content]',
-  templateUrl: './storage-carousel-content.component.html',
-  styleUrls: ['./storage-carousel-content.component.less'],
+  templateUrl: '<ng-content></ng-content>',
+  styles: [`
+    .storage-carousel-content {
+      float: left;
+    }
+  `],
   preserveWhitespaces: false,
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
@@ -15,5 +19,4 @@ export class StorageCarouselContentComponent {
 
   constructor() {
   }
-
 }
