@@ -1,4 +1,4 @@
-<div class="storage-carousel" [ngStyle]="size">
+<div class="storage-carousel" [ngStyle]="size" (mouseenter)="_setTimer()" (mouseleave)="_setTimer(true)">
   <div
     class="storage-carousel-container"
     [style.transform]="'translateX('+move+'px)'"
@@ -14,7 +14,11 @@
       ></li>
     </ul>
   </div>
-  <div class="storage-carousel-direction" *ngIf="direction" [style.lineHeight]="size.height">
+  <div
+    class="storage-carousel-direction"
+    *ngIf="direction"
+    [style.lineHeight]="size.height"
+  >
     <span
       [class.storage-carousel-direction-forbid]="dotsArray[0].selected"
       (click)="_clickDirection()"

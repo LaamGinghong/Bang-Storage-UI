@@ -1,4 +1,4 @@
-import {AfterContentInit, Component, ContentChildren, ElementRef, EventEmitter, Input, Output, QueryList, Renderer2, ViewChild} from '@angular/core';
+import {AfterContentInit, AfterViewInit, Component, ContentChildren, ElementRef, EventEmitter, Input, Output, QueryList, Renderer2, ViewChild} from '@angular/core';
 import {StorageCarouselSize} from './storage-carousel.interface';
 import {StorageCarouselContentComponent} from './storage-carousel-content/storage-carousel-content.component';
 import {InputBoolean} from 'ng-zorro-antd';
@@ -9,7 +9,8 @@ import {InputBoolean} from 'ng-zorro-antd';
   styleUrls: ['./storage-carousel.component.less']
 })
 
-export class StorageCarouselComponent implements AfterContentInit {
+export class StorageCarouselComponent implements AfterContentInit, AfterViewInit {
+  private _timer: any;
   private _size: StorageCarouselSize = {
     width: '720px',
     height: '220px'
@@ -36,7 +37,9 @@ export class StorageCarouselComponent implements AfterContentInit {
   }
 
   @Input('storageDots') @InputBoolean() dots = true;
-  @Input('storageDirection') @InputBoolean() direction;
+  @Input('storageDirection') @InputBoolean() direction = false;
+  @Input('storageAutoRun') @InputBoolean() autoRun = false;
+  @Input('storageAutoRunSpeed') speed = 3000;
   @Output('storageClickIndex') clickIndex = new EventEmitter<number>();
   @Output('storageClickDirection') clickDirection = new EventEmitter<'pre' | 'next'>();
 
@@ -94,6 +97,36 @@ export class StorageCarouselComponent implements AfterContentInit {
         }
       }
       this.clickDirection.emit('next');
+    }
+  }
+
+  ngAfterViewInit(): void {
+    if (this.autoRun) {
+      this._setTimer(true);
+    }
+  }
+
+  private _setTimer(set = false): void {
+    if (set) {
+      const {width} = this.size;
+      this._timer = setInterval(() => {
+        if (this.dotsArray[this.dotsArray.length - 1].selected) {
+          this.dotsArray[0].selected = true;
+          this.dotsArray[this.dotsArray.length - 1].selected = false;
+          this.move = 0;
+        } else {
+          this.move -= parseInt(width, 10);
+          for (let i = 0; i < this.dotsArray.length; i++) {
+            if (this.dotsArray[i].selected) {
+              this.dotsArray[i].selected = false;
+              this.dotsArray[i + 1].selected = true;
+              break;
+            }
+          }
+        }
+      }, this.speed);
+    } else {
+      clearInterval(this._timer);
     }
   }
 }

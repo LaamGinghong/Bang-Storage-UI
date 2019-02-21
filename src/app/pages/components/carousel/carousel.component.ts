@@ -1,5 +1,4 @@
 import {Component, OnInit} from '@angular/core';
-import TouchEmulator from 'touch-emulator/index.js';
 
 @Component({
   selector: 'app-carousel',
@@ -13,6 +12,5 @@ export class CarouselComponent implements OnInit {
   }
 
   ngOnInit() {
-    TouchEmulator();
   }
 }
