@@ -1,6 +1,7 @@
-import {AfterContentInit, Component, ContentChildren, ElementRef, Input, QueryList, Renderer2, ViewChild} from '@angular/core';
+import {AfterContentInit, Component, ContentChildren, ElementRef, EventEmitter, Input, Output, QueryList, Renderer2, ViewChild} from '@angular/core';
 import {StorageCarouselSize} from './storage-carousel.interface';
 import {StorageCarouselContentComponent} from './storage-carousel-content/storage-carousel-content.component';
+import {InputBoolean} from 'ng-zorro-antd';
 
 @Component({
   selector: 'storage-carousel',
@@ -34,8 +35,10 @@ export class StorageCarouselComponent implements AfterContentInit {
     return this._size;
   }
 
-  @Input('storageDots') dots = true;
-  @Input('storageDirection') direction = true;
+  @Input('storageDots') @InputBoolean() dots = true;
+  @Input('storageDirection') @InputBoolean() direction;
+  @Output('storageClickIndex') clickIndex = new EventEmitter<number>();
+  @Output('storageClickDirection') clickDirection = new EventEmitter<'pre' | 'next'>();
 
   constructor(
     private _renderer: Renderer2
@@ -60,6 +63,7 @@ export class StorageCarouselComponent implements AfterContentInit {
     });
     const {width} = this.size;
     this.move = -parseInt(width, 10) * e;
+    this.clickIndex.emit(e);
   }
 
   private _clickDirection(next = false): void {
@@ -76,6 +80,7 @@ export class StorageCarouselComponent implements AfterContentInit {
           break;
         }
       }
+      this.clickDirection.emit('pre');
     } else {
       if (this.dotsArray[0].selected) {
         return;
@@ -88,6 +93,7 @@ export class StorageCarouselComponent implements AfterContentInit {
           break;
         }
       }
+      this.clickDirection.emit('next');
     }
   }
 }
