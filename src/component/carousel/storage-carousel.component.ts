@@ -40,6 +40,7 @@ export class StorageCarouselComponent implements AfterContentInit, AfterViewInit
   @Input('storageDirection') @InputBoolean() direction = false;
   @Input('storageAutoRun') @InputBoolean() autoRun = false;
   @Input('storageAutoRunSpeed') speed = 3000;
+  @Input('storageLight') @InputBoolean() light = false;
   @Output('storageClickIndex') clickIndex = new EventEmitter<number>();
   @Output('storageClickDirection') clickDirection = new EventEmitter<'pre' | 'next'>();
 
@@ -55,6 +56,7 @@ export class StorageCarouselComponent implements AfterContentInit, AfterViewInit
       setTimeout(() => {
         item.width = width;
         item.height = height;
+        item.dark = !this.light;
       });
     });
     this.dotsArray = this._contentChildren.toArray().map((_, index: number) => ({selected: !index}));

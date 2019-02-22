@@ -12,6 +12,7 @@ export class StorageCarouselContentComponent {
   @HostBinding('style.width') width = '720px';
   @HostBinding('style.height') height = '220px';
   @HostBinding('class.storage-carousel-content') readonly float = true;
+  @HostBinding('class.storage-carousel-content-dark') dark = true;
 
   constructor() {
   }

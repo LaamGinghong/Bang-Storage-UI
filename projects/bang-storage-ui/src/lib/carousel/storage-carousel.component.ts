@@ -18,6 +18,7 @@ import {InputBoolean} from 'ng-zorro-antd';
           <li
             *ngFor="let item of dotsArray;let i=index"
             [class.storage-carousel-dots-selected]="item.selected"
+            [class.storage-carousel-dots-light]="light"
             (click)="changeIndex(i)"
           ></li>
         </ul>
@@ -29,10 +30,12 @@ import {InputBoolean} from 'ng-zorro-antd';
       >
     <span
       [class.storage-carousel-direction-forbid]="dotsArray[0].selected"
+      [class.storage-carousel-direction-light]="light"
       (click)="clickDirectionButton()"
     ><i nz-icon type="left-circle" theme="outline"></i></span>
         <span
           [class.storage-carousel-direction-forbid]="dotsArray[dotsArray.length-1].selected"
+          [class.storage-carousel-direction-light]="light"
           (click)="clickDirectionButton(true)"
         ><i nz-icon type="right-circle" theme="outline"></i></span>
       </div>
@@ -71,6 +74,7 @@ export class StorageCarouselComponent implements AfterContentInit, AfterViewInit
   @Input('storageDirection') @InputBoolean() direction = false;
   @Input('storageAutoRun') @InputBoolean() autoRun = false;
   @Input('storageAutoRunSpeed') speed = 3000;
+  @Input('storageLight') @InputBoolean() light = false;
   @Output('storageClickIndex') clickIndex = new EventEmitter<number>();
   @Output('storageClickDirection') clickDirection = new EventEmitter<'pre' | 'next'>();
 
@@ -86,6 +90,7 @@ export class StorageCarouselComponent implements AfterContentInit, AfterViewInit
       setTimeout(() => {
         item.width = width;
         item.height = height;
+        item.dark = !this.light;
       });
     });
     this.dotsArray = this._contentChildren.toArray().map((_, index: number) => ({selected: !index}));
