@@ -17,6 +17,7 @@ export * from './charts';
 export * from './back-top';
 export * from './upload';
 export * from './anchor';
+export * from './carousel';
 
 @NgModule({
   exports: [
@@ -28,6 +29,7 @@ export * from './anchor';
     StorageBackTopModule,
     StorageUploadModule,
     StorageAnchorModule,
+    StorageCarouselModule
   ]
 })
 export class BangStorageUiModule {
