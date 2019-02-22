@@ -2,15 +2,15 @@ import {ChangeDetectionStrategy, Component, HostBinding, ViewEncapsulation} from
 
 @Component({
   selector: '[storage-carousel-content]',
-  templateUrl: '<ng-content></ng-content>',
+  template: '<ng-content></ng-content>',
+  preserveWhitespaces: false,
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  encapsulation: ViewEncapsulation.None,
   styles: [`
     .storage-carousel-content {
       float: left;
     }
-  `],
-  preserveWhitespaces: false,
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  encapsulation: ViewEncapsulation.None,
+  `]
 })
 export class StorageCarouselContentComponent {
   @HostBinding('style.width') width = '720px';

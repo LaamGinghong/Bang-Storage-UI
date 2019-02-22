@@ -6,7 +6,7 @@ import {InputBoolean} from 'ng-zorro-antd';
 @Component({
   selector: 'storage-carousel',
   template: `
-    <div class="storage-carousel" [ngStyle]="size" (mouseenter)="_setTimer()" (mouseleave)="_setTimer(true)">
+    <div class="storage-carousel" [ngStyle]="size" (mouseenter)="setTimer()" (mouseleave)="setTimer(true)">
       <div
         class="storage-carousel-container"
         [style.transform]="'translateX('+move+'px)'"
@@ -18,7 +18,7 @@ import {InputBoolean} from 'ng-zorro-antd';
           <li
             *ngFor="let item of dotsArray;let i=index"
             [class.storage-carousel-dots-selected]="item.selected"
-            (click)="_changeIndex(i)"
+            (click)="changeIndex(i)"
           ></li>
         </ul>
       </div>
@@ -29,11 +29,11 @@ import {InputBoolean} from 'ng-zorro-antd';
       >
     <span
       [class.storage-carousel-direction-forbid]="dotsArray[0].selected"
-      (click)="_clickDirection()"
+      (click)="clickDirectionButton()"
     ><i nz-icon type="left-circle" theme="outline"></i></span>
         <span
           [class.storage-carousel-direction-forbid]="dotsArray[dotsArray.length-1].selected"
-          (click)="_clickDirection(true)"
+          (click)="clickDirectionButton(true)"
         ><i nz-icon type="right-circle" theme="outline"></i></span>
       </div>
     </div>
@@ -91,7 +91,7 @@ export class StorageCarouselComponent implements AfterContentInit, AfterViewInit
     this.dotsArray = this._contentChildren.toArray().map((_, index: number) => ({selected: !index}));
   }
 
-  private _changeIndex(e: number): void {
+  public changeIndex(e: number): void {
     this.dotsArray.forEach((item, index: number) => {
       item.selected = index === e;
     });
@@ -100,7 +100,7 @@ export class StorageCarouselComponent implements AfterContentInit, AfterViewInit
     this.clickIndex.emit(e);
   }
 
-  private _clickDirection(next = false): void {
+  public clickDirectionButton(next = false): void {
     const {width} = this.size;
     if (next) {
       if (this.dotsArray[this.dotsArray.length - 1].selected) {
@@ -133,11 +133,11 @@ export class StorageCarouselComponent implements AfterContentInit, AfterViewInit
 
   ngAfterViewInit(): void {
     if (this.autoRun) {
-      this._setTimer(true);
+      this.setTimer(true);
     }
   }
 
-  private _setTimer(set = false): void {
+  public setTimer(set = false): void {
     if (set) {
       const {width} = this.size;
       this._timer = setInterval(() => {

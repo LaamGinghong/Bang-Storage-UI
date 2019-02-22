@@ -1,4 +1,4 @@
-<div class="storage-carousel" [ngStyle]="size" (mouseenter)="_setTimer()" (mouseleave)="_setTimer(true)">
+<div class="storage-carousel" [ngStyle]="size" (mouseenter)="setTimer()" (mouseleave)="setTimer(true)">
   <div
     class="storage-carousel-container"
     [style.transform]="'translateX('+move+'px)'"
@@ -10,7 +10,7 @@
       <li
         *ngFor="let item of dotsArray;let i=index"
         [class.storage-carousel-dots-selected]="item.selected"
-        (click)="_changeIndex(i)"
+        (click)="changeIndex(i)"
       ></li>
     </ul>
   </div>
@@ -21,11 +21,11 @@
   >
     <span
       [class.storage-carousel-direction-forbid]="dotsArray[0].selected"
-      (click)="_clickDirection()"
+      (click)="clickDirectionButton()"
     ><i nz-icon type="left-circle" theme="outline"></i></span>
     <span
       [class.storage-carousel-direction-forbid]="dotsArray[dotsArray.length-1].selected"
-      (click)="_clickDirection(true)"
+      (click)="clickDirectionButton(true)"
     ><i nz-icon type="right-circle" theme="outline"></i></span>
   </div>
 </div>

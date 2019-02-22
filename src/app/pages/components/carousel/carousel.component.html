@@ -1,5 +1,29 @@
-<storage-carousel storageAutoRun>
-  <div storage-carousel-content *ngFor="let item of array">
-    <h3>{{item}}</h3>
-  </div>
-</storage-carousel>
+<div class="carousel">
+  <h1>Carousel 走马灯</h1>
+  <p>旋转木马，一组轮播的区域。</p>
+  <article>
+    <h2>何时使用</h2>
+    <ul style="list-style: circle">
+      <li>当有一组平级的内容。</li>
+      <li>当内容空间不足时，可以用走马灯的形式进行收纳，进行轮播展现。</li>
+      <li>常用于一组图片或卡片轮播。</li>
+    </ul>
+  </article>
+  <article>
+    <h2>代码演示</h2>
+    <div nz-row nzGutter="16">
+      <div nz-col nzSpan="12">
+        <div class="code-box">
+          <div class="code-box-demo">
+            <storage-carousel>
+              <div storage-carousel-content *ngFor="let item of array">
+                <h3>{{item}}</h3>
+              </div>
+            </storage-carousel>
+          </div>
+        </div>
+      </div>
+      <div nz-col nzSpan="12"></div>
+    </div>
+  </article>
+</div>

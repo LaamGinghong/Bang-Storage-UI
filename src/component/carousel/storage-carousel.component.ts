@@ -60,7 +60,7 @@ export class StorageCarouselComponent implements AfterContentInit, AfterViewInit
     this.dotsArray = this._contentChildren.toArray().map((_, index: number) => ({selected: !index}));
   }
 
-  private _changeIndex(e: number): void {
+  public changeIndex(e: number): void {
     this.dotsArray.forEach((item, index: number) => {
       item.selected = index === e;
     });
@@ -69,7 +69,7 @@ export class StorageCarouselComponent implements AfterContentInit, AfterViewInit
     this.clickIndex.emit(e);
   }
 
-  private _clickDirection(next = false): void {
+  public clickDirectionButton(next = false): void {
     const {width} = this.size;
     if (next) {
       if (this.dotsArray[this.dotsArray.length - 1].selected) {
@@ -102,11 +102,11 @@ export class StorageCarouselComponent implements AfterContentInit, AfterViewInit
 
   ngAfterViewInit(): void {
     if (this.autoRun) {
-      this._setTimer(true);
+      this.setTimer(true);
     }
   }
 
-  private _setTimer(set = false): void {
+  public setTimer(set = false): void {
     if (set) {
       const {width} = this.size;
       this._timer = setInterval(() => {
