@@ -101,32 +101,32 @@ export class StorageCarouselComponent implements AfterContentInit, AfterViewInit
   }
 
   ngAfterViewInit(): void {
-    if (this.autoRun) {
-      this.setTimer(true);
-    }
+    this.setTimer(true);
   }
 
   public setTimer(set = false): void {
-    if (set) {
-      const {width} = this.size;
-      this._timer = setInterval(() => {
-        if (this.dotsArray[this.dotsArray.length - 1].selected) {
-          this.dotsArray[0].selected = true;
-          this.dotsArray[this.dotsArray.length - 1].selected = false;
-          this.move = 0;
-        } else {
-          this.move -= parseInt(width, 10);
-          for (let i = 0; i < this.dotsArray.length; i++) {
-            if (this.dotsArray[i].selected) {
-              this.dotsArray[i].selected = false;
-              this.dotsArray[i + 1].selected = true;
-              break;
+    if (this.autoRun) {
+      if (set) {
+        const {width} = this.size;
+        this._timer = setInterval(() => {
+          if (this.dotsArray[this.dotsArray.length - 1].selected) {
+            this.dotsArray[0].selected = true;
+            this.dotsArray[this.dotsArray.length - 1].selected = false;
+            this.move = 0;
+          } else {
+            this.move -= parseInt(width, 10);
+            for (let i = 0; i < this.dotsArray.length; i++) {
+              if (this.dotsArray[i].selected) {
+                this.dotsArray[i].selected = false;
+                this.dotsArray[i + 1].selected = true;
+                break;
+              }
             }
           }
-        }
-      }, this.speed);
-    } else {
-      clearInterval(this._timer);
+        }, this.speed);
+      } else {
+        clearInterval(this._timer);
+      }
     }
   }
 }
