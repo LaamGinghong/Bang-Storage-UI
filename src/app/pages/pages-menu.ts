@@ -52,5 +52,9 @@ export const PagesMenu = [{
     name: 'Carousel 走马灯',
     route: 'carousel',
     selected: false
+  }, {
+    name: 'Select 选择器',
+    route: 'select',
+    selected: false
   }]
 }];

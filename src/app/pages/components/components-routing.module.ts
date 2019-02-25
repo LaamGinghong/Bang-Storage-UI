@@ -36,6 +36,9 @@ const routes: Routes = [{
   }, {
     path: 'carousel',
     loadChildren: './carousel/carousel.module#CarouselModule'
+  }, {
+    path: 'select',
+    loadChildren: './select/select.module#SelectModule'
   }]
 }];
 
