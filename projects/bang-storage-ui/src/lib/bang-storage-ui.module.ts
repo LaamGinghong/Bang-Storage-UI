@@ -8,6 +8,7 @@ import {StorageBackTopModule} from './back-top';
 import {StorageUploadModule} from './upload';
 import {StorageAnchorModule} from './anchor';
 import {StorageCarouselModule} from './carousel';
+import {StorageSelectModule} from './select';
 
 export * from './button';
 export * from './input-number';
@@ -18,6 +19,7 @@ export * from './back-top';
 export * from './upload';
 export * from './anchor';
 export * from './carousel';
+export * from './select';
 
 @NgModule({
   exports: [
@@ -29,7 +31,8 @@ export * from './carousel';
     StorageBackTopModule,
     StorageUploadModule,
     StorageAnchorModule,
-    StorageCarouselModule
+    StorageCarouselModule,
+    StorageSelectModule
   ]
 })
 export class BangStorageUiModule {
