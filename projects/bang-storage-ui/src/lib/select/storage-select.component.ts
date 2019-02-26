@@ -10,7 +10,8 @@ import {InputBoolean} from 'ng-zorro-antd';
 export class StorageSelectComponent implements AfterViewInit {
   @ContentChildren(StorageOptionComponent) selectOptions: QueryList<StorageOptionComponent>;
   @ViewChild('inputElement') inputElement: ElementRef;
-  @ViewChildren('itemElements') itemElements: QueryList<ElementRef>;
+  @ViewChild('iconElement') iconElement: ElementRef;
+  @ViewChild('searchElement') searchElement: ElementRef;
   @Input('storageValue') value: any;
   @Input('storagePlaceholder') placeholder = '';
   @Input('storageShowClose') @InputBoolean() showClose = false;
@@ -19,6 +20,7 @@ export class StorageSelectComponent implements AfterViewInit {
   public showContainer = false;
   public name: string = null;
   public showCloseIcon = false;
+  public searchInput: string = null;
 
   constructor(
     private _renderer: Renderer2
@@ -31,10 +33,25 @@ export class StorageSelectComponent implements AfterViewInit {
 
   @HostListener('window:click', ['$event'])
   listenClick(e: MouseEvent): void {
-    if (this.itemElements.some(item => item.nativeElement === e.srcElement)) {
-      return;
+    if (this.searchElement) {
+      if (e.srcElement === this.searchElement.nativeElement) {
+        return;
+      }
+      this.showContainer = false;
+      this._renderer.setStyle(this.iconElement.nativeElement, 'transform', 'rotate(0)');
     }
-    this.showContainer = false;
+  }
+
+  toggleContainer(e: MouseEvent): void {
+    e.stopPropagation();
+    this.showContainer = !this.showContainer;
+    this.initArray();
+    this._renderer.setStyle(this.iconElement.nativeElement, 'transform', `rotate(${this.showContainer ? '180deg' : 0})`);
+  }
+
+  initArray(): void {
+    this.searchInput = null;
+    this.selectOptions.forEach(item => item.hidden = false);
   }
 
   changeValue(e: { value: any, name: string }): void {
@@ -48,5 +65,11 @@ export class StorageSelectComponent implements AfterViewInit {
     this.value = null;
     this.name = null;
     this.storageValueChange.emit(null);
+  }
+
+  search(e: string): void {
+    this.selectOptions.forEach(item => {
+      item.hidden = item.name.indexOf(e) < 0;
+    });
   }
 }

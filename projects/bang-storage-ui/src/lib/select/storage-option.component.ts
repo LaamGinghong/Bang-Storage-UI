@@ -8,4 +8,5 @@ import {Component, Input} from '@angular/core';
 export class StorageOptionComponent {
   @Input('storageValue') value: any;
   @Input('storageName') name: string;
+  hidden = false;
 }

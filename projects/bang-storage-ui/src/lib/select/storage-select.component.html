@@ -5,21 +5,31 @@
   <input
     nz-input
     #inputElement
-    (click)="$event.stopPropagation();showContainer=!showContainer"
+    (click)="toggleContainer($event)"
     readonly
     [(ngModel)]="name"
     [placeholder]="placeholder"
   >
-  <span class="storage-select-icon"><i nz-icon type="down" theme="outline"></i></span>
+  <span class="storage-select-icon" #iconElement><i nz-icon type="down" theme="outline"></i></span>
   <span class="storage-select-icon" *ngIf="showClose&&showCloseIcon" (click)="clearValue()"><i nz-icon type="close-circle" theme="fill"></i></span>
   <div class="storage-select-container" [style.width]="width+'px'" *ngIf="showContainer">
+    <input
+      nz-input
+      #searchElement
+      placeholder="请输入搜索内容"
+      [(ngModel)]="searchInput"
+      (ngModelChange)="search($event)"
+    >
     <ul>
-      <li
-        #itemElements
-        class="storage-select-container-item"
-        *ngFor="let item of selectOptions.toArray()"
-        (click)="changeValue(item)"
-      >{{item.name}}</li>
+      <ng-container *ngFor="let item of selectOptions.toArray()">
+        <li
+          (click)="$event.stopPropagation();changeValue(item)"
+          class="storage-select-container-item"
+          [hidden]="item.hidden"
+        >
+          {{item.name}}
+        </li>
+      </ng-container>
     </ul>
   </div>
 </div>
