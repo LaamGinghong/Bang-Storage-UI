@@ -1,3 +1,4 @@
-<p>
-  select works!
-</p>
+<storage-select [(storageValue)]="value">
+  <storage-option *ngFor="let item of array" [storageValue]="item.value" [storageName]="item.name"></storage-option>
+</storage-select>
+<p>{{value}}</p>

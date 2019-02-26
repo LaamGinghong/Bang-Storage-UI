@@ -1,8 +1,11 @@
-import {Component} from '@angular/core';
+import {Component, Input} from '@angular/core';
 
 @Component({
   selector: 'storage-option',
-  template: ``
+  template: `
+  `
 })
 export class StorageOptionComponent {
+  @Input('storageValue') value: any;
+  @Input('storageName') name: string;
 }
