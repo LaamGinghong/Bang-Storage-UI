@@ -1,4 +1,4 @@
-<storage-select [(storageValue)]="value" storageShowClose storagePlaceholder="请选择" storageWidth="500" [storageSize]="'large'">
+<storage-select [(storageValue)]="value">
   <storage-option *ngFor="let item of array" [storageValue]="item.value" [storageName]="item.name"
                   [storageDisabled]="item.disabled"></storage-option>
 </storage-select>

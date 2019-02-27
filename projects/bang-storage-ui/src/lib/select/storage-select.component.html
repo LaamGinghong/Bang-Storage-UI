@@ -36,7 +36,7 @@
       [(ngModel)]="searchInput"
       (ngModelChange)="search($event)"
     >
-    <ul>
+    <ul #listElement>
       <ng-container *ngFor="let item of selectOptions.toArray()">
         <li
           (click)="$event.stopPropagation();changeValue(item)"

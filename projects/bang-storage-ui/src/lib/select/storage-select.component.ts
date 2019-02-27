@@ -12,6 +12,7 @@ export class StorageSelectComponent implements AfterViewInit {
   @ContentChildren(StorageOptionComponent) selectOptions: QueryList<StorageOptionComponent>;
   @ViewChild('inputElement') inputElement: ElementRef;
   @ViewChild('iconElement') iconElement: ElementRef;
+  @ViewChild('listElement') listElement: ElementRef;
   @ViewChild('searchElement') searchElement: ElementRef;
   @Input('storageValue') value: any;
   @Input('storagePlaceholder') placeholder = '';
@@ -22,6 +23,7 @@ export class StorageSelectComponent implements AfterViewInit {
   @Input('storageOpen') @InputBoolean() showContainer = false;
   @Output() storageValueChange = new EventEmitter<any>();
   @Output() storageOpenChange = new EventEmitter<boolean>();
+  @Output() storageScrollToBottom = new EventEmitter<void>();
   public containerWidth: number;
   public name: string = null;
   public showCloseIcon = false;
@@ -54,6 +56,15 @@ export class StorageSelectComponent implements AfterViewInit {
     this.initArray();
     this.storageOpenChange.emit(this.showContainer);
     this._renderer.setStyle(this.iconElement.nativeElement, 'transform', `rotate(${this.showContainer ? '180deg' : 0})`);
+    if (this.showContainer) {
+      setTimeout(() => {
+        this._renderer.listen(this.listElement.nativeElement, 'scroll', (event: Event) => {
+          if (event.srcElement.clientHeight + event.srcElement.scrollTop >= event.srcElement.scrollHeight) {
+            this.storageScrollToBottom.emit();
+          }
+        });
+      });
+    }
   }
 
   initArray(): void {
