@@ -19,9 +19,10 @@ export class StorageSelectComponent implements AfterViewInit {
   @Input('storageSize') size: StorageSelectSize = 'default';
   @Input('storageShowClose') @InputBoolean() showClose = false;
   @Input('storageDisabled') @InputBoolean() disabled = false;
+  @Input('storageOpen') @InputBoolean() showContainer = false;
   @Output() storageValueChange = new EventEmitter<any>();
+  @Output() storageOpenChange = new EventEmitter<boolean>();
   public containerWidth: number;
-  public showContainer = false;
   public name: string = null;
   public showCloseIcon = false;
   public searchInput: string = null;
@@ -42,6 +43,7 @@ export class StorageSelectComponent implements AfterViewInit {
         return;
       }
       this.showContainer = false;
+      this.storageOpenChange.emit(this.showContainer);
       this._renderer.setStyle(this.iconElement.nativeElement, 'transform', 'rotate(0)');
     }
   }
@@ -50,6 +52,7 @@ export class StorageSelectComponent implements AfterViewInit {
     e.stopPropagation();
     this.showContainer = !this.showContainer;
     this.initArray();
+    this.storageOpenChange.emit(this.showContainer);
     this._renderer.setStyle(this.iconElement.nativeElement, 'transform', `rotate(${this.showContainer ? '180deg' : 0})`);
   }
 
@@ -66,6 +69,7 @@ export class StorageSelectComponent implements AfterViewInit {
     this.name = e.name;
     this.storageValueChange.emit(e.value);
     this.showContainer = false;
+    this.storageOpenChange.emit(this.showContainer);
     this.selectOptions.forEach(item => item.selected = item.value === e.value);
   }
 
