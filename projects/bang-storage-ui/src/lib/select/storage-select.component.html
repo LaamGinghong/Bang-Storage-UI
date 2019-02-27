@@ -11,7 +11,9 @@
     [placeholder]="placeholder"
   >
   <span class="storage-select-icon" #iconElement><i nz-icon type="down" theme="outline"></i></span>
-  <span class="storage-select-icon" *ngIf="showClose&&showCloseIcon" (click)="clearValue()"><i nz-icon type="close-circle" theme="fill"></i></span>
+  <span class="storage-select-icon" *ngIf="showClose&&showCloseIcon" (click)="clearValue()"><i nz-icon
+                                                                                               type="close-circle"
+                                                                                               theme="fill"></i></span>
   <div class="storage-select-container" [style.width]="width+'px'" *ngIf="showContainer">
     <input
       nz-input
@@ -25,6 +27,7 @@
         <li
           (click)="$event.stopPropagation();changeValue(item)"
           class="storage-select-container-item"
+          [ngClass]="{'storage-select-container-item-selected':item.selected,'storage-select-container-item-disabled':item.disabled}"
           [hidden]="item.hidden"
         >
           {{item.name}}

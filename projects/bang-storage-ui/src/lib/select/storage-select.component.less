@@ -69,6 +69,26 @@
       &:last-child {
         border-radius: 0 0 4px 4px;
       }
+
+      &-selected {
+        background-color: #fafafa;
+        font-weight: 600;
+        color: rgba(0, 0, 0, .65);
+
+        &:hover {
+          background: #fafafa;
+        }
+      }
+
+      &-disabled {
+        color: rgba(0, 0, 0, .25);
+        background-color: #fff;
+        cursor: not-allowed;
+
+        &:hover {
+          background: #fff;
+        }
+      }
     }
   }
 }

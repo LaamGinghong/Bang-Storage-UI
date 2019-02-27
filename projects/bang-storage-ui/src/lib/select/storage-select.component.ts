@@ -54,11 +54,17 @@ export class StorageSelectComponent implements AfterViewInit {
     this.selectOptions.forEach(item => item.hidden = false);
   }
 
-  changeValue(e: { value: any, name: string }): void {
+  changeValue(e: { value: any, name: string, disabled: boolean }): void {
+    if (e.disabled) {
+      return;
+    }
     this.value = e.value;
     this.name = e.name;
     this.storageValueChange.emit(e.value);
     this.showContainer = false;
+    this.selectOptions.forEach(item => {
+      item.selected = item.value === e.value;
+    });
   }
 
   clearValue(): void {
