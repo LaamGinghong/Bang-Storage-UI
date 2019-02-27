@@ -1,6 +1,7 @@
 import {AfterViewInit, Component, ContentChildren, ElementRef, EventEmitter, HostListener, Input, Output, QueryList, Renderer2, ViewChild, ViewChildren} from '@angular/core';
 import {StorageOptionComponent} from './storage-option.component';
 import {InputBoolean} from 'ng-zorro-antd';
+import {StorageSelectSize} from './storage-select.interface';
 
 @Component({
   selector: 'storage-select',
@@ -14,10 +15,12 @@ export class StorageSelectComponent implements AfterViewInit {
   @ViewChild('searchElement') searchElement: ElementRef;
   @Input('storageValue') value: any;
   @Input('storagePlaceholder') placeholder = '';
+  @Input('storageWidth') inputWidth = 180;
+  @Input('storageSize') size: StorageSelectSize = 'default';
   @Input('storageShowClose') @InputBoolean() showClose = false;
   @Input('storageDisabled') @InputBoolean() disabled = false;
   @Output() storageValueChange = new EventEmitter<any>();
-  public width: number;
+  public containerWidth: number;
   public showContainer = false;
   public name: string = null;
   public showCloseIcon = false;
@@ -29,7 +32,7 @@ export class StorageSelectComponent implements AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    setTimeout(() => this.width = this.inputElement.nativeElement.offsetWidth);
+    setTimeout(() => this.containerWidth = this.inputElement.nativeElement.offsetWidth);
   }
 
   @HostListener('window:click', ['$event'])

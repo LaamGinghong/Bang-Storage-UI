@@ -10,13 +10,25 @@
     [(ngModel)]="name"
     [placeholder]="placeholder"
     [disabled]="disabled"
+    [nzSize]="size"
+    [style.width]="inputWidth+'px'"
     [style.cursor]="disabled?'not-allowed':'cursor'"
   >
-  <span class="storage-select-icon" [class.storage-select-icon-disabled]="disabled" #iconElement><i nz-icon type="down" theme="outline"></i></span>
-  <span class="storage-select-icon" *ngIf="showClose&&showCloseIcon&&!disabled" (click)="clearValue()"><i nz-icon
-                                                                                               type="close-circle"
-                                                                                               theme="fill"></i></span>
-  <div class="storage-select-container" [style.width]="width+'px'" *ngIf="showContainer">
+  <span
+    class="storage-select-icon"
+    [class.storage-select-icon-disabled]="disabled"
+    #iconElement
+  >
+    <i nz-icon type="down" theme="outline"></i>
+  </span>
+  <span
+    class="storage-select-icon"
+    *ngIf="showClose&&showCloseIcon&&!disabled"
+    (click)="clearValue()"
+  >
+    <i nz-icon type="close-circle" theme="fill"></i>
+  </span>
+  <div class="storage-select-container" [style.width]="containerWidth+'px'" *ngIf="showContainer">
     <input
       nz-input
       #searchElement
