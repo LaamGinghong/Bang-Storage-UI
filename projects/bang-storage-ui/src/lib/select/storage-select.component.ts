@@ -15,6 +15,7 @@ export class StorageSelectComponent implements AfterViewInit {
   @Input('storageValue') value: any;
   @Input('storagePlaceholder') placeholder = '';
   @Input('storageShowClose') @InputBoolean() showClose = false;
+  @Input('storageDisabled') @InputBoolean() disabled = false;
   @Output() storageValueChange = new EventEmitter<any>();
   public width: number;
   public showContainer = false;
