@@ -1,6 +1,6 @@
 {
   "name": "bang-storage-ui",
-  "version": "7.9.6",
+  "version": "7.10.0",
   "description": "A UI designed for Angular.",
   "peerDependencies": {
     "@angular/common": "^7.1.0",
