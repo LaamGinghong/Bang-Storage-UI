@@ -1,15 +1,26 @@
 <ng-container *ngIf="multiple else singleTemplate">
   <div class="storage-select-multiple">
+    <div
+      class="storage-select-multiple-selected"
+      [style.cursor]="disabled?'not-allowed':'cursor'"
+      (click)="toggleContainer($event)">
+      <ul>
+        <li *ngFor="let item of selectedList">
+          {{item.name}}
+          <span (click)="$event.stopPropagation();changeValueMultiple(item)">
+            <i nz-icon type="close" theme="outline"></i>
+          </span>
+        </li>
+      </ul>
+    </div>
     <input
       nz-input
       #inputElement
-      (click)="toggleContainer($event)"
       readonly
       [placeholder]="placeholder"
       [disabled]="disabled"
       [nzSize]="size"
       [style.width]="inputWidth+'px'"
-      [style.cursor]="disabled?'not-allowed':'cursor'"
       [(ngModel)]="name"
     >
     <span

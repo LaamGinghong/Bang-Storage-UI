@@ -178,5 +178,42 @@
         text-align: center;
       }
     }
+
+    &-selected {
+      position: absolute;
+      z-index: 99999999;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      cursor: pointer;
+      overflow: auto;
+
+      ul {
+        list-style: none;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+
+        li {
+          float: left;
+          color: rgba(0, 0, 0, .65);
+          background-color: #fafafa;
+          border: 1px solid #e8e8e8;
+          border-radius: 2px;
+          max-width: 99%;
+          position: relative;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          transition: padding .3s cubic-bezier(.645, .045, .355, 1);
+          margin: 4px;
+          padding: 2px 8px;
+          cursor: default;
+          span{
+            cursor: pointer;
+          }
+        }
+      }
+    }
   }
 }

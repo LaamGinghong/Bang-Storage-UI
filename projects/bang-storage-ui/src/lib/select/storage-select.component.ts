@@ -32,6 +32,7 @@ export class StorageSelectComponent implements AfterViewInit, OnChanges {
   public allowClearIcon = false;
   public searchInput: string = null;
   public isSelectAll = false;
+  public selectedList: Array<{ value: any, name: string, disabled: boolean }> = [];
 
   constructor(
     private _renderer: Renderer2
@@ -122,6 +123,7 @@ export class StorageSelectComponent implements AfterViewInit, OnChanges {
       }
     });
     this.value = this.selectOptions.filter(item => item.selected).map(item => item.value);
+    this.selectedList = this.selectOptions.filter(item => item.selected);
     this.storageValueChange.emit(this.value);
   }
 
@@ -129,6 +131,7 @@ export class StorageSelectComponent implements AfterViewInit, OnChanges {
     this.isSelectAll = !this.isSelectAll;
     this.selectOptions.forEach(item => item.selected = this.isSelectAll);
     this.value = this.selectOptions.filter(item => item.selected).map(item => item.value);
+    this.selectedList = this.selectOptions.filter(item => item.selected);
     this.storageValueChange.emit(this.value);
   }
 }
