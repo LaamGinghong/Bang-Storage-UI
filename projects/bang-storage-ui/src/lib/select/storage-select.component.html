@@ -1,52 +1,57 @@
-<div
-  class="storage-select"
-  (mouseenter)="showCloseIcon=true"
-  (mouseleave)="showCloseIcon=false">
-  <input
-    nz-input
-    #inputElement
-    (click)="toggleContainer($event)"
-    readonly
-    [(ngModel)]="name"
-    [placeholder]="placeholder"
-    [disabled]="disabled"
-    [nzSize]="size"
-    [style.width]="inputWidth+'px'"
-    [style.cursor]="disabled?'not-allowed':'cursor'"
-  >
-  <span
-    class="storage-select-icon"
-    [class.storage-select-icon-disabled]="disabled"
-    #iconElement
-  >
-    <i nz-icon type="down" theme="outline"></i>
-  </span>
-  <span
-    class="storage-select-icon"
-    *ngIf="showClose&&showCloseIcon&&!disabled"
-    (click)="clearValue()"
-  >
-    <i nz-icon type="close-circle" theme="fill"></i>
-  </span>
-  <div class="storage-select-container" [style.width]="containerWidth+'px'" *ngIf="showContainer">
+<ng-container *ngIf="multiple else singleTemplate">
+  123caa
+</ng-container>
+<ng-template #singleTemplate>
+  <div
+    class="storage-select"
+    (mouseenter)="showCloseIcon=true"
+    (mouseleave)="showCloseIcon=false">
     <input
       nz-input
-      #searchElement
-      placeholder="请输入搜索内容"
-      [(ngModel)]="searchInput"
-      (ngModelChange)="search($event)"
+      #inputElement
+      (click)="toggleContainer($event)"
+      readonly
+      [(ngModel)]="name"
+      [placeholder]="placeholder"
+      [disabled]="disabled"
+      [nzSize]="size"
+      [style.width]="inputWidth+'px'"
+      [style.cursor]="disabled?'not-allowed':'cursor'"
     >
-    <ul #listElement>
-      <ng-container *ngFor="let item of selectOptions.toArray()">
-        <li
-          (click)="$event.stopPropagation();changeValue(item)"
-          class="storage-select-container-item"
-          [ngClass]="{'storage-select-container-item-selected':item.selected,'storage-select-container-item-disabled':item.disabled}"
-          [hidden]="item.hidden"
-        >
-          {{item.name}}
-        </li>
-      </ng-container>
-    </ul>
+    <span
+      class="storage-select-icon"
+      [class.storage-select-icon-disabled]="disabled"
+      #iconElement
+    >
+    <i nz-icon type="down" theme="outline"></i>
+  </span>
+    <span
+      class="storage-select-icon"
+      *ngIf="showClose&&showCloseIcon&&!disabled"
+      (click)="clearValue()"
+    >
+    <i nz-icon type="close-circle" theme="fill"></i>
+  </span>
+    <div class="storage-select-container" [style.width]="containerWidth+'px'" *ngIf="showContainer">
+      <input
+        nz-input
+        #searchElement
+        placeholder="请输入搜索内容"
+        [(ngModel)]="searchInput"
+        (ngModelChange)="search($event)"
+      >
+      <ul #listElement>
+        <ng-container *ngFor="let item of selectOptions.toArray()">
+          <li
+            (click)="$event.stopPropagation();changeValue(item)"
+            class="storage-select-container-item"
+            [ngClass]="{'storage-select-container-item-selected':item.selected,'storage-select-container-item-disabled':item.disabled}"
+            [hidden]="item.hidden"
+          >
+            {{item.name}}
+          </li>
+        </ng-container>
+      </ul>
+    </div>
   </div>
-</div>
+</ng-template>

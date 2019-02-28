@@ -21,6 +21,7 @@ export class StorageSelectComponent implements AfterViewInit {
   @Input('storageShowClose') @InputBoolean() showClose = false;
   @Input('storageDisabled') @InputBoolean() disabled = false;
   @Input('storageOpen') @InputBoolean() showContainer = false;
+  @Input('storageMultiple') @InputBoolean() multiple = false;
   @Output() storageValueChange = new EventEmitter<any>();
   @Output() storageOpenChange = new EventEmitter<boolean>();
   @Output() storageScrollToBottom = new EventEmitter<void>();
@@ -35,7 +36,11 @@ export class StorageSelectComponent implements AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    setTimeout(() => this.containerWidth = this.inputElement.nativeElement.offsetWidth);
+    setTimeout(() => {
+      if (!this.multiple) {
+        this.containerWidth = this.inputElement.nativeElement.offsetWidth;
+      }
+    });
   }
 
   @HostListener('window:click', ['$event'])
