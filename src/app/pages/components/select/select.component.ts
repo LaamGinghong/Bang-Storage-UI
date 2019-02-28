@@ -18,11 +18,15 @@ export class SelectComponent implements OnInit {
     {name: '荣耀', value: 'honor', disabled: false},
     {name: '魅族', value: 'meizu', disabled: false}
   ];
-  value: string = null;
+  value = [];
 
   constructor() {
   }
 
   ngOnInit() {
+  }
+
+  change(e) {
+    console.log(e);
   }
 }
