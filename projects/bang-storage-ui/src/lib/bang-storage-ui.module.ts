@@ -1,14 +1,14 @@
 import {ModuleWithProviders, NgModule} from '@angular/core';
-import {StorageButtonModule} from './button';
-import {StorageInputNumberModule} from './input-number';
-import {StorageModalModule} from './modal';
-import {StorageZoomModule} from './zoom';
-import {StorageChartsModule} from './charts';
-import {StorageBackTopModule} from './back-top';
-import {StorageUploadModule} from './upload';
-import {StorageAnchorModule} from './anchor';
-import {StorageCarouselModule} from './carousel';
-import {StorageSelectModule} from './select';
+import {StorageButtonModule} from './button/storage-button.module';
+import {StorageInputNumberModule} from './input-number/storage-input-number.module';
+import {StorageModalModule} from './modal/storage-modal.module';
+import {StorageZoomModule} from './zoom/storage-zoom.module';
+import {StorageChartsModule} from './charts/storage-charts.module';
+import {StorageBackTopModule} from './back-top/storage-back-top.module';
+import {StorageUploadModule} from './upload/storage-upload.module';
+import {StorageAnchorModule} from './anchor/storage-anchor.module';
+import {StorageCarouselModule} from './carousel/storage-carousel.module';
+import {StorageSelectModule} from './select/storage-select.module';
 
 export * from './button';
 export * from './input-number';
