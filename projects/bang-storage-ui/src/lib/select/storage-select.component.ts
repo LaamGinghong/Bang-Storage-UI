@@ -20,6 +20,7 @@ export class StorageSelectComponent implements AfterViewInit, OnChanges {
   @Input('storagePlaceholder') placeholder = '';
   @Input('storageWidth') inputWidth = 180;
   @Input('storageSize') size: StorageSelectSize = 'default';
+  @Input('storageNotFoundContent') notFoundContent = '没有数据';
   @Input('storageAllowClear') @InputBoolean() allowClear = false;
   @Input('storageDisabled') @InputBoolean() disabled = false;
   @Input('storageOpen') @InputBoolean() showContainer = false;
@@ -75,11 +76,13 @@ export class StorageSelectComponent implements AfterViewInit, OnChanges {
       this._renderer.setStyle(this.iconElement.nativeElement, 'transform', `rotate(${this.showContainer ? '180deg' : 0})`);
       if (this.showContainer) {
         setTimeout(() => {
-          this._renderer.listen(this.listElement.nativeElement, 'scroll', (event: Event) => {
-            if (event.srcElement.clientHeight + event.srcElement.scrollTop >= event.srcElement.scrollHeight) {
-              this.storageScrollToBottom.emit();
-            }
-          });
+          if (this.listElement) {
+            this._renderer.listen(this.listElement.nativeElement, 'scroll', (event: Event) => {
+              if (event.srcElement.clientHeight + event.srcElement.scrollTop >= event.srcElement.scrollHeight) {
+                this.storageScrollToBottom.emit();
+              }
+            });
+          }
         });
       }
     }

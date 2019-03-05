@@ -1,4 +1,4 @@
-<storage-select [(storageValue)]="value" storageMultiple  (storageValueChange)="change($event)">
+<storage-select [(storageValue)]="value"  (storageValueChange)="change($event)" storageNotFoundContent="no found">
   <storage-option *ngFor="let item of array" [storageValue]="item.value" [storageName]="item.name"
                   [storageDisabled]="item.disabled"></storage-option>
 </storage-select>

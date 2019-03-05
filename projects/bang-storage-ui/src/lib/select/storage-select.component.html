@@ -38,8 +38,8 @@
         [(ngModel)]="searchInput"
         (ngModelChange)="search($event)"
       >
-      <ul #listElement>
-        <ng-container *ngFor="let item of selectOptions.toArray()">
+      <ul #listElement *ngIf="selectOptions.length;else noOption">
+        <ng-container *ngFor="let item of selectOptions">
           <li
             class="storage-select-multiple-container-item"
             [ngClass]="{'storage-select-multiple-container-item-selected':item.selected,'storage-select-multiple-container-item-disabled':item.disabled}"
@@ -100,8 +100,8 @@
         [(ngModel)]="searchInput"
         (ngModelChange)="search($event)"
       >
-      <ul #listElement>
-        <ng-container *ngFor="let item of selectOptions.toArray()">
+      <ul #listElement *ngIf="selectOptions.length;else noOption">
+        <ng-container *ngFor="let item of selectOptions">
           <li
             (click)="$event.stopPropagation();changeValue(item)"
             class="storage-select-container-item"
@@ -114,4 +114,7 @@
       </ul>
     </div>
   </div>
+</ng-template>
+<ng-template #noOption>
+  <p class="storage-select-noOption">{{notFoundContent}}</p>
 </ng-template>

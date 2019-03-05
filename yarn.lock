@@ -1089,10 +1089,10 @@ balanced-match@^1.0.0:
   resolved "https://registry.yarnpkg.com/balanced-match/-/balanced-match-1.0.0.tgz#89b4d199ab2bee49de164ea02b89ce462d71b767"
   integrity sha1-ibTRmasr7kneFk6gK4nORi1xt2c=
 
-bang-storage-ui@^7.10.0:
-  version "7.10.0"
-  resolved "https://registry.yarnpkg.com/bang-storage-ui/-/bang-storage-ui-7.10.0.tgz#ed23c27ed4ab2e9009cb19bb5f86f87805067c16"
-  integrity sha512-3Tk1U1XHYTH8EBRlIamUP3mX6IX6oguwRav0/rXu10PRHSCqSC8W0xsDtC4El/TSNmVEd2saasj8W+ft+uOmzg==
+bang-storage-ui@^7.10.1:
+  version "7.10.1"
+  resolved "https://registry.yarnpkg.com/bang-storage-ui/-/bang-storage-ui-7.10.1.tgz#42fb60e09d4d5ffdc25a14f398ded9a57117b806"
+  integrity sha512-sRvKj/gHbvZv5A95rigMjuzBTAwFwTs0uH+tv9J6gx1nj9Pz5pJN18KSSNKZfQ8VTp4Fg9WQuwBOuUnqJvhNIg==
   dependencies:
     tslib "^1.9.0"
 
