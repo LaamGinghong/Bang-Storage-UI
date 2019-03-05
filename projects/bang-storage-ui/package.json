@@ -3,13 +3,11 @@
   "version": "7.10.2",
   "description": "A UI designed for Angular.",
   "peerDependencies": {
-    "@angular/common": "^7.1.0",
-    "@angular/core": "^7.1.0",
-    "echarts": "^4.2.0-rc.2",
-    "hammerjs": "^2.0.8",
-    "ng-zorro-antd": "^7.0.0-rc.3",
-    "rxjs": "~6.3.3",
-    "touch-emulator": "^1.0.0"
+    "@angular/common": "~7.2.7",
+    "@angular/core": "~7.2.7",
+    "echarts": "^4.2.1-rc.3",
+    "ng-zorro-antd": "^7.0.1",
+    "rxjs": "~6.4.0"
   },
   "keywords": [
     "Angular",

@@ -4,9 +4,9 @@
   "lib": {
     "entryFile": "src/public_api.ts",
     "umdModuleIds": {
-      "ng-zorro-antd": "^7.0.0-rc.3",
+      "ng-zorro-antd": "^7.0.1",
       "rxjs": "~6.3.3",
-      "echarts": "^4.2.0-rc.2"
+      "echarts": "^4.2.1-rc.3"
     }
   }
 }
