@@ -1,10 +1,12 @@
-import {AfterContentInit, Component, ContentChild} from '@angular/core';
+import {AfterContentInit, Component, ContentChild, ViewEncapsulation} from '@angular/core';
 import {StorageTheadComponent} from '../thead/storage-thead.component';
 import {StorageTbodyComponent} from '../tbody/storage-tbody.component';
 
 @Component({
   selector: 'storage-table',
-  templateUrl: './storage-table.component.html'
+  templateUrl: './storage-table.component.html',
+  encapsulation: ViewEncapsulation.None,
+  styleUrls: ['./storage-table.component.less']
 })
 export class StorageTableComponent implements AfterContentInit {
   @ContentChild(StorageTheadComponent) thead: StorageTheadComponent;

@@ -6,9 +6,10 @@ import {StorageTbodyComponent} from './tbody/storage-tbody.component';
 import {StorageTrComponent} from './tr/storage-tr.component';
 import {StorageThComponent} from './th/storage-th.component';
 import {StorageTdComponent} from './td/storage-td.component';
+import {DragDropModule} from '@angular/cdk/drag-drop';
 
 @NgModule({
-  imports: [CommonModule],
+  imports: [CommonModule, DragDropModule],
   declarations: [
     StorageTableComponent,
     StorageTheadComponent,
