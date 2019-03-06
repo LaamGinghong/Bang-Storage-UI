@@ -22,6 +22,49 @@
               <storage-option *ngFor="let item of array" [storageValue]="item.value"
                               [storageName]="item.name"></storage-option>
             </storage-select>
+            <storage-select storageAllowClear>
+              <storage-option *ngFor="let item of array" [storageValue]="item.value" [storageName]="item.name"
+                              [storageDisabled]="item.disabled"></storage-option>
+            </storage-select>
+          </div>
+          <div class="code-box-description">
+            <p>基本使用</p>
+            <span class="code-box-description-title">基本使用</span>
+            <span
+              nz-tooltip
+              [nzTitle]="'Hide Code'"
+              class="code-box-description-icon"
+              *ngIf="codeBox.first.show"
+              (click)="codeBox.first.show=!codeBox.first.show"
+            >
+              <img alt="expand code"
+                   src="https://gw.alipayobjects.com/zos/rmsportal/wSAkBuJFbdxsosKKpqyq.svg">
+            </span>
+            <span
+              nz-tooltip
+              [nzTitle]="'Show Code'"
+              class="code-box-description-icon"
+              *ngIf="!codeBox.first.show"
+              (click)="codeBox.first.show=!codeBox.first.show"
+            >
+              <img alt="expand code"
+                   src="https://gw.alipayobjects.com/zos/rmsportal/OpROPHYqWmrMDBFMZtKF.svg">
+            </span>
+          </div>
+          <div class="code-box-code" [hidden]="!codeBox.first.show">
+            <pre><code [highlight]="codeBox.first.source"></code></pre>
+          </div>
+        </div>
+      </div>
+      <div nz-col nzSpan="12">
+        <div class="code-box">
+          <div class="code-box-demo">
+            <storage-select storageMultiple>
+              <storage-option *ngFor="let item of array" [storageValue]="item.value" [storageName]="item.name" [storageDisabled]="item.disabled"></storage-option>
+            </storage-select>
+            <storage-select storageMultiple storageShowSelectAll>
+              <storage-option *ngFor="let item of array" [storageValue]="item.value" [storageName]="item.name" [storageDisabled]="item.disabled"></storage-option>
+            </storage-select>
           </div>
         </div>
       </div>

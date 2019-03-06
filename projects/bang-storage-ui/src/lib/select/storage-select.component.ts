@@ -133,7 +133,7 @@ export class StorageSelectComponent implements AfterViewInit, OnChanges {
 
   selectAll(): void {
     this.isSelectAll = !this.isSelectAll;
-    this.selectOptions.forEach(item => item.selected = this.isSelectAll);
+    this.selectOptions.filter(item => !item.disabled).forEach(item => item.selected = this.isSelectAll);
     this.value = this.selectOptions.filter(item => item.selected).map(item => item.value);
     this.selectedList = this.selectOptions.filter(item => item.selected);
     this.storageValueChange.emit(this.value);
