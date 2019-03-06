@@ -39,6 +39,9 @@ const routes: Routes = [{
   }, {
     path: 'select',
     loadChildren: './select/select.module#SelectModule'
+  }, {
+    path: 'table',
+    loadChildren: './table/table.module#TableModule'
   }]
 }];
 

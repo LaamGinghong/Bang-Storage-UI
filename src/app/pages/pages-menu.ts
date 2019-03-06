@@ -56,5 +56,9 @@ export const PagesMenu = [{
     name: 'Select 选择器',
     route: 'select',
     selected: false
+  }, {
+    name: 'Table 表格',
+    route: 'table',
+    selected: false
   }]
 }];
