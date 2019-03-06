@@ -17,8 +17,8 @@ export class ZoomComponent implements OnInit {
          template: \`
                      <img
                         storage-zoom
-                        storagePath="../../../../assets/img/kaisa.png"
-                        src="../../../../assets/img/kaisa.png"
+                        storagePath="assets/img/kaisa.png"
+                        src="assets/img/kaisa.png"
                         alt="卡莎" width="240">
                    \`
       })
