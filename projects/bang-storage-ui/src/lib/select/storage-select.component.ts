@@ -103,6 +103,7 @@ export class StorageSelectComponent implements AfterViewInit, OnChanges {
     this.showContainer = false;
     this.storageOpenChange.emit(this.showContainer);
     this.selectOptions.forEach(item => item.selected = item.value === e.value);
+    this._renderer.setStyle(this.iconElement.nativeElement, 'transform', 'rotate(0)');
   }
 
   clearValue(): void {
