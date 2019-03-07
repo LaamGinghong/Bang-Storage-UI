@@ -21,7 +21,7 @@ export * from './upload';
 export * from './anchor';
 export * from './carousel';
 export * from './select';
-export * from './table';
+// export * from './table';
 
 @NgModule({
   exports: [
