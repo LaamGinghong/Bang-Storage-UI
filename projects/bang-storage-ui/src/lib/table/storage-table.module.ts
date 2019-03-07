@@ -1,30 +1,16 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {StorageTableComponent} from './table/storage-table.component';
-import {StorageTheadComponent} from './thead/storage-thead.component';
-import {StorageTbodyComponent} from './tbody/storage-tbody.component';
-import {StorageTrComponent} from './tr/storage-tr.component';
-import {StorageThComponent} from './th/storage-th.component';
-import {StorageTdComponent} from './td/storage-td.component';
-import {DragDropModule} from '@angular/cdk/drag-drop';
+import {StorageTableComponent} from './storage-table.component';
 
 @NgModule({
-  imports: [CommonModule, DragDropModule],
+  imports: [
+    CommonModule
+  ],
   declarations: [
-    StorageTableComponent,
-    StorageTheadComponent,
-    StorageTbodyComponent,
-    StorageTrComponent,
-    StorageThComponent,
-    StorageTdComponent
+    StorageTableComponent
   ],
   exports: [
-    StorageTableComponent,
-    StorageTheadComponent,
-    StorageTbodyComponent,
-    StorageTrComponent,
-    StorageThComponent,
-    StorageTdComponent
+    StorageTableComponent
   ]
 })
 export class StorageTableModule {
