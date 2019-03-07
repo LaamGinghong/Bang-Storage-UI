@@ -16,6 +16,12 @@ export class TableComponent implements OnInit {
     {title: '性别', value: 'sex'},
   ];
 
+  tableData = [
+    {name: '蓝京杭', type: '人类', description: '前端工程师', default: '-', age: 21, sex: '男'},
+    {name: '李沪文', type: '人类', description: '前端工程师', default: '-', age: 21, sex: '男'},
+    {name: '汤圆', type: '喵', description: '一只肥猫', default: '-', age: 2, sex: '公'}
+  ];
+
   constructor() {
   }
 

@@ -3,7 +3,8 @@
     <ng-container *stringTemplateOutlet="title">{{title}}</ng-container>
   </nz-header>
   <nz-content class="storage-content">
-    <div class="storage-content-tr" cdkDropList cdkDropListOrientation="horizontal" (cdkDropListDropped)="drop($event)" #theadTrElement>
+    <div class="storage-content-tr" cdkDropList cdkDropListOrientation="horizontal" (cdkDropListDropped)="drop($event)"
+         #theadTrElement>
       <div class="storage-content-th" style="cursor: default" *ngIf="checkbox">
         <label nz-checkbox></label>
       </div>
@@ -14,6 +15,22 @@
         [style.width]="defaultWidth+'px'"
         [innerHTML]="th.title">
       </div>
+    </div>
+    <div class="storage-content-tr" *ngFor="let item of tableData;let index=index">
+      <div
+        class="storage-content-td"
+        style="cursor: default"
+        [style.borderBottom]="index===tableData.length-1?'1px solid #e8e8e8':'none'"
+        *ngIf="checkbox">
+        <label nz-checkbox></label>
+      </div>
+      <ng-template ngFor [ngForOf]="tableSource" let-td>
+        <div
+          class="storage-content-td"
+          [innerHTML]="item[td.value]"
+          [ngStyle]="{width:defaultWidth+'px',borderBottom:index===tableData.length-1?'1px solid #e8e8e8':'none'}"
+        ></div>
+      </ng-template>
     </div>
   </nz-content>
   <nz-footer class="storage-footer" *ngIf="footer">

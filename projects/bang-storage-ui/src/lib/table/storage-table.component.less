@@ -1,3 +1,17 @@
+@borderType: 1px solid #e8e8e8;
+.storage-content-item {
+  vertical-align: middle;
+  display: inline-block;
+  text-align: center;
+  border-right: @borderType;
+  border-top: @borderType;
+  padding: 16px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  min-width: 80px;
+}
+
 .storage-table {
   background: none;
   display: inline-block;
@@ -13,7 +27,6 @@
 
   .storage-content {
     &-tr {
-      border: 1px solid #e8e8e8;
       white-space: nowrap;
 
       &:last-child {
@@ -22,39 +35,30 @@
     }
 
     &-th {
-      vertical-align: middle;
-      display: inline-block;
+      .storage-content-item;
       color: rgba(0, 0, 0, .85);
       font-weight: bold;
-      text-align: center;
-      background: #fafafa;
-      border-right: 1px solid #e8e8e8;
-      padding: 16px;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
       cursor: move;
-      min-width: 80px;
+      background: #f7f7f7;
+
+      &:first-child {
+        border-top-left-radius: 4px;
+        border-left: @borderType;
+      }
+
+      &:last-child {
+        border-top-right-radius: 4px;
+      }
     }
 
-    .cdk-drag-preview {
-      box-sizing: border-box;
-      border-radius: 4px;
-      box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),
-      0 8px 10px 1px rgba(0, 0, 0, 0.14),
-      0 3px 14px 2px rgba(0, 0, 0, 0.12);
-    }
+    &-td {
+      color: rgba(0, 0, 0, .65);
+      background: #fff;
+      .storage-content-item;
 
-    .cdk-drag-placeholder {
-      opacity: 0;
-    }
-
-    .cdk-drag-animating {
-      transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
-    }
-
-    .storage-content-tr.cdk-drop-list-dragging .storage-content-th:not(.cdk-drag-placeholder) {
-      transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+      &:first-child {
+        border-left: @borderType;
+      }
     }
   }
 
@@ -62,4 +66,24 @@
     padding: 0;
     background: none;
   }
+}
+
+.cdk-drag-preview {
+  box-sizing: border-box;
+  border-radius: 4px;
+  box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),
+  0 8px 10px 1px rgba(0, 0, 0, 0.14),
+  0 3px 14px 2px rgba(0, 0, 0, 0.12);
+}
+
+.cdk-drag-placeholder {
+  opacity: 0;
+}
+
+.cdk-drag-animating {
+  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.storage-content-tr.cdk-drop-list-dragging .storage-content-th:not(.cdk-drag-placeholder) {
+  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
 }

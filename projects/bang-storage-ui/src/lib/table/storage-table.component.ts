@@ -10,6 +10,7 @@ import {CdkDragDrop, moveItemInArray} from '@angular/cdk/drag-drop';
 export class StorageTableComponent implements AfterViewInit {
   @ViewChild('theadTrElement') theadTrElement: ElementRef;
   @Input('storageTableSource') tableSource: Array<StorageTableSource> = [];
+  @Input('storageTableData') tableData: Array<object> = [];
   @Input('storageTableChangeWidth') @InputBoolean() changeWidth = false;
   @Input('storageCheckbox') @InputBoolean() checkbox = true;
   @Input('storageTitle') title: TemplateRef<void> | string;
