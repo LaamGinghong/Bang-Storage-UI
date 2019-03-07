@@ -13,7 +13,7 @@ export class TableComponent implements OnInit {
     {title: '描述', value: 'description'},
     {title: '默认值', value: 'default'},
     {title: '年龄', value: 'age'},
-    {title: '性别', value: 'sex'}
+    {title: '性别', value: 'sex'},
   ];
 
   constructor() {

@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, ElementRef, Input, OnChanges, SimpleChanges, TemplateRef, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, ElementRef, Input, TemplateRef, ViewChild} from '@angular/core';
 import {InputBoolean} from 'ng-zorro-antd';
 import {CdkDragDrop, moveItemInArray} from '@angular/cdk/drag-drop';
 
@@ -7,7 +7,7 @@ import {CdkDragDrop, moveItemInArray} from '@angular/cdk/drag-drop';
   templateUrl: './storage-table.component.html',
   styleUrls: ['./storage-table.component.less']
 })
-export class StorageTableComponent implements AfterViewInit, OnChanges {
+export class StorageTableComponent implements AfterViewInit {
   @ViewChild('theadTrElement') theadTrElement: ElementRef;
   @Input('storageTableSource') tableSource: Array<StorageTableSource> = [];
   @Input('storageTableChangeWidth') @InputBoolean() changeWidth = false;
@@ -15,18 +15,18 @@ export class StorageTableComponent implements AfterViewInit, OnChanges {
   @Input('storageTitle') title: TemplateRef<void> | string;
   @Input('storageFooter') footer: TemplateRef<void> | string;
 
-  public defaultWidth = '0';
+  public defaultWidth = 30;
 
   constructor() {
   }
 
-  ngOnChanges(changes: SimpleChanges): void {
-    if (changes.tableSource) {
-      this.defaultWidth = this.checkbox ? `calc(${1 / this.tableSource.length * 100}% - ${1 / this.tableSource.length * 49}px)` : `${1 / this.tableSource.length * 100}%`;
-    }
-  }
-
   ngAfterViewInit(): void {
+    setTimeout(() => {
+      if (this.tableSource) {
+        const width = this.checkbox ? this.theadTrElement.nativeElement.offsetWidth - 80 : this.theadTrElement.nativeElement.offsetWidth;
+        this.defaultWidth = 1 / this.tableSource.length * width - 1;
+      }
+    });
   }
 
   drop(event: CdkDragDrop<string[]>) {

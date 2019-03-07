@@ -2,6 +2,7 @@
   background: none;
   display: inline-block;
   width: 100%;
+  overflow: auto;
 
   .storage-header {
     height: auto;
@@ -13,6 +14,7 @@
   .storage-content {
     &-tr {
       border: 1px solid #e8e8e8;
+      white-space: nowrap;
 
       &:last-child {
         border-right: none;
@@ -30,7 +32,9 @@
       padding: 16px;
       overflow: hidden;
       text-overflow: ellipsis;
+      white-space: nowrap;
       cursor: move;
+      min-width: 80px;
     }
 
     .cdk-drag-preview {
