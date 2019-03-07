@@ -1,0 +1,11 @@
+<nz-layout class="storage-table">
+  <nz-header class="storage-header" *ngIf="title">
+    <ng-container *stringTemplateOutlet="title">{{title}}</ng-container>
+  </nz-header>
+  <nz-content class="storage-content">
+    <ng-content></ng-content>
+  </nz-content>
+  <nz-footer class="storage-footer" *ngIf="footer">
+    <ng-container *stringTemplateOutlet="footer">{{footer}}</ng-container>
+  </nz-footer>
+</nz-layout>

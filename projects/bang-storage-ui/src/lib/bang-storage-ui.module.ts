@@ -9,6 +9,7 @@ import {StorageUploadModule} from './upload/storage-upload.module';
 import {StorageAnchorModule} from './anchor/storage-anchor.module';
 import {StorageCarouselModule} from './carousel/storage-carousel.module';
 import {StorageSelectModule} from './select/storage-select.module';
+import {StorageTableModule} from './table/storage-table.module';
 
 export * from './button';
 export * from './input-number';
@@ -20,6 +21,7 @@ export * from './upload';
 export * from './anchor';
 export * from './carousel';
 export * from './select';
+// export * from './table';
 
 @NgModule({
   exports: [
@@ -33,6 +35,7 @@ export * from './select';
     StorageAnchorModule,
     StorageCarouselModule,
     StorageSelectModule,
+    StorageTableModule
   ]
 })
 export class BangStorageUiModule {
