@@ -1,33 +1,14 @@
 <storage-table>
   <thead storage-thead>
   <tr storage-tr>
-    <th storage-th>123</th>
-    <th storage-th>234</th>
-    <th storage-th>345</th>
+    <th storage-th *ngFor="let th of tableSource">
+      {{th.name}}
+    </th>
   </tr>
   </thead>
   <tbody storage-tbody>
-  <tr storage-tr>
-    <td storage-td>123</td>
-    <td storage-td>234</td>
-    <td storage-td>345</td>
+  <tr storage-tr *ngFor="let item of tableData">
+    <td storage-td *ngFor="let td of tableSource">{{item[td.value]}}</td>
   </tr>
   </tbody>
 </storage-table>
-<br><br><br>
-<table border="1">
-  <thead>
-  <tr>
-    <th>123123</th>
-    <th>234234</th>
-    <th>345345</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr>
-    <td>123123</td>
-    <td>234234</td>
-    <td>345345</td>
-  </tr>
-  </tbody>
-</table>

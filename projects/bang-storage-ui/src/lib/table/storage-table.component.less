@@ -1,0 +1,39 @@
+.storage-table {
+  width: 100%;
+}
+
+@borderStyle: 1px solid #e8e8e8;
+.storage-item {
+  text-align: center;
+  transition: background .3s ease;
+  padding: 16px;
+  min-width: 200px;
+  border-bottom: @borderStyle;
+  border-right: @borderStyle;
+
+  &:first-child {
+    border-left: @borderStyle;
+  }
+}
+
+.storage-td {
+  .storage-item;
+}
+
+.storage-th {
+  .storage-item;
+  color: rgba(0, 0, 0, .85);
+  font-weight: 600;
+  background: #f6f6f6;
+  border-top: @borderStyle;
+}
+
+.storage-tbody {
+  & > .storage-tr {
+    &:hover {
+      & > .storage-td {
+        background: #e6f7ff;
+      }
+    }
+  }
+}

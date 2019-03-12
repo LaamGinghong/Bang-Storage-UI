@@ -1,4 +1,4 @@
-import {ChangeDetectionStrategy, Component, ViewEncapsulation} from '@angular/core';
+import {ChangeDetectionStrategy, Component, Input, TemplateRef, ViewEncapsulation} from '@angular/core';
 
 @Component({
   selector: 'storage-table',
@@ -9,4 +9,9 @@ import {ChangeDetectionStrategy, Component, ViewEncapsulation} from '@angular/co
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class StorageTableComponent {
+  @Input('storageTitle') title: string | TemplateRef<void>;
+  @Input('storageFooter') footer: string | TemplateRef<void>;
+
+  constructor() {
+  }
 }

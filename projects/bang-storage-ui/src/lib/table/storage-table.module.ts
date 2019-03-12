@@ -6,6 +6,7 @@ import {StorageTrComponent} from './tr/storage-tr.component';
 import {StorageThComponent} from './th/storage-th.component';
 import {StorageTbodyComponent} from './tbody/storage-tbody.component';
 import {StorageTdComponent} from './td/storage-td.component';
+import {StorageTableService} from './storage-table.service';
 
 @NgModule({
   imports: [CommonModule],
@@ -24,7 +25,8 @@ import {StorageTdComponent} from './td/storage-td.component';
     StorageThComponent,
     StorageTbodyComponent,
     StorageTdComponent
-  ]
+  ],
+  providers:[StorageTableService]
 })
 export class StorageTableModule {
 }
