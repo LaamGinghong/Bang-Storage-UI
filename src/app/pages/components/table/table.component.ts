@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {CdkDragDrop, moveItemInArray} from '@angular/cdk/drag-drop';
 
 @Component({
   selector: 'app-table',
@@ -24,4 +25,7 @@ export class TableComponent implements OnInit {
   ngOnInit() {
   }
 
+  drop(event: CdkDragDrop<string[]>) {
+    moveItemInArray(this.tableSource, event.previousIndex, event.currentIndex);
+  }
 }

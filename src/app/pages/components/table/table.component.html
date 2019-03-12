@@ -1,14 +1,16 @@
-<storage-table>
-  <thead storage-thead>
-  <tr storage-tr>
-    <th storage-th *ngFor="let th of tableSource">
-      {{th.name}}
-    </th>
-  </tr>
-  </thead>
-  <tbody storage-tbody>
-  <tr storage-tr *ngFor="let item of tableData">
-    <td storage-td *ngFor="let td of tableSource">{{item[td.value]}}</td>
-  </tr>
-  </tbody>
-</storage-table>
+<div class="table">
+  <storage-table>
+    <thead storage-thead>
+    <tr storage-tr cdkDropList cdkDropListOrientation="horizontal" (cdkDropListDropped)="drop($event)">
+      <th storage-th *ngFor="let th of tableSource" cdkDrag>
+        {{th.name}}
+      </th>
+    </tr>
+    </thead>
+    <tbody storage-tbody>
+    <tr storage-tr *ngFor="let item of tableData">
+      <td storage-td *ngFor="let td of tableSource">{{item[td.value]}}</td>
+    </tr>
+    </tbody>
+  </storage-table>
+</div>

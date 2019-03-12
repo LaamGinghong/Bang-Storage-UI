@@ -6,6 +6,7 @@ import {TableComponent} from './table.component';
 import {BangStorageUiModule} from '../../../../../projects/bang-storage-ui/src/lib/bang-storage-ui.module';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HighlightModule} from 'ngx-highlightjs';
+import {DragDropModule} from '@angular/cdk/drag-drop';
 
 // import {ShareModule} from '../../../share/share.module';
 
@@ -18,7 +19,8 @@ import {HighlightModule} from 'ngx-highlightjs';
     BangStorageUiModule,
     FormsModule,
     ReactiveFormsModule,
-    HighlightModule
+    HighlightModule,
+    DragDropModule
   ]
 })
 export class TableModule {
