@@ -1,8 +1,10 @@
 <div class="table">
-  <storage-table>
+  <storage-table
+    storageChangeWidth
+  >
     <thead storage-thead>
-    <tr storage-tr cdkDropList cdkDropListOrientation="horizontal" (cdkDropListDropped)="drop($event)">
-      <th storage-th *ngFor="let th of tableSource" cdkDrag>
+    <tr storage-tr>
+      <th storage-th *ngFor="let th of tableSource">
         {{th.name}}
       </th>
     </tr>

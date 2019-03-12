@@ -8,6 +8,7 @@ import {StorageTbodyComponent} from './tbody/storage-tbody.component';
 import {StorageTdComponent} from './td/storage-td.component';
 import {StorageTableService} from './storage-table.service';
 import {DragDropModule} from '@angular/cdk/drag-drop';
+import {StorageThDirective} from './th/storage-th.directive';
 
 @NgModule({
   imports: [
@@ -28,9 +29,10 @@ import {DragDropModule} from '@angular/cdk/drag-drop';
     StorageTrComponent,
     StorageThComponent,
     StorageTbodyComponent,
-    StorageTdComponent
+    StorageTdComponent,
+    StorageThDirective
   ],
-  providers:[StorageTableService]
+  providers: [StorageTableService]
 })
 export class StorageTableModule {
 }

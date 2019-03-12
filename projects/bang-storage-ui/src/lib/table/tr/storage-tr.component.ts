@@ -1,4 +1,5 @@
-import {ChangeDetectionStrategy, Component, HostBinding, ViewEncapsulation} from '@angular/core';
+import {AfterViewChecked, ChangeDetectionStrategy, Component, ContentChildren, HostBinding, QueryList, ViewEncapsulation} from '@angular/core';
+import {StorageThComponent} from '../th/storage-th.component';
 
 @Component({
   selector: '[storage-tr]',
@@ -8,9 +9,19 @@ import {ChangeDetectionStrategy, Component, HostBinding, ViewEncapsulation} from
   encapsulation: ViewEncapsulation.None,
   preserveWhitespaces: false
 })
-export class StorageTrComponent {
+export class StorageTrComponent implements AfterViewChecked {
   @HostBinding('class.storage-tr') class = true;
+  @ContentChildren(StorageThComponent)
+  ths: QueryList<StorageThComponent>;
 
   constructor() {
+  }
+
+  ngAfterViewChecked(): void {
+    this.ths.forEach((item, index) => {
+      if (index === this.ths.length - 1) {
+        item.changeWidth = false;
+      }
+    });
   }
 }

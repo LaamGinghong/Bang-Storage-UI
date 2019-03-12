@@ -1,3 +1,4 @@
-<div>
+<div [style.width]="width+'px'">
   <ng-content></ng-content>
 </div>
+<div class="storage-line" *ngIf="changeWidth" dragDropMove></div>

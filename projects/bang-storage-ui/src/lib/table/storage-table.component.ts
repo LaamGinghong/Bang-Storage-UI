@@ -1,4 +1,6 @@
-import {ChangeDetectionStrategy, Component, Input, TemplateRef, ViewEncapsulation} from '@angular/core';
+import {AfterViewInit, ChangeDetectionStrategy, Component, Input, TemplateRef, ViewEncapsulation} from '@angular/core';
+import {InputBoolean} from 'ng-zorro-antd';
+import {StorageTableService} from './storage-table.service';
 
 @Component({
   selector: 'storage-table',
@@ -8,10 +10,18 @@ import {ChangeDetectionStrategy, Component, Input, TemplateRef, ViewEncapsulatio
   preserveWhitespaces: false,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class StorageTableComponent {
+export class StorageTableComponent implements AfterViewInit {
   @Input('storageTitle') title: string | TemplateRef<void>;
   @Input('storageFooter') footer: string | TemplateRef<void>;
+  @Input('storageChangeWidth') @InputBoolean() changeWidth = false;
 
-  constructor() {
+  constructor(
+    private _storageTableService: StorageTableService
+  ) {
   }
+
+  ngAfterViewInit(): void {
+    this._storageTableService.storageChangeWidth$.next(this.changeWidth);
+  }
+
 }
