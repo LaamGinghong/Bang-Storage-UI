@@ -1,7 +1,7 @@
-import {ChangeDetectionStrategy, Component, ViewEncapsulation} from '@angular/core';
+import {ChangeDetectionStrategy, Component, HostBinding, ViewEncapsulation} from '@angular/core';
 
 @Component({
-  selector: 'storage-tr',
+  selector: '[storage-tr]',
   templateUrl: './storage-tr.component.html',
   styleUrls: ['./storage-tr.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -9,4 +9,8 @@ import {ChangeDetectionStrategy, Component, ViewEncapsulation} from '@angular/co
   preserveWhitespaces: false
 })
 export class StorageTrComponent {
+  @HostBinding('class.storage-tr') class = true;
+
+  constructor() {
+  }
 }

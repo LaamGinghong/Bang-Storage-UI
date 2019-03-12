@@ -1,7 +1,7 @@
-import {ChangeDetectionStrategy, Component, ViewEncapsulation} from '@angular/core';
+import {ChangeDetectionStrategy, Component, HostBinding, ViewEncapsulation} from '@angular/core';
 
 @Component({
-  selector: 'storage-th',
+  selector: '[storage-th]',
   templateUrl: './storage-th.component.html',
   styleUrls: ['./storage-th.component.less'],
   encapsulation: ViewEncapsulation.None,
@@ -9,4 +9,5 @@ import {ChangeDetectionStrategy, Component, ViewEncapsulation} from '@angular/co
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class StorageThComponent {
+  @HostBinding('class.storage-th') class = true;
 }
