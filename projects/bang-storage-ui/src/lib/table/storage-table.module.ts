@@ -9,6 +9,7 @@ import {StorageTdComponent} from './td/storage-td.component';
 import {StorageTableService} from './storage-table.service';
 import {DragDropModule} from '@angular/cdk/drag-drop';
 import {StorageThDirective} from './th/storage-th.directive';
+import {StringTemplateOutletDirective} from './string-template-outlet.directive';
 
 @NgModule({
   imports: [
@@ -30,7 +31,8 @@ import {StorageThDirective} from './th/storage-th.directive';
     StorageThComponent,
     StorageTbodyComponent,
     StorageTdComponent,
-    StorageThDirective
+    StorageThDirective,
+    StringTemplateOutletDirective
   ],
   providers: [StorageTableService]
 })

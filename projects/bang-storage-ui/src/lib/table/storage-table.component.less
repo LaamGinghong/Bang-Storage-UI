@@ -1,5 +1,8 @@
 .storage-table {
   width: 100%;
+  table-layout: fixed;
+  border-collapse: collapse;
+  border-spacing: 0;
 }
 
 @borderStyle: 1px solid #e8e8e8;
@@ -13,6 +16,12 @@
 
   &:first-child {
     border-left: @borderStyle;
+  }
+
+  & > div {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
   }
 }
 
@@ -37,7 +46,7 @@
   right: -10px;
   top: 0;
   z-index: 999;
-  cursor: e-resize;
+  cursor: col-resize;
 }
 
 .storage-tbody {

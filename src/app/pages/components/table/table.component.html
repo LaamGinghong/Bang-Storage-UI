@@ -15,4 +15,36 @@
     </tr>
     </tbody>
   </storage-table>
+  <br><br><br>
+  <table border="1px" style="width: 100%" width="100%">
+    <thead>
+    <tr>
+      <th width="200px">
+        姓名
+      </th>
+      <th width="200px">
+        年龄
+      </th>
+      <th width="200px">性别</th>
+      <th width="300px">出生地</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let item of tableData">
+      <td>
+        <div style="max-width: 200px;overflow: hidden;text-overflow: ellipsis;white-space: nowrap">{{item.name}}</div>
+      </td>
+      <td>
+        <div style="max-width: 200px;overflow: hidden;text-overflow: ellipsis;white-space: nowrap">{{item.age}}</div>
+      </td>
+      <td>
+        <div>{{item.sex}}</div>
+      </td>
+      <td>
+        <div>{{item.birthPlace}}</div>
+      </td>
+    </tr>
+    </tbody>
+  </table>
 </div>
+

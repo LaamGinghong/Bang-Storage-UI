@@ -14,8 +14,8 @@ export class TableComponent implements OnInit {
     {name: '出生地', value: 'birthPlace'}
   ];
   tableData = [
-    {name: '蓝京杭', age: 21, sex: '男', birthPlace: '广州'},
-    {name: '蓝京杭', age: 21, sex: '男', birthPlace: '广州'},
+    {name: '蓝京杭蓝京杭蓝京杭蓝京杭蓝京杭蓝京杭蓝京杭蓝京杭蓝京杭蓝京杭蓝京杭蓝京杭蓝京杭蓝京杭蓝京杭蓝京杭蓝京杭蓝京杭', age: 21, sex: '男', birthPlace: '广州'},
+    {name: '蓝京杭蓝京杭蓝京杭蓝京杭蓝京杭蓝京杭蓝京杭蓝京杭蓝京杭蓝京杭蓝京杭蓝京杭蓝京杭蓝京杭蓝京杭蓝京杭蓝京杭蓝京杭', age: 21, sex: '男', birthPlace: '广州'},
     {name: '蓝京杭', age: 21, sex: '男', birthPlace: '广州'}
   ];
 

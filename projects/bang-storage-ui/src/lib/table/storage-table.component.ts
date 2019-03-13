@@ -1,4 +1,4 @@
-import {AfterViewInit, ChangeDetectionStrategy, Component, Input, TemplateRef, ViewEncapsulation} from '@angular/core';
+import {AfterViewInit, Component, Input, TemplateRef, ViewEncapsulation} from '@angular/core';
 import {InputBoolean} from 'ng-zorro-antd';
 import {StorageTableService} from './storage-table.service';
 
@@ -8,7 +8,6 @@ import {StorageTableService} from './storage-table.service';
   styleUrls: ['./storage-table.component.less'],
   encapsulation: ViewEncapsulation.None,
   preserveWhitespaces: false,
-  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class StorageTableComponent implements AfterViewInit {
   @Input('storageTitle') title: string | TemplateRef<void>;
