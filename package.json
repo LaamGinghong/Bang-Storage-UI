@@ -22,7 +22,7 @@
     "@angular/platform-browser": "~7.2.7",
     "@angular/platform-browser-dynamic": "~7.2.7",
     "@angular/router": "~7.2.7",
-    "bang-storage-ui": "^7.10.5",
+    "bang-storage-ui": "^7.11.0",
     "core-js": "^2.5.4",
     "echarts": "^4.2.1-rc.3",
     "highlight.js": "^9.13.1",
