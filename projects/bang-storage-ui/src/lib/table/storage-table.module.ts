@@ -10,11 +10,13 @@ import {StorageTableService} from './storage-table.service';
 import {DragDropModule} from '@angular/cdk/drag-drop';
 import {StorageThDirective} from './th/storage-th.directive';
 import {StringTemplateOutletDirective} from './string-template-outlet.directive';
+import {NgZorroAntdModule} from 'ng-zorro-antd';
 
 @NgModule({
   imports: [
     CommonModule,
-    DragDropModule
+    DragDropModule,
+    NgZorroAntdModule
   ],
   exports: [
     StorageTableComponent,

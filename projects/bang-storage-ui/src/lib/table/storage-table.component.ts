@@ -13,6 +13,7 @@ export class StorageTableComponent implements AfterViewInit {
   @Input('storageTitle') title: string | TemplateRef<void>;
   @Input('storageFooter') footer: string | TemplateRef<void>;
   @Input('storageChangeWidth') @InputBoolean() changeWidth = false;
+  @Input('storageLoading') @InputBoolean() loading = false;
 
   constructor(
     private _storageTableService: StorageTableService
