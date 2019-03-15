@@ -1,4 +1,4 @@
-# BangStorageUI <img src='https://img.shields.io/badge/BangStorageUI-0.0.35-red.svg'>
+# BangStorageUI <img src='https://img.shields.io/badge/npm-7.11.0-brightgreen.svg'>
 A set of Angular component library based on [ng-zorro-antd](https://ng.ant.design/docs/introduce/en) secondary packaging.<br>
 
 ## Runtime environment

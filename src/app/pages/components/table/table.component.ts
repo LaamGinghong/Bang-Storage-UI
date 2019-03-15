@@ -16,7 +16,14 @@ export class TableComponent implements OnInit {
   tableData = [
     {name: '蓝京杭蓝京杭蓝京杭蓝京杭蓝京杭蓝京杭蓝京杭蓝京杭蓝京杭蓝京杭蓝京杭蓝京杭蓝京杭蓝京杭蓝京杭蓝京杭蓝京杭蓝京杭', age: 21, sex: '男', birthPlace: '广州'},
     {name: '蓝京杭蓝京杭蓝京杭蓝京杭蓝京杭蓝京杭蓝京杭蓝京杭蓝京杭蓝京杭蓝京杭蓝京杭蓝京杭蓝京杭蓝京杭蓝京杭蓝京杭蓝京杭', age: 21, sex: '男', birthPlace: '广州'},
-    {name: '蓝京杭', age: 21, sex: '男', birthPlace: '广州'}
+    {name: '蓝京杭', age: 21, sex: '男', birthPlace: '广州'},
+    {name: '蓝京杭蓝京杭蓝京杭蓝京杭蓝京杭蓝京杭蓝京杭蓝京杭蓝京杭蓝京杭蓝京杭蓝京杭蓝京杭蓝京杭蓝京杭蓝京杭蓝京杭蓝京杭', age: 21, sex: '男', birthPlace: '广州'},
+    {name: '蓝京杭蓝京杭蓝京杭蓝京杭蓝京杭蓝京杭蓝京杭蓝京杭蓝京杭蓝京杭蓝京杭蓝京杭蓝京杭蓝京杭蓝京杭蓝京杭蓝京杭蓝京杭', age: 21, sex: '男', birthPlace: '广州'},
+    {name: '蓝京杭', age: 21, sex: '男', birthPlace: '广州'}, {name: '蓝京杭蓝京杭蓝京杭蓝京杭蓝京杭蓝京杭蓝京杭蓝京杭蓝京杭蓝京杭蓝京杭蓝京杭蓝京杭蓝京杭蓝京杭蓝京杭蓝京杭蓝京杭', age: 21, sex: '男', birthPlace: '广州'},
+    {name: '蓝京杭蓝京杭蓝京杭蓝京杭蓝京杭蓝京杭蓝京杭蓝京杭蓝京杭蓝京杭蓝京杭蓝京杭蓝京杭蓝京杭蓝京杭蓝京杭蓝京杭蓝京杭', age: 21, sex: '男', birthPlace: '广州'},
+    {name: '蓝京杭', age: 21, sex: '男', birthPlace: '广州'}, {name: '蓝京杭蓝京杭蓝京杭蓝京杭蓝京杭蓝京杭蓝京杭蓝京杭蓝京杭蓝京杭蓝京杭蓝京杭蓝京杭蓝京杭蓝京杭蓝京杭蓝京杭蓝京杭', age: 21, sex: '男', birthPlace: '广州'},
+    {name: '蓝京杭蓝京杭蓝京杭蓝京杭蓝京杭蓝京杭蓝京杭蓝京杭蓝京杭蓝京杭蓝京杭蓝京杭蓝京杭蓝京杭蓝京杭蓝京杭蓝京杭蓝京杭', age: 21, sex: '男', birthPlace: '广州'},
+    {name: '蓝京杭', age: 21, sex: '男', birthPlace: '广州'},
   ];
 
   constructor() {
@@ -27,5 +34,9 @@ export class TableComponent implements OnInit {
 
   drop(event: CdkDragDrop<string[]>) {
     moveItemInArray(this.tableSource, event.previousIndex, event.currentIndex);
+  }
+
+  change(e: number): void {
+    console.log(e);
   }
 }

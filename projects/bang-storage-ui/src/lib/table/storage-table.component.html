@@ -1,5 +1,20 @@
-<nz-spin [nzSpinning]="loading">
-  <table class="storage-table">
-    <ng-content></ng-content>
-  </table>
-</nz-spin>
+<div class="storage-table-container">
+  <nz-spin [nzSpinning]="loading">
+    <table class="storage-table">
+      <ng-content></ng-content>
+    </table>
+    <nz-pagination
+      [(nzPageIndex)]="pageIndex"
+      [(nzPageSize)]="pageSize"
+      [nzTotal]="total"
+      [nzShowTotal]="showTotalTemplate"
+      (nzPageIndexChange)="changePage('pageIndex')"
+      (nzPageSizeChange)="changePage('pageSize')"
+      nzShowQuickJumper
+      nzShowSizeChanger
+    ></nz-pagination>
+  </nz-spin>
+</div>
+<ng-template #showTotalTemplate>
+  共{{total}}条数据
+</ng-template>
