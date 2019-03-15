@@ -42,6 +42,9 @@ const routes: Routes = [{
   }, {
     path: 'table',
     loadChildren: './table/table.module#TableModule'
+  }, {
+    path: 'input',
+    loadChildren: './input/input.module#InputModule'
   }]
 }];
 

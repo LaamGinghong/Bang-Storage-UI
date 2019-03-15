@@ -10,6 +10,7 @@ import {StorageAnchorModule} from './anchor/storage-anchor.module';
 import {StorageCarouselModule} from './carousel/storage-carousel.module';
 import {StorageSelectModule} from './select/storage-select.module';
 import {StorageTableModule} from './table/storage-table.module';
+import {StorageInputModule} from './input/storage-input.module';
 
 export * from './button';
 export * from './input-number';
@@ -35,7 +36,8 @@ export * from './table';
     StorageAnchorModule,
     StorageCarouselModule,
     StorageSelectModule,
-    StorageTableModule
+    StorageTableModule,
+    StorageInputModule
   ]
 })
 export class BangStorageUiModule {

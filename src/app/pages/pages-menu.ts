@@ -60,5 +60,9 @@ export const PagesMenu = [{
     name: 'Table 表格',
     route: 'table',
     selected: false
+  }, {
+    name: 'Input 输入框',
+    route: 'input',
+    selected: false
   }]
 }];
