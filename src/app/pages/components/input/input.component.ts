@@ -1,4 +1,7 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, ElementRef, OnInit, ViewChild, ViewContainerRef} from '@angular/core';
+import {ComponentPortal} from '@angular/cdk/portal';
+import {Overlay, OverlayConfig, OverlayRef} from '@angular/cdk/overlay';
+import {StorageInputTitleComponent} from '../../../../../projects/bang-storage-ui/src/lib/input/storage-input-title.component';
 
 @Component({
   selector: 'app-input',
@@ -6,12 +9,9 @@ import {Component, OnInit} from '@angular/core';
   styleUrls: ['./input.component.less']
 })
 export class InputComponent implements OnInit {
-  value = '';
+  value: string;
 
-  constructor() {
-  }
-
-  ngOnInit() {
+  ngOnInit(): void {
   }
 
 }

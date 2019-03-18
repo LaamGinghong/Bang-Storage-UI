@@ -9,7 +9,6 @@ import {StorageTdComponent} from './td/storage-td.component';
 import {StorageTableService} from './storage-table.service';
 import {DragDropModule} from '@angular/cdk/drag-drop';
 import {StorageThDirective} from './th/storage-th.directive';
-import {StringTemplateOutletDirective} from './string-template-outlet.directive';
 import {NgZorroAntdModule} from 'ng-zorro-antd';
 
 @NgModule({
@@ -34,7 +33,6 @@ import {NgZorroAntdModule} from 'ng-zorro-antd';
     StorageTbodyComponent,
     StorageTdComponent,
     StorageThDirective,
-    StringTemplateOutletDirective
   ],
   providers: [StorageTableService]
 })
