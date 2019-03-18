@@ -1,4 +1,4 @@
-import {ComponentRef, Directive, ElementRef, Input, OnChanges, Renderer2, ViewContainerRef} from '@angular/core';
+import {ComponentRef, Directive, ElementRef, Input, OnChanges, OnDestroy, Renderer2, ViewContainerRef} from '@angular/core';
 import {InputBoolean} from 'ng-zorro-antd';
 import {Overlay, OverlayConfig, OverlayRef} from '@angular/cdk/overlay';
 import {ComponentPortal} from '@angular/cdk/portal';
@@ -12,7 +12,7 @@ import {StorageInputTitleComponent} from './storage-input-title.component';
     '[class.ant-input-sm]': `size === 'small'`
   }
 })
-export class StorageInputDirective implements OnChanges {
+export class StorageInputDirective implements OnChanges, OnDestroy {
   @Input('storageDisabled') @InputBoolean() disabled = false;
   @Input('storageSize') size: 'small' | 'default' | 'large' = 'default';
   @Input('storageValue') value: any;
@@ -59,5 +59,9 @@ export class StorageInputDirective implements OnChanges {
 
   ngOnChanges(): void {
     this._componentRef.instance.value = this.value;
+  }
+
+  ngOnDestroy(): void {
+    this._overlayRef.dispose();
   }
 }

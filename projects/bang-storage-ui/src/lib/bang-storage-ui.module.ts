@@ -23,6 +23,7 @@ export * from './anchor';
 export * from './carousel';
 export * from './select';
 export * from './table';
+export * from './input';
 
 @NgModule({
   exports: [
