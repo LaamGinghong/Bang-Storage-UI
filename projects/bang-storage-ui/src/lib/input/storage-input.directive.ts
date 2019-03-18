@@ -1,8 +1,9 @@
-import {ComponentRef, Directive, ElementRef, Input, OnChanges, OnDestroy, Renderer2, ViewContainerRef} from '@angular/core';
-import {InputBoolean} from 'ng-zorro-antd';
+import {ComponentRef, Directive, ElementRef, Input, OnChanges, OnDestroy, Optional, Renderer2, Self, ViewContainerRef} from '@angular/core';
 import {Overlay, OverlayConfig, OverlayRef} from '@angular/cdk/overlay';
 import {ComponentPortal} from '@angular/cdk/portal';
 import {StorageInputTitleComponent} from './storage-input-title.component';
+import {NgControl} from '@angular/forms';
+import {coerceBooleanProperty} from '@angular/cdk/coercion';
 
 @Directive({
   selector: '[storage-input]',
@@ -13,16 +14,29 @@ import {StorageInputTitleComponent} from './storage-input-title.component';
   }
 })
 export class StorageInputDirective implements OnChanges, OnDestroy {
-  @Input('storageDisabled') @InputBoolean() disabled = false;
+  @Input()
+  set disabled(value: boolean) {
+    this._disabled = coerceBooleanProperty(value);
+  }
+
+  get disabled(): boolean {
+    if (this.ngControl && this.ngControl.disabled !== null) {
+      return this.ngControl.disabled;
+    }
+    return this._disabled;
+  }
+
   @Input('storageSize') size: 'small' | 'default' | 'large' = 'default';
   @Input('storageValue') value: any;
 
+  private _disabled = false;
   private _container: HTMLElement;
   private _overlayRef: OverlayRef;
   private _componentRef: ComponentRef<StorageInputTitleComponent>;
   private _placeholder: string;
 
   constructor(
+    @Optional() @Self() public ngControl: NgControl,
     private _elementRef: ElementRef,
     private _renderer: Renderer2,
     private _overlay: Overlay,
