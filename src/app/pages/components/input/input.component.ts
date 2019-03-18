@@ -10,6 +10,9 @@ import {StorageInputTitleComponent} from '../../../../../projects/bang-storage-u
 })
 export class InputComponent implements OnInit {
   value: string;
+  value1: string;
+
+  @ViewChild('element', {read: ViewContainerRef}) elementRef: ViewContainerRef;
 
   ngOnInit(): void {
   }
