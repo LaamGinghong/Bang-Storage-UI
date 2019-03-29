@@ -24,6 +24,7 @@ export * from './carousel';
 export * from './select';
 export * from './table';
 export * from './input';
+export * from './decorator';
 
 @NgModule({
   exports: [
