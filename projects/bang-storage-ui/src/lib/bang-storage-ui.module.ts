@@ -11,6 +11,7 @@ import {StorageCarouselModule} from './carousel/storage-carousel.module';
 import {StorageSelectModule} from './select/storage-select.module';
 import {StorageTableModule} from './table/storage-table.module';
 import {StorageInputModule} from './input/storage-input.module';
+import {StorageExportExcelModule} from './export-excel/storage-export-excel.module';
 
 export * from './button';
 export * from './input-number';
@@ -25,6 +26,7 @@ export * from './select';
 export * from './table';
 export * from './input';
 export * from './decorator';
+export * from './export-excel';
 
 @NgModule({
   exports: [
@@ -39,7 +41,8 @@ export * from './decorator';
     StorageCarouselModule,
     StorageSelectModule,
     StorageTableModule,
-    StorageInputModule
+    StorageInputModule,
+    StorageExportExcelModule
   ]
 })
 export class BangStorageUiModule {
