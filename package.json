@@ -26,6 +26,7 @@
     "core-js": "^2.5.4",
     "echarts": "^4.2.1-rc.3",
     "highlight.js": "^9.13.1",
+    "js-export-excel": "^1.1.2",
     "ng-zorro-antd": "^7.0.1",
     "ngx-highlightjs": "^3.0.1",
     "rxjs": "~6.4.0",

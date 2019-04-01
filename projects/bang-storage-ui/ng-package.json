@@ -6,7 +6,8 @@
     "umdModuleIds": {
       "ng-zorro-antd": "^7.0.1",
       "rxjs": "~6.3.3",
-      "echarts": "^4.2.1-rc.3"
+      "echarts": "^4.2.1-rc.3",
+      "js-export-excel": "^1.1.2"
     }
   }
 }
