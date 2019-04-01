@@ -12,7 +12,6 @@
       "element",
       "storage",
       "kebab-case"
-    ],
-    "forin": false
+    ]
   }
 }
