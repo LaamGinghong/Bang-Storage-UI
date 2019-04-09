@@ -9,7 +9,7 @@ import {StorageUploadModule} from './upload/storage-upload.module';
 import {StorageAnchorModule} from './anchor/storage-anchor.module';
 import {StorageCarouselModule} from './carousel/storage-carousel.module';
 import {StorageSelectModule} from './select/storage-select.module';
-import {StorageTableModule} from './table/storage-table.module';
+// import {StorageTableModule} from './table/storage-table.module';
 import {StorageInputModule} from './input/storage-input.module';
 import {StorageExportExcelModule} from './export-excel/storage-export-excel.module';
 
@@ -23,7 +23,7 @@ export * from './upload';
 export * from './anchor';
 export * from './carousel';
 export * from './select';
-export * from './table';
+// export * from './table';
 export * from './input';
 export * from './decorator';
 export * from './export-excel';
@@ -40,7 +40,7 @@ export * from './export-excel';
     StorageAnchorModule,
     StorageCarouselModule,
     StorageSelectModule,
-    StorageTableModule,
+    // StorageTableModule,
     StorageInputModule,
     StorageExportExcelModule
   ]
