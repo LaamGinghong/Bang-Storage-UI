@@ -25,7 +25,7 @@ export class StorageInputDirective implements AfterViewInit, OnChanges {
 
 
   @Input('storageSize') size: 'small' | 'default' | 'large' = 'default';
-  @Input('storageValue') value: any;
+  @Input('storageValue') value: any = null;
 
   private _disabled = false;
   private _placeholder: string;
@@ -49,6 +49,7 @@ export class StorageInputDirective implements AfterViewInit, OnChanges {
   }
 
   ngAfterViewInit(): void {
+    this._renderer.setStyle(this._title, 'opacity', 0);
   }
 
   private _initInput(): void {

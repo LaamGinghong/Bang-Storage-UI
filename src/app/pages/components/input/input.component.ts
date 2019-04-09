@@ -14,6 +14,7 @@ export class InputComponent implements OnInit {
     {name: 'Karsa', position: 'Jug'},
     {name: 'Ming', position: 'Sup'}
   ];
+  value = '';
 
   constructor(
     private _export: StorageExportExcelService
