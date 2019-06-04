@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {UploadService} from './upload.service';
-import {StorageUploadFile} from 'bang-storage-ui';
-// import {StorageUploadFile} from '../../../../component/upload/storage-upload-file';
+import {StorageUploadFile} from '../../../../../projects/bang-storage-ui/src/lib/upload';
+// import {StorageUploadFile} from 'bang-storage-ui';
 
 @Component({
   selector: 'app-upload',

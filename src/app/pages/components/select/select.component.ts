@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {StorageSelectSize} from 'bang-storage-ui';
+// import {StorageSelectSize} from 'bang-storage-ui';
+import {StorageSelectSize} from '../../../../../projects/bang-storage-ui/src/lib/select';
 
 @Component({
   selector: 'app-select',

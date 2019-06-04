@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {NzModalService} from 'ng-zorro-antd';
 import {ModalInnerComponent} from './modal-inner/modal-inner.component';
-// import {StorageModalService} from '../../../../component/modal/storage-modal.service';
-import {StorageModalService} from 'bang-storage-ui';
+// import {StorageModalService} from 'bang-storage-ui';
+import {StorageModalService} from '../../../../../projects/bang-storage-ui/src/lib/modal';
 
 @Component({
   selector: 'app-modal',

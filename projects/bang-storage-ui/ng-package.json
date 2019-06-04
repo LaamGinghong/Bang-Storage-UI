@@ -4,10 +4,6 @@
   "lib": {
     "entryFile": "src/public_api.ts",
     "umdModuleIds": {
-      "ng-zorro-antd": "^7.2.0",
-      "rxjs": "~6.3.3",
-      "echarts": "^4.2.1-rc.3",
-      "js-export-excel": "^1.1.2"
     }
   }
 }

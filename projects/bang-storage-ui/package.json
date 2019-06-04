@@ -3,12 +3,6 @@
   "version": "7.14.3",
   "description": "A UI designed for Angular.",
   "peerDependencies": {
-    "@angular/common": "~7.2.7",
-    "@angular/core": "~7.2.7",
-    "echarts": "^4.2.1-rc.3",
-    "js-export-excel": "^1.1.2",
-    "ng-zorro-antd": "^7.2.0",
-    "rxjs": "~6.4.0"
   },
   "keywords": [
     "Angular",
